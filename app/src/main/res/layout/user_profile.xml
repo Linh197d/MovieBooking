@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data >
+        <variable
+            name="searchUser"
+            type="com.base.mvvmbaseproject.entity.DataUser" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2F2F2">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/csthoso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingBottom="10dp"
+            >
+
+        <ImageView
+            android:id="@+id/backUser"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/back"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tạo hồ sơ"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="20sp"
+            />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/csthoso"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/backUser"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thông tin cá nhân"
+                android:textSize="17sp"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                />
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/avatar1"
+                    app:civ_circle_background_color="#fff"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:scaleType="centerCrop"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/btn_camera"
+                    app:shapeAppearanceOverlay="@style/circle"
+                    app:strokeColor="#4BAEBD"
+                    app:strokeWidth="2dp"
+                    android:text="Ảnh đại diện"
+                    />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="15dp"
+                android:background="@drawable/custom_ttcn"
+                android:paddingHorizontal="20dp"
+                >
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ttcn1"
+
+                    />
+
+                <EditText
+                    android:id="@+id/edt_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:text="Nguyễn Thu Hương"
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:background="@drawable/custom_ttcn"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="30dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="5dp"
+                >
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ttcn2"
+                    />
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/btn_date"
+                    android:background="#fff"
+                    android:paddingHorizontal="5dp"
+                    android:gravity="start|center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    android:text="Birthday"
+                    android:textAllCaps="false"
+                    android:textColorHint="#000"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:background="@drawable/custom_ttcn"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="15dp"
+                android:paddingVertical="5dp"
+                >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ttcn3"
+                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="center"
+                    />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <RadioButton
+                        android:textSize="12sp"
+                        android:id="@+id/rdbtn_female"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        android:text="Nữ" />
+
+                    <RadioButton
+                        android:textSize="12sp"
+                        android:id="@+id/rdbtn_male"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        android:text="Nam" />
+                </RadioGroup>
+
+            </LinearLayout>
+            <LinearLayout
+                android:background="@drawable/custom_ttcn"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="15dp"
+
+                >
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ttcn4"
+                    android:layout_marginLeft="20dp"
+                    />
+                <EditText
+                    android:id="@+id/tvt_phone"
+                    android:backgroundTint="#FFFFFF"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:text="0979 017 899"
+                    android:inputType="number"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:background="@drawable/custom_ttcn"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="15dp"
+                android:paddingHorizontal="20dp"
+                >
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ttcn5" />
+                <EditText
+                    android:id="@+id/edt_Adress"
+                    android:backgroundTint="#FFFFFF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text=""
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:text="Thông tin sức khoẻ"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+            />
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custom_ttcn"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="30dp"
+                android:orientation="horizontal"
+                >
+                <ImageView
+                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="center"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ttsk1"
+                    />
+                <EditText
+                    android:id="@+id/edt_height"
+                    android:backgroundTint="#FFFFFF"
+                    android:inputType="number"
+                    android:paddingEnd="130dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:hint="Chiều cao"
+                    android:textColorHint="#000"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="cm"
+                    android:gravity="end"
+                    android:layout_marginRight="20dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="12sp"
+                    android:textColor="#000"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custom_ttcn"
+                >
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/ttsk2" />
+
+                <EditText
+                    android:id="@+id/edt_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:hint="Cân nặng"
+                    android:inputType="number"
+                    android:paddingVertical="5dp"
+                    android:paddingEnd="130dp"
+                    android:textColor="#000"
+                    android:textColorHint="#000"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginRight="20dp"
+                    android:gravity="end"
+                    android:text="kg"
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layout_bloodtype"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custom_ttcn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/bottompicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal">
+
+                <ImageView
+
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ttsk3"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    />
+                <TextView
+                    android:id="@+id/tvt_bloodtype"
+                    android:gravity="center_vertical"
+                    android:layout_weight="6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:text="Nhóm máu"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    />
+                <ImageView
+                    android:id="@+id/arrow_down_rcv_blood"
+                    android:layout_weight="1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:gravity="end"
+                    android:layout_gravity="end|center_vertical"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/back"
+                    />
+                </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/layout_choose_bloodtype"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+               />
+
+            </LinearLayout>
+            <LinearLayout
+                android:background="@drawable/custom_ttcn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="15dp"
+                >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/ttsk4"
+                    android:layout_marginTop="10dp"
+                    />
+                <EditText
+                    android:id="@+id/edt_judgment"
+                    android:backgroundTint="#FFFFFF"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top|start"
+                    android:layout_marginLeft="20dp"
+                    android:hint="Chẩn đoán"
+                    android:textColorHint="#000"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="50dp"
+                    />
+            </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_Update_User"
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginBottom="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tạo Hồ sơ"
+                android:textSize="15sp"
+                android:textColor="#fff"
+                android:background="@drawable/custom_button_login"
+                />
+
+        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
