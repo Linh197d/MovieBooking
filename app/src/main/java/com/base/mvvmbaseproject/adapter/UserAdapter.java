@@ -41,6 +41,7 @@ public class UserAdapter extends EndlessLoadingRecyclerViewAdapter<UserProfileBi
             super(binding.getRoot());
             this.binding = binding;
         }
+
         @Override
         public void bind(DataUser data) {
             binding.setSearchUser(data);

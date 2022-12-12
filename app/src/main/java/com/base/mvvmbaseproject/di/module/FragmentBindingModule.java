@@ -5,6 +5,7 @@ import com.base.mvvmbaseproject.ui.UserProfile.UserFragment;
 import com.base.mvvmbaseproject.ui.countnotify.CountNotifyFragment;
 import com.base.mvvmbaseproject.ui.home.HomeFragment;
 import com.base.mvvmbaseproject.ui.login.LoginFragment;
+import com.base.mvvmbaseproject.ui.lskhambenh.LSKhamBenhFragment;
 import com.base.mvvmbaseproject.ui.splash.SplashFragment;
 
 import dagger.Module;
@@ -28,4 +29,7 @@ public abstract class FragmentBindingModule {
 
     @ContributesAndroidInjector
     abstract UserFragment bindUserFragment();
+
+    @ContributesAndroidInjector
+    abstract LSKhamBenhFragment bindLSKBFragment();
 }

@@ -19,10 +19,8 @@ import com.base.mvvmbaseproject.R;
 
 public class DialogCamera extends Dialog {
 
-
     public DialogCamera(@NonNull Context context ) {
         super(new ContextThemeWrapper(context,R.style.CustomDialog));
-
     }
 
     @Override

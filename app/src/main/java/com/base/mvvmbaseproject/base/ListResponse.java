@@ -15,8 +15,6 @@ import io.reactivex.annotations.Nullable;
 public class ListResponse<T> extends BaseResponse{
     private int type;
 
-    private int totalPage;
-
     @Nullable
     private List<T> data;
 

@@ -17,6 +17,7 @@ import com.base.mvvmbaseproject.entity.DataServicesCK;
 import com.base.mvvmbaseproject.entity.SearchResponse;
 import com.base.mvvmbaseproject.ui.UserProfile.UserFragment;
 import com.base.mvvmbaseproject.ui.countnotify.CountNotifyFragment;
+import com.base.mvvmbaseproject.ui.lskhambenh.LSKhamBenhFragment;
 
 import java.util.List;
 
@@ -32,7 +33,8 @@ public class HomeFragment extends BaseFragment<HomeFragmentBinding> {
     }
 
     @Override
-    public void backFromAddFragment() { }
+    public void backFromAddFragment() {
+    }
 
     @Override
     public boolean backPressed() {
@@ -45,7 +47,7 @@ public class HomeFragment extends BaseFragment<HomeFragmentBinding> {
         //get du lieu ServiceDV
         mViewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeViewModel.class);
         searchAdapter = new SearchAdapter(getContext());
-        mViewModel.getData(20,1);
+        mViewModel.getData(20, 1);
         mViewModel.dataService.observe(getViewLifecycleOwner(), new Observer<ListResponse<SearchResponse>>() {
             @Override
             public void onChanged(ListResponse<SearchResponse> searchResponseListResponse) {
@@ -61,7 +63,7 @@ public class HomeFragment extends BaseFragment<HomeFragmentBinding> {
         });*/
         //get dữ liệu ServiceCK
         searchAdapterCK = new DataCKAdapter(getContext());
-        mViewModel.getDataCK(20,10);
+        mViewModel.getDataCK(20, 10);
         mViewModel.dataServiceCK.observe(getViewLifecycleOwner(), new Observer<ListResponse<DataServicesCK>>() {
             @Override
             public void onChanged(ListResponse<DataServicesCK> searchResponseListResponse) {
@@ -69,48 +71,58 @@ public class HomeFragment extends BaseFragment<HomeFragmentBinding> {
             }
         });
     }
+
     @Override
     public void initData() {
 
-    binding.btnCK.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        binding.rcvSearch.setAdapter(searchAdapterCK);
-        binding.rcvSearch.setBackgroundResource(R.drawable.custom_rcvck);
+        binding.btnCK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.rcvSearch.setAdapter(searchAdapterCK);
+                binding.rcvSearch.setBackgroundResource(R.drawable.custom_rcvck);
 
-        // binding.rcvSearch.setBackgroundColor(5514100);
+                // binding.rcvSearch.setBackgroundColor(5514100);
 
+            }
+        });
+        binding.btnDv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.rcvSearch.setAdapter(searchAdapter);
+                binding.rcvSearch.setBackgroundResource(R.drawable.custom_rcvdv);
+                // binding.rcvSearch.setBackgroundColor(5514100);
+            }
+        });
+        binding.btnalarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mViewController.addFragment(CountNotifyFragment.class, null);
+            }
+        });
+        getActivity().findViewById(R.id.btnHoSo).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                mViewController.addFragment(UserFragment.class, null);
+            }
+        });
+        getActivity().findViewById(R.id.btnXetNghiem).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                mViewController.addFragment(LSKhamBenhFragment.class, null);
+            }
+        });
     }
-    });
-    binding.btnDv.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            binding.rcvSearch.setAdapter(searchAdapter);
-            binding.rcvSearch.setBackgroundResource(R.drawable.custom_rcvdv);
-           // binding.rcvSearch.setBackgroundColor(5514100);
-        }
-    });
-    binding.btnalarm.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            mViewController.addFragment(CountNotifyFragment.class, null);
-        }
-    });
-    getActivity().findViewById(R.id.btnHoSo).setOnClickListener(new View.OnClickListener() {
 
-        @Override
-        public void onClick(View view) {
-            mViewController.addFragment(UserFragment.class,null);
-        }
-    });
+    ;
 
-    };
     @Override
     protected void getListResponse(List<?> data, boolean isRefresh, boolean canLoadmore) {
         if (isRefresh) {
             searchAdapter.refresh(data);
         } else {
-            searchAdapter.addModels(data,false);
+            searchAdapter.addModels(data, false);
         }
     }
 }

@@ -39,6 +39,7 @@ public class SearchAdapter extends EndlessLoadingRecyclerViewAdapter<ItemSearchB
         SearchViewHolder(ItemSearchBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
+            
         }
 
         @Override

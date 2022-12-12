@@ -49,7 +49,8 @@ public class UserViewModel extends BaseViewModel {
     public UserViewModel(Repository repository) {
         this.repository = repository;
     }
-    public void getUserProfile(){
+
+    public void getUserProfile() {
         repository.searchUser()
                 .subscribe(new SingleObserver<ObjectResponse<DataUser>>() {
                     @Override
@@ -59,17 +60,18 @@ public class UserViewModel extends BaseViewModel {
                     @Override
                     public void onSuccess(ObjectResponse<DataUser> dataUserObjectResponse) {
                         userprofile.postValue(dataUserObjectResponse);
-                        Log.d("mmm","sucess User");
+                        Log.d("mmm", "sucess User");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("fat","error User:"+e.getMessage());
+                        Log.d("fat", "error User:" + e.getMessage());
                     }
                 });
 
     }
-    public void getUserSucKhoe(){
+
+    public void getUserSucKhoe() {
         repository.searchUserSK()
                 .subscribe(new SingleObserver<ObjectResponse<DataUserSK>>() {
                     @Override
@@ -79,35 +81,37 @@ public class UserViewModel extends BaseViewModel {
                     @Override
                     public void onSuccess(ObjectResponse<DataUserSK> dataUserObjectResponse) {
                         userSK.postValue(dataUserObjectResponse);
-                        Log.d("mmm","sucess UserSK");
+                        Log.d("mmm", "sucess UserSK");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("fat","error UserSK:"+e.getMessage());
+                        Log.d("fat", "error UserSK:" + e.getMessage());
                     }
                 });
 
     }
-    public void updateUser(UpdateDataUser dataUser){
+
+    public void updateUser(UpdateDataUser dataUser) {
         repository.update_user_info(dataUser)
                 .subscribe(new SingleObserver<UpdateRespone>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-            }
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
 
-            @Override
-            public void onSuccess(UpdateRespone loginResponse2) {
-                update_user.postValue(loginResponse2);
-            }
+                    @Override
+                    public void onSuccess(UpdateRespone loginResponse2) {
+                        update_user.postValue(loginResponse2);
+                    }
 
-            @Override
-            public void onError(Throwable e) {
-                Log.d("fat","error: Update User "+e.getMessage());
-            }
-        });
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d("fat", "error: Update User " + e.getMessage());
+                    }
+                });
     }
-    public void updateUserHealth(UpdateDataUserHealth dataUserSK){
+
+    public void updateUserHealth(UpdateDataUserHealth dataUserSK) {
         repository.update_user_health(dataUserSK)
                 .subscribe(new SingleObserver<LoginResponse2>() {
                     @Override
@@ -121,7 +125,7 @@ public class UserViewModel extends BaseViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("fat","error: Update User Health"+e.getMessage());
+                        Log.d("fat", "error: Update User Health" + e.getMessage());
                     }
                 });
     }

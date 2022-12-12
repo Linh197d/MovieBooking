@@ -77,7 +77,7 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> {
             @Override
             public void onClick(View view) {
                 if (binding.edtAccount.getText() != null && binding.edtPassword.getText() != null) {
-                    if(!binding.edtAccount.getText().toString().isEmpty() && !binding.edtPassword.getText().toString().isEmpty()) {
+                    if (!binding.edtAccount.getText().toString().isEmpty() && !binding.edtPassword.getText().toString().isEmpty()) {
                         loginRequest.setUsername(binding.edtAccount.getText().toString());
                         loginRequest.setPassword(binding.edtPassword.getText().toString());
                         mViewModel.loginReq(loginRequest);

@@ -39,6 +39,7 @@ public class DataCKAdapter extends EndlessLoadingRecyclerViewAdapter<DataCkBindi
             super(binding.getRoot());
             this.binding = binding;
         }
+
         @Override
         public void bind(DataServicesCK data) {
             binding.setSearchCK(data);

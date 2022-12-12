@@ -1,23 +1,23 @@
 package com.base.mvvmbaseproject.entity;
 
 public class UpdateDataUserHealth {
-    private int weight;
+    private float weight;
     private int height;
     private String blood_group;
     private String   judgment;
 
-    public UpdateDataUserHealth(int weight, int height, String blood_group, String judgment) {
+    public UpdateDataUserHealth(float weight, int height, String blood_group, String judgment) {
         this.weight = weight;
         this.height = height;
         this.blood_group = blood_group;
         this.judgment = judgment;
     }
 
-    public int getWeight() {
+    public float getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(float weight) {
         this.weight = weight;
     }
 

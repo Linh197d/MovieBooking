@@ -1,12 +1,15 @@
 package com.base.mvvmbaseproject.network;
 
 
+import com.base.mvvmbaseproject.base.ListLoadmoreReponse;
 import com.base.mvvmbaseproject.base.ListResponse;
+import com.base.mvvmbaseproject.base.ListResponseChild;
 import com.base.mvvmbaseproject.base.ObjectResponse;
 import com.base.mvvmbaseproject.entity.CountNotify;
 import com.base.mvvmbaseproject.entity.DataServicesCK;
 import com.base.mvvmbaseproject.entity.DataUser;
 import com.base.mvvmbaseproject.entity.DataUserSK;
+import com.base.mvvmbaseproject.entity.LSKhamBenh;
 import com.base.mvvmbaseproject.entity.LoginRequest;
 import com.base.mvvmbaseproject.entity.LoginResponse2;
 import com.base.mvvmbaseproject.entity.SearchResponse;
@@ -42,4 +45,7 @@ public interface ApiInterface {
 
     @POST("user/user-file/update")
     Single<LoginResponse2> requestUpdateUserSK(@Body UpdateDataUserHealth dataUserSK);
+    //get lskb
+    @GET("user/medical-history?per_page=20")
+    Single<ListResponseChild> getDataLSKB(@Query("page")int page);
 }

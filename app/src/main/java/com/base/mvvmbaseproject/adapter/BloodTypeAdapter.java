@@ -24,11 +24,13 @@ public class BloodTypeAdapter extends RecyclerView.Adapter<BloodTypeAdapter.View
     private ArrayList<BloodType> mBlood;
     private int row_index = -1;
     OnChooseBloodType onChooseBloodType;
-    public BloodTypeAdapter(Context mContext, ArrayList<BloodType> mBlood,OnChooseBloodType onChooseBloodType) {
+
+    public BloodTypeAdapter(Context mContext, ArrayList<BloodType> mBlood, OnChooseBloodType onChooseBloodType) {
         this.mContext = mContext;
         this.mBlood = mBlood;
-        this.onChooseBloodType= onChooseBloodType;
+        this.onChooseBloodType = onChooseBloodType;
     }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView mBloodName;
         LinearLayout ln_layout_blood;
@@ -36,9 +38,10 @@ public class BloodTypeAdapter extends RecyclerView.Adapter<BloodTypeAdapter.View
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mBloodName = (itemView).findViewById(R.id.btn_nhommauA);
-            ln_layout_blood=itemView.findViewById(R.id.ln_nhommauA);
+            ln_layout_blood = itemView.findViewById(R.id.ln_nhommauA);
         }
     }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -55,17 +58,15 @@ public class BloodTypeAdapter extends RecyclerView.Adapter<BloodTypeAdapter.View
         holder.ln_layout_blood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                row_index=position;
+                row_index = position;
                 notifyDataSetChanged();
                 mBlood.get(position).setChecked(true);
                 onChooseBloodType.onChoose(mBlood.get(position));
             }
         });
-        if(row_index==position){
+        if (row_index == position) {
             holder.ln_layout_blood.setBackgroundResource(R.drawable.linear_nhommau);
-        }
-        else
-        {
+        } else {
             holder.ln_layout_blood.setBackgroundResource(R.drawable.ln_nhommau_white);
         }
     }

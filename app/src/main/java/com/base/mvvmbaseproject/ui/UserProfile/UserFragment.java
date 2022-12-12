@@ -39,6 +39,7 @@ import com.base.mvvmbaseproject.entity.UpdateDataUser;
 import com.base.mvvmbaseproject.entity.UpdateDataUserHealth;
 import com.base.mvvmbaseproject.entity.UpdateRespone;
 import com.base.mvvmbaseproject.ui.home.HomeFragment;
+import com.base.mvvmbaseproject.ui.lskhambenh.LSKhamBenhFragment;
 import com.bumptech.glide.Glide;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.normal.TedPermission;
@@ -49,13 +50,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class UserFragment extends  BaseFragment<UserProfileBinding> {
+public class UserFragment extends BaseFragment<UserProfileBinding> {
     private UserViewModel mViewModel;
-    private ArrayList<BloodType> mBlood ;
-    private BloodTypeAdapter mBloodAdapter ;
+    private ArrayList<BloodType> mBlood;
+    private BloodTypeAdapter mBloodAdapter;
     private UpdateDataUser updateDataUser;
     private UpdateDataUserHealth updateDataUserHealth;
     private Date date;
+
     @Override
     protected int getLayoutId() {
         return R.layout.user_profile;
@@ -80,7 +82,7 @@ public class UserFragment extends  BaseFragment<UserProfileBinding> {
             public void onChanged(ObjectResponse<DataUser> dataUserObjectResponse) {
                 binding.edtName.setText(dataUserObjectResponse.getData().getName());
                 SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
-                 date = null;
+                date = null;
                 try {
                     date = fmt.parse(dataUserObjectResponse.getData().getBirthday());
                 } catch (ParseException e) {
@@ -88,26 +90,26 @@ public class UserFragment extends  BaseFragment<UserProfileBinding> {
                 }
                 SimpleDateFormat fmtOut = new SimpleDateFormat("dd / MM / yyyy");
                 binding.btnDate.setText(fmtOut.format(date));
-                updateDataUser = new UpdateDataUser(dataUserObjectResponse.getData().getName(),dataUserObjectResponse.getData().getBirthday(),dataUserObjectResponse.getData().getAddress()
-                        ,dataUserObjectResponse.getData().getGender(),dataUserObjectResponse.getData().getPhone());
-                if(dataUserObjectResponse.getData().getGender() ==1 ){
+                updateDataUser = new UpdateDataUser(dataUserObjectResponse.getData().getName(), dataUserObjectResponse.getData().getBirthday(), dataUserObjectResponse.getData().getAddress()
+                        , dataUserObjectResponse.getData().getGender(), dataUserObjectResponse.getData().getPhone());
+                if (dataUserObjectResponse.getData().getGender() == 1) {
                     binding.rdbtnMale.setChecked(true);
-                }else {
+                } else {
                     binding.rdbtnFemale.setChecked(true);
                 }
                 binding.tvtPhone.setText(dataUserObjectResponse.getData().getPhone());
                 binding.edtAdress.setText(dataUserObjectResponse.getData().getAddress());
                 Glide.with(getContext())
-                        .load("http://hsba-v2.beetechdev.vn:1680/storage/"+dataUserObjectResponse.getData().getAvatar())
+                        .load("http://hsba-v2.beetechdev.vn:1680/storage/" + dataUserObjectResponse.getData().getAvatar())
                         .into(binding.btnCamera);
             }
         });
         mViewModel.userSK.observe(getViewLifecycleOwner(), new Observer<ObjectResponse<DataUserSK>>() {
             @Override
             public void onChanged(ObjectResponse<DataUserSK> dataUserObjectResponse) {
-                updateDataUserHealth = new UpdateDataUserHealth(dataUserObjectResponse.getData().getUsers_weight(),dataUserObjectResponse.getData().getUsers_height(),dataUserObjectResponse.getData().getUsers_blood_group(),dataUserObjectResponse.getData().getUsers_judgment());
+                updateDataUserHealth = new UpdateDataUserHealth(dataUserObjectResponse.getData().getUsers_weight(), dataUserObjectResponse.getData().getUsers_height(), dataUserObjectResponse.getData().getUsers_blood_group(), dataUserObjectResponse.getData().getUsers_judgment());
                 binding.edtHeight.setText(Integer.toString(dataUserObjectResponse.getData().getUsers_height()));
-                binding.edtWeight.setText(Integer.toString(dataUserObjectResponse.getData().getUsers_weight()));
+                binding.edtWeight.setText(Float.toString(dataUserObjectResponse.getData().getUsers_weight()));
                 binding.tvtBloodtype.setText(dataUserObjectResponse.getData().getUsers_blood_group());
                 binding.edtJudgment.setText(dataUserObjectResponse.getData().getUsers_judgment());
             }
@@ -139,10 +141,10 @@ public class UserFragment extends  BaseFragment<UserProfileBinding> {
     }
 
     private void createBloodList() {
-        mBlood.add(new BloodType("A",false));
-        mBlood.add(new BloodType("B",false));
-        mBlood.add(new BloodType("O",false));
-        mBlood.add(new BloodType("AB",false));
+        mBlood.add(new BloodType("A", false));
+        mBlood.add(new BloodType("B", false));
+        mBlood.add(new BloodType("O", false));
+        mBlood.add(new BloodType("AB", false));
     }
 
     @Override
@@ -169,12 +171,12 @@ public class UserFragment extends  BaseFragment<UserProfileBinding> {
         binding.bottompicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("mmm","clicked");
-                if(binding.layoutChooseBloodtype.getVisibility()== View.VISIBLE){
+                Log.d("mmm", "clicked");
+                if (binding.layoutChooseBloodtype.getVisibility() == View.VISIBLE) {
                     binding.layoutChooseBloodtype.setVisibility(View.GONE);
                     binding.arrowDownRcvBlood.setImageResource(R.drawable.back);
 
-                }else {
+                } else {
                     binding.layoutChooseBloodtype.setVisibility(View.VISIBLE);
                     binding.arrowDownRcvBlood.setImageResource(R.drawable.down);
                 }
@@ -183,40 +185,68 @@ public class UserFragment extends  BaseFragment<UserProfileBinding> {
         getActivity().findViewById(R.id.btnTrangChu).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mViewController.addFragment(HomeFragment.class,null);
+                mViewController.addFragment(HomeFragment.class, null);
+            }
+        });
+        getActivity().findViewById(R.id.btnXetNghiem).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                mViewController.addFragment(LSKhamBenhFragment.class, null);
             }
         });
         binding.btnUpdateUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String s =  binding.btnDate.getText().toString();
+                String s = binding.btnDate.getText().toString();
                 SimpleDateFormat formatIn = new SimpleDateFormat("dd / MM / yyyy");
                 Date date1 = null;
                 try {
                     date1 = formatIn.parse(s);
                 } catch (ParseException e) {
-                    Log.d("fat","Error Format Date:"+e);
+                    Log.d("fat", "Error Format Date:" + e);
                 }
                 SimpleDateFormat fmtOut = new SimpleDateFormat("yyyy-MM-dd");
                 updateDataUser.setBirthday(fmtOut.format(date1));
-                updateDataUser.setAddress(binding.edtAdress.getText().toString());
-                updateDataUser.setName(binding.edtName.getText().toString());
-                updateDataUser.setPhone(binding.tvtPhone.getText().toString());
-                if(binding.rdbtnMale.isChecked()){
-                    updateDataUser.setGender(1);
-                }else {
-                    updateDataUser.setGender(2);
+                if (binding.edtAdress.getText().toString() == null) {
+                    Toast.makeText(getContext(), "Address is null", Toast.LENGTH_SHORT).show();
+                } else {
+                    updateDataUser.setAddress(binding.edtAdress.getText().toString());
+                    if (binding.edtName.getText().toString() == null) {
+                        Toast.makeText(getContext(), "Name is null", Toast.LENGTH_SHORT).show();
+                    } else {
+                        updateDataUser.setName(binding.edtName.getText().toString());
+                        if (binding.tvtPhone.getText().length() != 10) {
+                            Toast.makeText(getContext(), "Số điện thoại phải đủ 10 số", Toast.LENGTH_SHORT).show();
+                        } else if (binding.tvtPhone.getText() != null) {
+                            updateDataUser.setPhone(binding.tvtPhone.getText().toString());
+                        }
+                        if (binding.rdbtnMale.isChecked()) {
+                            updateDataUser.setGender(1);
+                        } else {
+                            updateDataUser.setGender(2);
+                        }
+                        mViewModel.updateUser(updateDataUser);
+                    }
                 }
-                mViewModel.updateUser(updateDataUser);
-                updateDataUserHealth.setHeight(Integer.parseInt(String.valueOf(binding.edtHeight.getText())));
-                updateDataUserHealth.setWeight(Integer.parseInt(String.valueOf(binding.edtWeight.getText())));
-                updateDataUserHealth.setBlood_group(binding.tvtBloodtype.getText().toString());
-                updateDataUserHealth.setJudgment(binding.edtJudgment.getText().toString());
-                mViewModel.updateUserHealth(updateDataUserHealth);
+                if (binding.edtJudgment.getText().toString() == null) {
+                    Toast.makeText(getContext(), "Chẩn đoán không được để trống", Toast.LENGTH_SHORT).show();
+                } else {
+                    updateDataUserHealth.setJudgment(binding.edtJudgment.getText().toString());
+                    if (binding.edtHeight.getText() != null) {
+                        updateDataUserHealth.setHeight(Integer.parseInt(String.valueOf(binding.edtHeight.getText())));
+                    }
+                    if (binding.edtWeight.getText() != null) {
+                        updateDataUserHealth.setWeight(Float.parseFloat(String.valueOf(binding.edtWeight.getText())));
+                    }
+                    updateDataUserHealth.setBlood_group(binding.tvtBloodtype.getText().toString());
+                    mViewModel.updateUserHealth(updateDataUserHealth);
+                }
             }
         });
     }
-    public void openDialog(){
+
+    public void openDialog() {
         DialogCamera dialog = new DialogCamera(getContext());
         dialog.setContentView(R.layout.layout_dialog_camera);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -225,22 +255,22 @@ public class UserFragment extends  BaseFragment<UserProfileBinding> {
         LinearLayout btn_chupanh = dialog.findViewById(R.id.btn_chupanh);
         LinearLayout btn_chonanh = dialog.findViewById(R.id.btn_chonanh);
         btn_chupanh.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            dialog.dismiss();
-            requestPermissionCamera();
-        }
-    });
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                requestPermissionCamera();
+            }
+        });
         btn_chonanh.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            dialog.dismiss();
-            requestPermissionGallery();
-        }
-    });
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                requestPermissionGallery();
+            }
+        });
     }
 
-    public void openDialogDatePicker(){
+    public void openDialogDatePicker() {
         DialogCamera dialog = new DialogCamera(getContext());
         dialog.setContentView(R.layout.layout_dialog_datpicker);
         dialog.getWindow().setGravity(Gravity.CENTER);
@@ -248,12 +278,13 @@ public class UserFragment extends  BaseFragment<UserProfileBinding> {
         dialog.show();
         DatePicker datePicker = dialog.findViewById(R.id.datePicker);
         Button button_ok = dialog.findViewById(R.id.btn_datepicker_ok);
-        Button button_thoat =dialog.findViewById(R.id.btn_datepicker_thoat);;
+        Button button_thoat = dialog.findViewById(R.id.btn_datepicker_thoat);
+        ;
         button_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
-                binding.btnDate.setText(datePicker.getDayOfMonth()+" / "+ (datePicker.getMonth()+1)+" / "+ datePicker.getYear());
+                binding.btnDate.setText(datePicker.getDayOfMonth() + " / " + (datePicker.getMonth() + 1) + " / " + datePicker.getYear());
             }
         });
         button_thoat.setOnClickListener(new View.OnClickListener() {
@@ -263,6 +294,7 @@ public class UserFragment extends  BaseFragment<UserProfileBinding> {
             }
         });
     }
+
     private void requestPermissionCamera() {
         PermissionListener permissionlistener = new PermissionListener() {
             @Override
@@ -270,11 +302,12 @@ public class UserFragment extends  BaseFragment<UserProfileBinding> {
                 Toast.makeText(getContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
                 openImageCamera();
             }
+
             @Override
             public void onPermissionDenied(List<String> deniedPermissions) {
-            Toast.makeText(getContext(), "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
-        }
-    };
+                Toast.makeText(getContext(), "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+            }
+        };
         TedPermission.create()
                 .setPermissionListener(permissionlistener)
                 .setDeniedMessage("If you reject permission,you can not use this service" +
@@ -282,6 +315,7 @@ public class UserFragment extends  BaseFragment<UserProfileBinding> {
                 .setPermissions(Manifest.permission.CAMERA)//Manifest.permission.WRITE_EXTERNAL_STORAGE
                 .check();
     }
+
     private void requestPermissionGallery() {
         PermissionListener permissionlistener = new PermissionListener() {
             @Override
@@ -289,6 +323,7 @@ public class UserFragment extends  BaseFragment<UserProfileBinding> {
                 Toast.makeText(getContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
                 openImageGallery();
             }
+
             @Override
             public void onPermissionDenied(List<String> deniedPermissions) {
                 Toast.makeText(getContext(), "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
@@ -297,36 +332,44 @@ public class UserFragment extends  BaseFragment<UserProfileBinding> {
         TedPermission.create()
                 .setPermissionListener(permissionlistener)
                 .setDeniedMessage("If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
-                .setPermissions( Manifest.permission.READ_EXTERNAL_STORAGE)
+                .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .check();
     }
+
     final ActivityResultLauncher<Intent> mActivityResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult()
             , new ActivityResultCallback<ActivityResult>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
-                    if( result.getResultCode()== RESULT_OK){
+                    if (result.getResultCode() == RESULT_OK) {
                         Intent intent = result.getData();
-                        if(intent.getExtras()!=null){
+                        if (intent.getExtras() != null) {
                             Bitmap photo = (Bitmap) intent.getExtras().get("data");
-                            binding.btnCamera.setImageBitmap(photo);
-                        }else {
+                            Glide.with(getContext())
+                                    .load(photo)
+                                    .into(binding.btnCamera);
+                            //binding.btnCamera.setImageBitmap(photo);
+                        } else {
                             Uri selectedImageUri = intent.getData();// gallery
-                            binding.btnCamera.setImageURI(selectedImageUri);
+                            //binding.btnCamera.setImageURI(selectedImageUri);
+                            Glide.with(getContext())
+                                    .load(selectedImageUri)
+                                    .into(binding.btnCamera);
                         }
                     }
                 }
             });
-    public void openImageGallery(){
+
+    public void openImageGallery() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         mActivityResult.launch(intent);//intent //gallery
     }
+
     private void openImageCamera() {
         Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);// camera
         mActivityResult.launch(cameraIntent); //camera
     }
-
 
 
 }

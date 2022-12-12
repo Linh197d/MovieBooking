@@ -8,6 +8,8 @@ import com.base.mvvmbaseproject.ui.UserProfile.UserViewModel;
 import com.base.mvvmbaseproject.ui.countnotify.CountNotifyViewModel;
 import com.base.mvvmbaseproject.ui.home.HomeViewModel;
 import com.base.mvvmbaseproject.ui.login.LoginViewModel;
+import com.base.mvvmbaseproject.ui.lskhambenh.LSKhamBenhFragment;
+import com.base.mvvmbaseproject.ui.lskhambenh.LSkhamBenhViewModel;
 import com.base.mvvmbaseproject.ui.main.MainViewModel;
 import com.base.mvvmbaseproject.ui.splash.SplashViewModel;
 
@@ -48,6 +50,11 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(UserViewModel.class)
     abstract ViewModel bindUserViewModel(UserViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(LSkhamBenhViewModel.class)
+    abstract ViewModel bindLSKBViewModel(LSkhamBenhViewModel viewModel);
 
     @Binds
     abstract ViewModelProvider.Factory bindViewModelFactory(ViewModelFactory factory);

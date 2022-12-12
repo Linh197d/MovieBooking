@@ -56,6 +56,6 @@ public class DatePickerFragment extends DialogFragment
     }
 
     public String onDateSet(View view, int year, int month, int day) {
-        return day+ " / "+month+ " / "+year ;
+        return day + " / " + month + " / " + year;
     }
 }

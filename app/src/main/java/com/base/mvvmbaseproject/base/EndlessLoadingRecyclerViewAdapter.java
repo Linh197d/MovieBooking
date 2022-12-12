@@ -83,7 +83,6 @@ public abstract class EndlessLoadingRecyclerViewAdapter<T extends ViewDataBindin
                 result = new LoadingViewHolder(LayoutInflater.from(getContext()).inflate(R.layout.layout_load_more,parent,false));
             }
             break;
-
             default: {
                 result = initNormalViewHolder(binding,parent);
             }

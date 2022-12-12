@@ -29,25 +29,24 @@ public class LoginViewModel extends BaseViewModel {
     }
 
 
-
     public void loginReq(LoginRequest loginRequest) {
         //mDisposable.add(
-                repository.rqlogin(loginRequest)
-                        /*.doOnSubscribe(disposable -> {
-                            login.setValue(new ObjectResponse<LoginResponse2>().loading());
+        repository.rqlogin(loginRequest)
+                /*.doOnSubscribe(disposable -> {
+                    login.setValue(new ObjectResponse<LoginResponse2>().loading());
 
-                        })
-                        .subscribe(
-                                response -> {
-                                    Log.d("fat","success");
-                                    login.setValue(new ObjectResponse<LoginResponse2>().success(response.getData()));
-                                    result=true;
-                                },
-                                throwable -> {
-                                    result = false;
-                                   login.setValue(new ObjectResponse<LoginResponse2>().error(throwable));
-                                }
-                        )*/
+                })
+                .subscribe(
+                        response -> {
+                            Log.d("fat","success");
+                            login.setValue(new ObjectResponse<LoginResponse2>().success(response.getData()));
+                            result=true;
+                        },
+                        throwable -> {
+                            result = false;
+                           login.setValue(new ObjectResponse<LoginResponse2>().error(throwable));
+                        }
+                )*/
                 .subscribe(new SingleObserver<LoginResponse2>() {
                     @Override
                     public void onSubscribe(Disposable d) {
@@ -57,13 +56,13 @@ public class LoginViewModel extends BaseViewModel {
                     public void onSuccess(LoginResponse2 loginResponse2) {
                         result.postValue(true);
                         login.postValue(loginResponse2);
-                        Log.d("fat","success");
+                        Log.d("fat", "success");
                     }
 
                     @Override
                     public void onError(Throwable e) {
                         result.postValue(false);
-                        Log.d("fat","error"+e.getMessage());
+                        Log.d("fat", "error" + e.getMessage());
                     }
                 });
         //);

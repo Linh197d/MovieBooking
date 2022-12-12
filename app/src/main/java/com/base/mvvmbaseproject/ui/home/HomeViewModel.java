@@ -19,9 +19,11 @@ public class HomeViewModel extends BaseViewModel {
     private Repository repository;
     MutableLiveData<ListResponse<SearchResponse>> dataService = new MutableLiveData<>();
     MutableLiveData<ListResponse<DataServicesCK>> dataServiceCK = new MutableLiveData<>();
+
     public MutableLiveData<ListResponse<DataServicesCK>> getDataServiceCK() {
         return dataServiceCK;
     }
+
     @Inject
     public HomeViewModel(Repository repository) {
         this.repository = repository;
@@ -57,42 +59,30 @@ public class HomeViewModel extends BaseViewModel {
                                 }
                         )
         );*/
-        /*repository.search(1,pageIndex)
-                .subscribe(new SingleObserver<SearchResponse>() {
+    }
+
+    public void getData(int pageIndex, int per_page) {
+        repository.search(pageIndex, per_page)
+                .subscribe(new SingleObserver<ListResponse<SearchResponse>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                     }
 
                     @Override
-                    public void onSuccess(SearchResponse searchResponseListResponse) {
-                        search.postValue(searchResponseListResponse);
-                        Log.d("fat","successHomeViewMOdell");
+                    public void onSuccess(ListResponse<SearchResponse> searchResponseListResponse) {
+                        dataService.postValue(searchResponseListResponse);
+                        Log.d("fat", "successHomeViewMOdell");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("fat","eorror: "+e.getMessage());
-                    }
-                });*/
-    }
-    public void getData(int pageIndex,int per_page){
-        repository.search(pageIndex,per_page)
-                .subscribe(new SingleObserver<ListResponse<SearchResponse>>() {
-                    @Override
-                    public void onSubscribe(Disposable d) { }
-                    @Override
-                    public void onSuccess(ListResponse<SearchResponse> searchResponseListResponse) {
-                        dataService.postValue(searchResponseListResponse);
-                        Log.d("fat","successHomeViewMOdell");
-                    }
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.d("fat",""+e.getMessage());
+                        Log.d("fat", "" + e.getMessage());
                     }
                 });
     }
-    public void getDataCK(int pageIndex,int per_page){
-        repository.searchCK(pageIndex,per_page)
+
+    public void getDataCK(int pageIndex, int per_page) {
+        repository.searchCK(pageIndex, per_page)
                 .subscribe(new SingleObserver<ListResponse<DataServicesCK>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
@@ -102,12 +92,12 @@ public class HomeViewModel extends BaseViewModel {
                     @Override
                     public void onSuccess(ListResponse<DataServicesCK> searchResponseListResponse) {
                         dataServiceCK.postValue(searchResponseListResponse);
-                        Log.d("fat","successCKViewMOdell");
+                        Log.d("fat", "successCKViewMOdell");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("fat","CKViewModel"+e.getMessage());
+                        Log.d("fat", "CKViewModel" + e.getMessage());
                     }
                 });
     }

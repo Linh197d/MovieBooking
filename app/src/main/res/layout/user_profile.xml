@@ -80,6 +80,7 @@
                     android:scaleType="centerCrop"
                     android:layout_marginTop="20dp"
                     android:id="@+id/btn_camera"
+                    android:maxLength="255"
                     app:shapeAppearanceOverlay="@style/circle"
                     app:strokeColor="#4BAEBD"
                     app:strokeWidth="2dp"
@@ -233,6 +234,7 @@
                     android:layout_gravity="center"
                     android:src="@drawable/ttcn5" />
                 <EditText
+                    android:maxLength="255"
                     android:id="@+id/edt_Adress"
                     android:backgroundTint="#FFFFFF"
                     android:layout_width="match_parent"
@@ -269,6 +271,7 @@
                     android:src="@drawable/ttsk1"
                     />
                 <EditText
+                    android:maxLength="300"
                     android:id="@+id/edt_height"
                     android:backgroundTint="#FFFFFF"
                     android:inputType="number"
@@ -312,13 +315,14 @@
                     android:src="@drawable/ttsk2" />
 
                 <EditText
+                    android:maxLength="300"
                     android:id="@+id/edt_weight"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:backgroundTint="#FFFFFF"
                     android:hint="Cân nặng"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:paddingVertical="5dp"
                     android:paddingEnd="130dp"
                     android:textColor="#000"
@@ -365,6 +369,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:text="Nhóm máu"
+                    android:maxLength="10"
                     android:textColor="#000"
                     android:textSize="12sp"
                     />
@@ -414,6 +419,7 @@
                     android:gravity="top|start"
                     android:layout_marginLeft="20dp"
                     android:hint="Chẩn đoán"
+                    android:maxLength="255"
                     android:textColorHint="#000"
                     android:textColor="#000"
                     android:textSize="12sp"

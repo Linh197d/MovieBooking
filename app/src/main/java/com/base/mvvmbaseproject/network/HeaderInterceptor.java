@@ -23,18 +23,18 @@ public class HeaderInterceptor implements Interceptor {
     @Override
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Request request = chain.request();
-        String accessToken="";
-        if ( DataLocalManager.getInstance()!=null && DataLocalManager.getAccessToken()!=null){// &&
+        String accessToken = "";
+        if (DataLocalManager.getInstance() != null && DataLocalManager.getAccessToken() != null) {// &&
             accessToken = DataLocalManager.getAccessToken();
             request = request.newBuilder()
                     .addHeader("device", "2")
                     .addHeader("version", "2.2.2") //new header added
-                    .addHeader("lang","vi")
+                    .addHeader("lang", "vi")
                     .addHeader("Content-Type", "application/json")
-                    .addHeader( "Authorization",
+                    .addHeader("Authorization",
                             "Bearer " + accessToken)
                     .build();
-        }else {
+        } else {
             request = request.newBuilder()
                     .addHeader("device", "2")
                     .addHeader("version", "2.2.2") //new header added

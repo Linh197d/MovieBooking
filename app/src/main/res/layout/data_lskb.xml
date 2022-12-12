@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data >
+        <variable
+            name="search"
+            type="com.base.mvvmbaseproject.entity.LSKhamBenh" />
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+            android:background="@drawable/customln"
+            android:layout_marginHorizontal="15dp"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ln_tvt"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+
+                <TextView
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:text="@{search.service_specialty_name}"
+                    android:textColor="#000000"
+                    android:id="@+id/service_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintRight_toLeftOf="@+id/date_histories"
+                    />
+                <TextView
+                    android:id="@+id/date_histories"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="@{search.date_medical_histories}"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/tvt_NameDoctor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@{search.doctor_name}"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintRight_toLeftOf="@+id/frameLayout3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ln_tvt" />
+
+    <TextView
+        android:id="@+id/position"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:text="@{search.position}"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/frameLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/tvt_NameDoctor" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ln_tvt">
+
+        <ImageView
+            android:id="@+id/avatar_doctor"
+            android:layout_width="100dp"
+            android:layout_height="140dp"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/doctor1"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_gravity="bottom"
+             />
+        <ImageView
+            android:background="@drawable/custom_back_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="end|center_vertical"
+            android:src="@drawable/back_tab"
+            />
+    </FrameLayout>
+
+    <LinearLayout
+                android:background="@drawable/custom_blur_lnlayout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:weightSum="3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/img_kqxn_mau"
+                        />
+                    <TextView
+                        android:textSize="16sp"
+                        android:textColor="#000"
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="KQXN Máu"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/img_anh"
+                        />
+                    <TextView
+                        android:textSize="16sp"
+                        android:textColor="#000"
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ảnh"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/img_file_dinhkem"
+                        />
+                    <TextView
+                        android:textSize="16sp"
+                        android:textColor="#000"
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="File đính kèm"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+
+    <ProgressBar
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/idPBLoading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

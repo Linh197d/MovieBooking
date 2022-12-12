@@ -36,7 +36,7 @@ public class SplashFragment extends BaseFragment<SplashFragmentBinding> {
     @Override
     public void initView() {
         getActivity().findViewById(R.id.bottombar).setVisibility(View.GONE);
-        mViewModel = ViewModelProviders.of(this,viewModelFactory).get(SplashViewModel.class);
+        mViewModel = ViewModelProviders.of(this, viewModelFactory).get(SplashViewModel.class);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class SplashFragment extends BaseFragment<SplashFragmentBinding> {
             new Handler().postDelayed(() -> {
                 mViewController.addFragment(HomeFragment.class, null);
             }, 2000);
-        }else {
+        } else {
             new Handler().postDelayed(() -> {
                 mViewController.addFragment(LoginFragment.class, null);
             }, 2000);
