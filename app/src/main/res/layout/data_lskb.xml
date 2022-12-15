@@ -45,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
+                android:textStyle="italic"
                 android:text="@{search.date_medical_histories}"
                 android:textColor="@color/colorBlack"
                 android:textSize="13sp"
@@ -107,7 +108,7 @@
             <FrameLayout
                 android:id="@+id/delete_LSKB_in"
                 android:layout_width="20dp"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:layout_gravity="end|center_vertical"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/custom_back_tab"
@@ -123,7 +124,7 @@
             <LinearLayout
                 android:id="@+id/lskb_out"
                 android:layout_width="80dp"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:layout_gravity="end|center_vertical"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/custom_back_tab"
