@@ -69,6 +69,10 @@ public class LSKhamBenhAdapter extends EndlessLoadingRecyclerViewAdapter<DataLsk
                 binding.lskbOut.setVisibility(View.GONE);
                 binding.deleteLSKBIn.setVisibility(View.VISIBLE);
             }
+            else{
+                binding.lskbOut.setVisibility(View.GONE);
+                binding.deleteLSKBIn.setVisibility(View.GONE);
+            }
             binding.setSearch(data);
             binding.deleteLSKBIn.setOnClickListener(new View.OnClickListener() {
                 @Override
