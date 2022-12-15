@@ -28,11 +28,13 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField 'String', 'BASE_URL', '"http://hsba-v2.beetechdev.vn:1680/api/v1/"'
+            buildConfigField 'String', 'BASE_STORAGE', '"http://hsba-v2.beetechdev.vn:1680/storage/"'
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
         }
         stage {
             //signingConfig signingConfigs.debug
             buildConfigField 'String', 'BASE_URL', '"http://hsba-v2.beetechdev.vn:1680/api/v1/"'
+            buildConfigField 'String', 'BASE_STORAGE', '"http://hsba-v2.beetechdev.vn:1680/storage/"'
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
         }
         release {
@@ -40,6 +42,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField 'String', 'BASE_URL', '"http://hsba-v2.beetechdev.vn:1680/api/v1/"'
+            buildConfigField 'String', 'BASE_STORAGE', '"http://hsba-v2.beetechdev.vn:1680/storage/"'
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
         }
     }

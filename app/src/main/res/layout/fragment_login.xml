@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-   >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_height="match_parent">
+        app:layout_constraintTop_toTopOf="parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#F2F2F2"
-            >
+            android:background="@color/colorBackGround">
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
@@ -26,23 +25,23 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-
-                android:textColor="#080909"
-                android:text="Sức khoẻ trong tầm tay"
-                android:textStyle="bold|italic"
-                android:textSize="12sp"
                 android:id="@+id/tvtSucKhoe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/suckhoe"
+                android:textColor="@color/colorTextHealth"
+                android:textSize="12sp"
+                android:textStyle="bold|italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
             <FrameLayout
                 android:id="@+id/frameLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvtSucKhoe">
 
@@ -52,17 +51,16 @@
                     android:src="@drawable/icon_login" />
 
                 <EditText
-                    android:backgroundTint="#FFFFFF"
                     android:id="@+id/edt_Account"
                     android:layout_width="263dp"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="95dp"
-                    android:textSize="14sp"
+                    android:layout_marginStart="95dp"
+                    android:backgroundTint="@color/colorWhite"
                     android:inputType="text"
                     android:lines="1"
                     android:maxLines="1"
-                    android:textColor="#060215"
-                    />
+                    android:textColor="@color/colorTextUser"
+                    android:textSize="14sp" />
 
 
             </FrameLayout>
@@ -84,180 +82,179 @@
                     android:src="@drawable/icon_login" />
 
                 <EditText
-                    android:backgroundTint="#FFFFFF"
-                    android:textColor="#060215"
-                    android:id="@+id/edt_Password"
-                    android:maxLines="1"
-                    android:lines="1"
-                    android:textSize="14sp"
-                    android:inputType="text"
+                    android:id="@+id/edt_password"
                     android:layout_width="260dp"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="95dp"
-                    />
+                    android:layout_marginStart="95dp"
+                    android:backgroundTint="@color/colorWhite"
+                    android:inputType="textPassword"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:textColor="@color/colorTextUser"
+                    android:textSize="14sp" />
             </FrameLayout>
 
             <TextView
-                android:layout_marginTop="15dp"
-                android:textColor="#000000"
-                android:textStyle="normal"
                 android:id="@+id/btnLogup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:text="Đăng ký tài khoản"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/dangkytk"
+                android:textColor="@color/colorBlack"
                 android:textSize="12sp"
+                android:textStyle="normal"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
 
             <TextView
-                android:layout_marginTop="15dp"
-                android:textColor="#000000"
                 android:id="@+id/btn_changePass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="50dp"
-                android:text="Quên/Đổi mật khẩu"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="50dp"
+                android:text="@string/doimk"
+                android:textColor="@color/colorBlack"
                 android:textSize="12sp"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
 
             <Button
-                android:layout_marginHorizontal="90dp"
-                app:backgroundTint="@null"
-                android:background="@drawable/custom_button_login"
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:text="Đăng Nhập"
-                android:textColor="#FFFFFF"
+                android:layout_marginHorizontal="90dp"
                 android:layout_marginTop="40dp"
+                android:background="@drawable/custom_button_login"
+                android:text="@string/dangnhap"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp"
+                app:backgroundTint="@null"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnLogup" />
 
             <TextView
-                android:textColor="#000000"
-
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:text="Hoặc đăng nhập qua:"
+                android:text="@string/dangnhapqua"
+                android:textColor="@color/colorBlack"
                 android:textSize="13sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:layout_marginTop="50dp"
                 android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_margin="20dp"
-                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" >
+                app:layout_constraintTop_toBottomOf="@+id/textView">
+
                 <LinearLayout
                     android:id="@+id/zalo"
-                    android:layout_margin="5dp"
-                    android:background="#D6D6D6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@color/colorBackGroundGrey"
                     android:padding="10dp"
 
                     >
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/icon_zalo"
-                        />
+                        android:src="@drawable/icon_zalo" />
+
                     <TextView
-                        android:textColor="#000000"
-                        android:layout_marginLeft="20dp"
-                        android:textSize="15sp"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="Đăng nhập với Zalo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        />
+                        android:layout_gravity="center"
+                        android:layout_marginStart="20dp"
+                        android:gravity="center"
+                        android:text="@string/dangnhapZalo"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="15sp" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/fb"
-                    android:layout_margin="5dp"
-                    android:background="#D6D6D6"
-                    android:padding="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    >
+                    android:layout_margin="5dp"
+                    android:background="@color/colorBackGroundGrey"
+                    android:padding="10dp">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/icon_fb"
-                        />
+                        android:src="@drawable/icon_fb" />
+
                     <TextView
-                        android:textColor="#000000"
-                        android:layout_marginLeft="20dp"
-                        android:textSize="15sp"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="Đăng nhập với Facebook"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        />
+                        android:layout_gravity="center"
+                        android:layout_marginStart="20dp"
+                        android:gravity="center"
+                        android:text="@string/dangnhapFB"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="15sp" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/apple"
-                    android:layout_margin="5dp"
-                    android:background="#D6D6D6"
-                    android:padding="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    >
+                    android:layout_margin="5dp"
+                    android:background="@color/colorBackGroundGrey"
+                    android:padding="10dp">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/icon_apple"
-                        />
+                        android:src="@drawable/icon_apple" />
+
                     <TextView
-                        android:textColor="#000000"
-                        android:layout_marginLeft="25dp"
-                        android:textSize="15sp"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="Đăng nhập với Apple"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        />
+                        android:layout_gravity="center"
+                        android:layout_marginStart="25dp"
+                        android:gravity="center"
+                        android:text="@string/dangnhapApple"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="15sp" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/gg"
-                    android:layout_margin="5dp"
-                    android:background="#D6D6D6"
-                    android:padding="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    >
+                    android:layout_margin="5dp"
+                    android:background="@color/colorBackGroundGrey"
+                    android:padding="10dp">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/icon_gg"
-                        />
+                        android:src="@drawable/icon_gg" />
+
                     <TextView
-                        android:textColor="#000000"
-                        android:layout_marginLeft="20dp"
-                        android:textSize="15sp"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="Đăng nhập với Google"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        />
+                        android:layout_gravity="center"
+                        android:layout_marginStart="20dp"
+                        android:gravity="center"
+                        android:text="@string/dangnhapGG"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="15sp" />
 
                 </LinearLayout>
             </LinearLayout>

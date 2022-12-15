@@ -9,7 +9,6 @@ import com.base.mvvmbaseproject.R;
 import com.base.mvvmbaseproject.base.EndlessLoadingRecyclerViewAdapter;
 import com.base.mvvmbaseproject.databinding.ItemSearchBinding;
 import com.base.mvvmbaseproject.entity.SearchResponse;
-import com.bumptech.glide.Glide;
 
 public class SearchAdapter extends EndlessLoadingRecyclerViewAdapter<ItemSearchBinding> {
 
@@ -34,7 +33,7 @@ public class SearchAdapter extends EndlessLoadingRecyclerViewAdapter<ItemSearchB
     }
 
     public class SearchViewHolder extends NormalViewHolder<SearchResponse> {
-        private ItemSearchBinding binding;
+        private final ItemSearchBinding binding;
 
         SearchViewHolder(ItemSearchBinding binding) {
             super(binding.getRoot());

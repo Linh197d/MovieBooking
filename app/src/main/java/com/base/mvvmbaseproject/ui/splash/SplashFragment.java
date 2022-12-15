@@ -11,12 +11,9 @@ import com.base.mvvmbaseproject.base.BaseFragment;
 import com.base.mvvmbaseproject.databinding.SplashFragmentBinding;
 import com.base.mvvmbaseproject.ui.home.HomeFragment;
 import com.base.mvvmbaseproject.ui.login.LoginFragment;
-import com.base.mvvmbaseproject.ui.main.MainActivity;
 
 
 public class SplashFragment extends BaseFragment<SplashFragmentBinding> {
-
-    private SplashViewModel mViewModel;
 
     @Override
     protected int getLayoutId() {
@@ -36,7 +33,7 @@ public class SplashFragment extends BaseFragment<SplashFragmentBinding> {
     @Override
     public void initView() {
         getActivity().findViewById(R.id.bottombar).setVisibility(View.GONE);
-        mViewModel = ViewModelProviders.of(this, viewModelFactory).get(SplashViewModel.class);
+        SplashViewModel mViewModel = ViewModelProviders.of(this, viewModelFactory).get(SplashViewModel.class);
     }
 
     @Override

@@ -5,7 +5,6 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 
 import com.base.mvvmbaseproject.base.BaseViewModel;
-import com.base.mvvmbaseproject.base.ListResponse;
 import com.base.mvvmbaseproject.entity.CountNotify;
 import com.base.mvvmbaseproject.network.repository.Repository;
 
@@ -15,7 +14,7 @@ import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
 public class CountNotifyViewModel extends BaseViewModel {
-    private Repository repository;
+    private final Repository repository;
     MutableLiveData<CountNotify> countNotify = new MutableLiveData<>();
 
 

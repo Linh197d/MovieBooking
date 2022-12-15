@@ -6,8 +6,6 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 
 import com.base.mvvmbaseproject.base.BaseViewModel;
-import com.base.mvvmbaseproject.base.ObjectResponse;
-import com.base.mvvmbaseproject.entity.LoginData2;
 import com.base.mvvmbaseproject.entity.LoginRequest;
 import com.base.mvvmbaseproject.entity.LoginResponse2;
 import com.base.mvvmbaseproject.network.repository.Repository;
@@ -19,7 +17,7 @@ import io.reactivex.disposables.Disposable;
 
 
 public class LoginViewModel extends BaseViewModel {
-    private Repository repository;
+    private final Repository repository;
     MutableLiveData<LoginResponse2> login = new MutableLiveData<>();
     MutableLiveData<Boolean> result = new MutableLiveData<Boolean>();
 

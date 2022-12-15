@@ -2,12 +2,12 @@ package com.base.mvvmbaseproject;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
 import java.util.Calendar;
@@ -15,13 +15,14 @@ import java.util.Calendar;
 public class DatePickerFragment extends DialogFragment
         implements DialogInterface.OnClickListener {
 
-    private int style;
+    private final int style;
     private DatePicker mDatePicker;
 
     public DatePickerFragment(int xml) {
         style = xml;
     }
 
+    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         View view = requireActivity().getLayoutInflater().inflate(style, null);

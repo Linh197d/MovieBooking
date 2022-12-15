@@ -7,11 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.base.mvvmbaseproject.R;
 import com.base.mvvmbaseproject.base.EndlessLoadingRecyclerViewAdapter;
-import com.base.mvvmbaseproject.databinding.CountNotifyFragmentBinding;
-import com.base.mvvmbaseproject.databinding.DataCkBinding;
 import com.base.mvvmbaseproject.databinding.RcvCountNotifyBinding;
 import com.base.mvvmbaseproject.entity.CountNotify;
-import com.base.mvvmbaseproject.entity.DataServicesCK;
 
 import java.util.ArrayList;
 
@@ -38,7 +35,7 @@ public class CountNotifyAdapter extends EndlessLoadingRecyclerViewAdapter<RcvCou
     }
 
     public class SearchViewHolder extends NormalViewHolder<CountNotify> {
-        private RcvCountNotifyBinding binding;
+        private final RcvCountNotifyBinding binding;
 
         SearchViewHolder(RcvCountNotifyBinding binding) {
             super(binding.getRoot());

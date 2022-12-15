@@ -7,9 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.base.mvvmbaseproject.R;
 import com.base.mvvmbaseproject.base.EndlessLoadingRecyclerViewAdapter;
-import com.base.mvvmbaseproject.databinding.DataCkBinding;
 import com.base.mvvmbaseproject.databinding.UserProfileBinding;
-import com.base.mvvmbaseproject.entity.DataServicesCK;
 import com.base.mvvmbaseproject.entity.DataUser;
 
 public class UserAdapter extends EndlessLoadingRecyclerViewAdapter<UserProfileBinding> {
@@ -35,7 +33,7 @@ public class UserAdapter extends EndlessLoadingRecyclerViewAdapter<UserProfileBi
     }
 
     public class SearchViewHolder extends NormalViewHolder<DataUser> {
-        private UserProfileBinding binding;
+        private final UserProfileBinding binding;
 
         SearchViewHolder(UserProfileBinding binding) {
             super(binding.getRoot());

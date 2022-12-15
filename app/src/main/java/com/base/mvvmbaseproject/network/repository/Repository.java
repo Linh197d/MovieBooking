@@ -1,6 +1,5 @@
 package com.base.mvvmbaseproject.network.repository;
 
-import com.base.mvvmbaseproject.base.ListLoadmoreReponse;
 import com.base.mvvmbaseproject.base.ListResponse;
 import com.base.mvvmbaseproject.base.ListResponseChild;
 import com.base.mvvmbaseproject.base.ObjectResponse;
@@ -8,6 +7,7 @@ import com.base.mvvmbaseproject.entity.CountNotify;
 import com.base.mvvmbaseproject.entity.DataServicesCK;
 import com.base.mvvmbaseproject.entity.DataUser;
 import com.base.mvvmbaseproject.entity.DataUserSK;
+import com.base.mvvmbaseproject.entity.DeleteLSKB;
 import com.base.mvvmbaseproject.entity.LSKhamBenh;
 import com.base.mvvmbaseproject.entity.LoginRequest;
 import com.base.mvvmbaseproject.entity.LoginResponse2;
@@ -90,6 +90,12 @@ public class Repository {
     //get data lskb
     public Single<ListResponseChild> getLSKB(int page) {
         return apiInterface.getDataLSKB(page)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Single<ObjectResponse<DeleteLSKB>> deleteLSKB(int id) {
+        return apiInterface.getDataDeleteLSKB(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }

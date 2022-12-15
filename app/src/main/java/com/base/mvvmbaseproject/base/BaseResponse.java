@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 public class BaseResponse {
     @SerializedName("code")
     private int status;
+
     private String msg;
     public int getStatus() {
         return status;

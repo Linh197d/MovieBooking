@@ -16,7 +16,7 @@ import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
 public class HomeViewModel extends BaseViewModel {
-    private Repository repository;
+    private final Repository repository;
     MutableLiveData<ListResponse<SearchResponse>> dataService = new MutableLiveData<>();
     MutableLiveData<ListResponse<DataServicesCK>> dataServiceCK = new MutableLiveData<>();
 

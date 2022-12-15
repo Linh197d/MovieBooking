@@ -119,10 +119,12 @@ public class BaseRecyclerView<T> extends RelativeLayout implements EndlessLoadin
 
     public void setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener refreshListener) {
         swipeRefresh.setOnRefreshListener(refreshListener);
+
     }
 
     public void setOnLoadingMoreListener(OnLoadmoreListener loadingMoreListener) {
         this.listener = loadingMoreListener;
+
     }
 
     public void setOnItemClickListener(RecyclerViewAdapter.OnItemClickListener onItemClickListener) {

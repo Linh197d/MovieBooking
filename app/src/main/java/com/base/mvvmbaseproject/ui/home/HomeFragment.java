@@ -1,7 +1,5 @@
 package com.base.mvvmbaseproject.ui.home;
 
-import android.annotation.SuppressLint;
-import android.text.TextShaper;
 import android.view.View;
 
 import androidx.lifecycle.Observer;
@@ -13,7 +11,6 @@ import com.base.mvvmbaseproject.adapter.SearchAdapter;
 import com.base.mvvmbaseproject.base.BaseFragment;
 import com.base.mvvmbaseproject.base.ListResponse;
 import com.base.mvvmbaseproject.databinding.HomeFragmentBinding;
-import com.base.mvvmbaseproject.entity.DataServicesCK;
 import com.base.mvvmbaseproject.entity.SearchResponse;
 import com.base.mvvmbaseproject.ui.UserProfile.UserFragment;
 import com.base.mvvmbaseproject.ui.countnotify.CountNotifyFragment;
@@ -23,7 +20,6 @@ import java.util.List;
 
 
 public class HomeFragment extends BaseFragment<HomeFragmentBinding> {
-    private HomeViewModel mViewModel;
     private SearchAdapter searchAdapter;
     private DataCKAdapter searchAdapterCK;
 
@@ -45,7 +41,7 @@ public class HomeFragment extends BaseFragment<HomeFragmentBinding> {
     public void initView() {
         getActivity().findViewById(R.id.bottombar).setVisibility(View.VISIBLE);
         //get du lieu ServiceDV
-        mViewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeViewModel.class);
+        HomeViewModel mViewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeViewModel.class);
         searchAdapter = new SearchAdapter(getContext());
         mViewModel.getData(20, 1);
         mViewModel.dataService.observe(getViewLifecycleOwner(), new Observer<ListResponse<SearchResponse>>() {
@@ -64,41 +60,24 @@ public class HomeFragment extends BaseFragment<HomeFragmentBinding> {
         //get dữ liệu ServiceCK
         searchAdapterCK = new DataCKAdapter(getContext());
         mViewModel.getDataCK(20, 10);
-        mViewModel.dataServiceCK.observe(getViewLifecycleOwner(), new Observer<ListResponse<DataServicesCK>>() {
-            @Override
-            public void onChanged(ListResponse<DataServicesCK> searchResponseListResponse) {
-                searchAdapterCK.refresh(searchResponseListResponse.getData());
-            }
-        });
+        mViewModel.dataServiceCK.observe(getViewLifecycleOwner(), searchResponseListResponse -> searchAdapterCK.refresh(searchResponseListResponse.getData()));
     }
 
     @Override
     public void initData() {
 
-        binding.btnCK.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                binding.rcvSearch.setAdapter(searchAdapterCK);
-                binding.rcvSearch.setBackgroundResource(R.drawable.custom_rcvck);
+        binding.btnCK.setOnClickListener(view -> {
+            binding.rcvSearch.setAdapter(searchAdapterCK);
+            binding.rcvSearch.setBackgroundResource(R.drawable.custom_rcvck);
 
-                // binding.rcvSearch.setBackgroundColor(5514100);
+            // binding.rcvSearch.setBackgroundColor(5514100);
 
-            }
         });
-        binding.btnDv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                binding.rcvSearch.setAdapter(searchAdapter);
-                binding.rcvSearch.setBackgroundResource(R.drawable.custom_rcvdv);
-                // binding.rcvSearch.setBackgroundColor(5514100);
-            }
+        binding.btnDv.setOnClickListener(view -> {
+            binding.rcvSearch.setAdapter(searchAdapter);
+            binding.rcvSearch.setBackgroundResource(R.drawable.custom_rcvdv);
         });
-        binding.btnalarm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mViewController.addFragment(CountNotifyFragment.class, null);
-            }
-        });
+        binding.btnalarm.setOnClickListener(view -> mViewController.addFragment(CountNotifyFragment.class, null));
         getActivity().findViewById(R.id.btnHoSo).setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -106,13 +85,7 @@ public class HomeFragment extends BaseFragment<HomeFragmentBinding> {
                 mViewController.addFragment(UserFragment.class, null);
             }
         });
-        getActivity().findViewById(R.id.btnXetNghiem).setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                mViewController.addFragment(LSKhamBenhFragment.class, null);
-            }
-        });
+        getActivity().findViewById(R.id.btnXetNghiem).setOnClickListener(view -> mViewController.addFragment(LSKhamBenhFragment.class, null));
     }
 
     ;

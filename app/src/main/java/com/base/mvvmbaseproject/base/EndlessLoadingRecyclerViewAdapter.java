@@ -1,6 +1,7 @@
 package com.base.mvvmbaseproject.base;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.base.mvvmbaseproject.BaseApplication;
 import com.base.mvvmbaseproject.R;
 
 
@@ -18,9 +20,11 @@ public abstract class EndlessLoadingRecyclerViewAdapter<T extends ViewDataBindin
     private OnLoadingMoreListener loadingMoreListener;
     private boolean disableLoadMore = false;
     protected boolean isLoading = false;
+    private Context mContext;
 
     public EndlessLoadingRecyclerViewAdapter(Context context, boolean enableSelectedMode) {
         super(context, enableSelectedMode);
+        mContext = context;
     }
 
     public void setLoadingMoreListener(OnLoadingMoreListener loadingMoreListener) {
@@ -80,7 +84,7 @@ public abstract class EndlessLoadingRecyclerViewAdapter<T extends ViewDataBindin
         RecyclerView.ViewHolder result;
         switch (viewType) {
             case VIEW_TYPE_LOADING: {
-                result = new LoadingViewHolder(LayoutInflater.from(getContext()).inflate(R.layout.layout_load_more,parent,false));
+                result = new LoadingViewHolder(LayoutInflater.from(mContext).inflate(R.layout.layout_load_more,parent,false));
             }
             break;
             default: {

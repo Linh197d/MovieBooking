@@ -1,6 +1,19 @@
 package com.base.mvvmbaseproject.entity;
 
+import static com.base.mvvmbaseproject.BuildConfig.BASE_STORAGE;
+
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+
+import androidx.databinding.BindingAdapter;
+
+import com.base.mvvmbaseproject.R;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
 import java.util.Date;
+import java.util.List;
 
 public class LSKhamBenh {
     private int id;
@@ -12,6 +25,7 @@ public class LSKhamBenh {
     private String service_specialty_name;
     private String service_specialty_icon;
     private String date_medical_histories;
+
 
     public int getId() {
         return id;

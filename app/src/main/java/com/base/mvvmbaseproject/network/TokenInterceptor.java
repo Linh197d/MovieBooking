@@ -1,9 +1,8 @@
 package com.base.mvvmbaseproject.network;
 
 
-import android.util.Log;
+import androidx.annotation.NonNull;
 
-import com.base.mvvmbaseproject.DataLocalManager;
 import com.base.mvvmbaseproject.utils.Define;
 
 import java.io.IOException;
@@ -18,6 +17,7 @@ public class TokenInterceptor implements Interceptor {
     public TokenInterceptor() {
     }
 
+    @NonNull
     @Override
     public Response intercept(Interceptor.Chain chain) throws IOException {
         /*String accessToken="";
@@ -27,15 +27,12 @@ public class TokenInterceptor implements Interceptor {
         Request.Builder ongoing = chain.request().newBuilder();
         Response response = chain.proceed(ongoing.build());
         int responseCode = response.code();
-        if (responseCode == Define.Api.Http.RESPONSE_CODE_ACCESS_TOKEN_EXPIRED) {
-            //handle token expire here
-           /* response = response.newBuilder()
+        //handle token expire here
+        /* response = response.newBuilder()
                     .addHeader( "Authorization",
                             "Bearer " + accessToken)
                     .build();
                         Log.d("fatggg","header: "+accessToken);*/
-
-        }
         return response;
     }
 }

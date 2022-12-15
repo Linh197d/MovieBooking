@@ -1,27 +1,20 @@
 package com.base.mvvmbaseproject.ui.login;
 
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.base.mvvmbaseproject.DataLocalManager;
-import com.base.mvvmbaseproject.MySharePreferences;
 import com.base.mvvmbaseproject.R;
 import com.base.mvvmbaseproject.base.BaseFragment;
 import com.base.mvvmbaseproject.databinding.FragmentLoginBinding;
-import com.base.mvvmbaseproject.entity.LoginData2;
 import com.base.mvvmbaseproject.entity.LoginRequest;
 import com.base.mvvmbaseproject.entity.LoginResponse2;
 import com.base.mvvmbaseproject.ui.home.HomeFragment;
-import com.base.mvvmbaseproject.ui.main.MainActivity;
 
 public class LoginFragment extends BaseFragment<FragmentLoginBinding> {
     private LoginViewModel mViewModel;

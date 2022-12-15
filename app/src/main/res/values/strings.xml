@@ -1,3 +1,52 @@
 <resources>
     <string name="app_name">MVVMBaseProject</string>
+    <string name="trangchu">Trang chủ</string>
+    <string name="khambenh">Khám bệnh</string>
+    <string name="xetnghiem">Xét nghiệm</string>
+    <string name="hoso">Hồ sơ</string>
+    <string name="taikhoan">Tài khoản</string>
+    <string name="thongbao">Thông báo</string>
+    <string name="kqxn">KQXN Máu</string>
+    <string name="anh">Ảnh</string>
+    <string name="filedinhkem">File đính kèm</string>
+    <string name="suckhoe">Sức khoẻ trong tầm tay</string>
+    <string name="dangkytk">Đăng ký tài khoản</string>
+    <string name="doimk">Quên/Đổi mật khẩu</string>
+    <string name="dangnhap">Đăng Nhập</string>
+    <string name="dangnhapqua">Hoặc đăng nhập qua:</string>
+    <string name="dangnhapZalo">Đăng nhập với Zalo</string>
+    <string name="dangnhapFB">Đăng nhập với Facebook</string>
+    <string name="dangnhapApple">Đăng nhập với Apple</string>
+    <string name="dangnhapGG">Đăng nhập với Google</string>
+    <string name="so2">2</string>
+    <string name="nguyenthuhuong">Nguyễn Thu Hương</string>
+    <string name="hosobenhan">Hồ sơ bệnh án</string>
+    <string name="lienhebacsituvan">Liên hệ bác sĩ tư vấn</string>
+    <string name="capnhatketquaxetnghiem">Cập nhật kết quả xét nghiệm</string>
+    <string name="datlichkham">Đặt lịch khám</string>
+    <string name="chuyenkhoa">Chuyên khoa</string>
+    <string name="dichvu">Dịch vụ</string>
+    <string name="noibat">Nổi bật</string>
+    <string name="thoat">Thoát</string>
+    <string name="ok">OK</string>
+    <string name="nhommau">Nhóm máu</string>
+    <string name="nhommauA">A</string>
+    <string name="lichsukhambenh">Lịch sử khám bệnh</string>
+    <string name="countnotify">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh </string>
+    <string name="taohoso">Tạo hồ sơ</string>
+    <string name="thongtincanhan">Thông tin cá nhân</string>
+    <string name="anhdaidien">Ảnh đại diện</string>
+    <string name="birthday">Birthday</string>
+    <string name="nu">Nữ</string>
+    <string name="nam">Nam</string>
+    <string name="thongtinsuckhoe">Thông tin sức khoẻ</string>
+    <string name="chieucao">Chiều cao</string>
+    <string name="cannang">Cân nặng</string>
+    <string name="chandoan">Chẩn đoán</string>
+    <string name="xacnhanxoalskb">Xác nhận xóa lịch sử khám bệnh</string>
+    <string name="bancomuonxoako">Bạn muốn xóa không?</string>
+    <string name="co">Có</string>
+    <string name="khong">Không</string>
+
+
 </resources>

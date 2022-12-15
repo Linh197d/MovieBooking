@@ -1,13 +1,11 @@
 package com.base.mvvmbaseproject.ui.UserProfile;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
 import com.base.mvvmbaseproject.base.BaseViewModel;
 import com.base.mvvmbaseproject.base.ObjectResponse;
-import com.base.mvvmbaseproject.entity.CountNotify;
 import com.base.mvvmbaseproject.entity.DataUser;
 import com.base.mvvmbaseproject.entity.DataUserSK;
 import com.base.mvvmbaseproject.entity.LoginResponse2;
@@ -22,7 +20,7 @@ import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
 public class UserViewModel extends BaseViewModel {
-    private Repository repository;
+    private final Repository repository;
     MutableLiveData<UpdateRespone> update_user = new MutableLiveData<>();
     MutableLiveData<LoginResponse2> update_user_health = new MutableLiveData<>();
 

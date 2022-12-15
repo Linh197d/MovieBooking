@@ -1,7 +1,6 @@
 package com.base.mvvmbaseproject.network;
 
 
-import com.base.mvvmbaseproject.base.ListLoadmoreReponse;
 import com.base.mvvmbaseproject.base.ListResponse;
 import com.base.mvvmbaseproject.base.ListResponseChild;
 import com.base.mvvmbaseproject.base.ObjectResponse;
@@ -9,6 +8,7 @@ import com.base.mvvmbaseproject.entity.CountNotify;
 import com.base.mvvmbaseproject.entity.DataServicesCK;
 import com.base.mvvmbaseproject.entity.DataUser;
 import com.base.mvvmbaseproject.entity.DataUserSK;
+import com.base.mvvmbaseproject.entity.DeleteLSKB;
 import com.base.mvvmbaseproject.entity.LSKhamBenh;
 import com.base.mvvmbaseproject.entity.LoginRequest;
 import com.base.mvvmbaseproject.entity.LoginResponse2;
@@ -21,6 +21,7 @@ import io.reactivex.Single;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
@@ -48,4 +49,7 @@ public interface ApiInterface {
     //get lskb
     @GET("user/medical-history?per_page=20")
     Single<ListResponseChild> getDataLSKB(@Query("page")int page);
+
+    @GET("user/medical-history/delete/{id}")
+    Single<ObjectResponse<DeleteLSKB>> getDataDeleteLSKB(@Path("id") int id);
 }

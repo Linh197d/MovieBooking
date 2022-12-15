@@ -3,6 +3,7 @@ package com.base.mvvmbaseproject.ui.UserProfile;
 import static android.app.Activity.RESULT_OK;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -24,7 +25,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.base.mvvmbaseproject.OnChooseBloodType;
+import com.base.mvvmbaseproject.OnChooseRecyclerView;
 import com.base.mvvmbaseproject.R;
 import com.base.mvvmbaseproject.adapter.BloodTypeAdapter;
 import com.base.mvvmbaseproject.base.BaseFragment;
@@ -34,6 +35,7 @@ import com.base.mvvmbaseproject.dialog.DialogCamera;
 import com.base.mvvmbaseproject.entity.BloodType;
 import com.base.mvvmbaseproject.entity.DataUser;
 import com.base.mvvmbaseproject.entity.DataUserSK;
+import com.base.mvvmbaseproject.entity.LSKhamBenh;
 import com.base.mvvmbaseproject.entity.LoginResponse2;
 import com.base.mvvmbaseproject.entity.UpdateDataUser;
 import com.base.mvvmbaseproject.entity.UpdateDataUserHealth;
@@ -53,7 +55,6 @@ import java.util.List;
 public class UserFragment extends BaseFragment<UserProfileBinding> {
     private UserViewModel mViewModel;
     private ArrayList<BloodType> mBlood;
-    private BloodTypeAdapter mBloodAdapter;
     private UpdateDataUser updateDataUser;
     private UpdateDataUserHealth updateDataUserHealth;
     private Date date;
@@ -81,14 +82,14 @@ public class UserFragment extends BaseFragment<UserProfileBinding> {
             @Override
             public void onChanged(ObjectResponse<DataUser> dataUserObjectResponse) {
                 binding.edtName.setText(dataUserObjectResponse.getData().getName());
-                SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+                @SuppressLint("SimpleDateFormat") SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
                 date = null;
                 try {
                     date = fmt.parse(dataUserObjectResponse.getData().getBirthday());
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                SimpleDateFormat fmtOut = new SimpleDateFormat("dd / MM / yyyy");
+                @SuppressLint("SimpleDateFormat") SimpleDateFormat fmtOut = new SimpleDateFormat("dd / MM / yyyy");
                 binding.btnDate.setText(fmtOut.format(date));
                 updateDataUser = new UpdateDataUser(dataUserObjectResponse.getData().getName(), dataUserObjectResponse.getData().getBirthday(), dataUserObjectResponse.getData().getAddress()
                         , dataUserObjectResponse.getData().getGender(), dataUserObjectResponse.getData().getPhone());
@@ -105,6 +106,7 @@ public class UserFragment extends BaseFragment<UserProfileBinding> {
             }
         });
         mViewModel.userSK.observe(getViewLifecycleOwner(), new Observer<ObjectResponse<DataUserSK>>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onChanged(ObjectResponse<DataUserSK> dataUserObjectResponse) {
                 updateDataUserHealth = new UpdateDataUserHealth(dataUserObjectResponse.getData().getUsers_weight(), dataUserObjectResponse.getData().getUsers_height(), dataUserObjectResponse.getData().getUsers_blood_group(), dataUserObjectResponse.getData().getUsers_judgment());
@@ -128,12 +130,16 @@ public class UserFragment extends BaseFragment<UserProfileBinding> {
         });
         mBlood = new ArrayList<>();
         createBloodList();
-        mBloodAdapter = new BloodTypeAdapter(getContext(), mBlood, new OnChooseBloodType() {
+        BloodTypeAdapter mBloodAdapter = new BloodTypeAdapter(getContext(), mBlood, new OnChooseRecyclerView() {
             @Override
             public void onChoose(BloodType bloodType) {
                 binding.tvtBloodtype.setText(bloodType.getBloodtype());
                 binding.layoutChooseBloodtype.setVisibility(View.GONE);
                 binding.arrowDownRcvBlood.setImageResource(R.drawable.back);
+            }
+
+            @Override
+            public void onChooseLSKB(LSKhamBenh lsKhamBenh) {
             }
         });
         binding.layoutChooseBloodtype.setAdapter(mBloodAdapter);
@@ -199,14 +205,14 @@ public class UserFragment extends BaseFragment<UserProfileBinding> {
             @Override
             public void onClick(View view) {
                 String s = binding.btnDate.getText().toString();
-                SimpleDateFormat formatIn = new SimpleDateFormat("dd / MM / yyyy");
+                @SuppressLint("SimpleDateFormat") SimpleDateFormat formatIn = new SimpleDateFormat("dd / MM / yyyy");
                 Date date1 = null;
                 try {
                     date1 = formatIn.parse(s);
                 } catch (ParseException e) {
                     Log.d("fat", "Error Format Date:" + e);
                 }
-                SimpleDateFormat fmtOut = new SimpleDateFormat("yyyy-MM-dd");
+                @SuppressLint("SimpleDateFormat") SimpleDateFormat fmtOut = new SimpleDateFormat("yyyy-MM-dd");
                 updateDataUser.setBirthday(fmtOut.format(date1));
                 if (binding.edtAdress.getText().toString() == null) {
                     Toast.makeText(getContext(), "Address is null", Toast.LENGTH_SHORT).show();
