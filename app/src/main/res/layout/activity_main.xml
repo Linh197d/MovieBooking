@@ -1,150 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorGrey">
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/frame_layout_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
-        <FrameLayout
-            android:id="@+id/flMainContainer"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/bottombar"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
+        <com.aurelhubert.ahbottomnavigation.AHBottomNavigation
             android:id="@+id/bottombar"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="@drawable/custombarbottom"
-            android:elevation="20dp"
-            android:orientation="horizontal"
-            android:weightSum="5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent">
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#FFFFFF"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            app:itemBackground="@color/colorWhite"
+            app:itemIconSize="40dp"
+            app:itemIconTint="@color/custom_color_bottom_bar"
+            app:itemTextColor="@color/custom_color_bottom_bar"
+            app:menu="@menu/menu_bottom_navigation" />
 
-            <LinearLayout
-                android:id="@+id/btnTrangChu"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/bottombar1" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/trangchu"
-                    android:textColor="@color/colorTextGrey"
-                    android:textSize="11sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnKhamBenh"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="21dp"
-                    android:layout_height="21dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/bottombar2" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/khambenh"
-                    android:textColor="@color/colorTextGrey"
-                    android:textSize="11sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnXetNghiem"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/bottombar3" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/xetnghiem"
-                    android:textColor="@color/colorTextGrey"
-                    android:textSize="11sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnHoSo"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/imgbtnHoso"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/bottombar4" />
-
-                <TextView
-                    android:id="@+id/tvtbtnHoso"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/hoso"
-                    android:textColor="@color/colorTextGrey"
-                    android:textSize="11sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnTaiKhoan"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/bottombar5" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/taikhoan"
-                    android:textColor="@color/colorTextGrey"
-                    android:textSize="11sp" />
-            </LinearLayout>
-
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 
 </layout>

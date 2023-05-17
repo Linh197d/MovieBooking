@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/btnTrangchu"
+    android:title="@string/trangchu"
+    android:icon="@drawable/home2"
+    />
+    <item
+        android:id="@+id/btnDienAnh"
+        android:title="@string/dienanh"
+        android:icon="@drawable/movieglass"
+        />
+    <item
+        android:id="@+id/btnRapPhim"
+        android:title="@string/rapphim"
+        android:icon="@drawable/rap2"
+        />
+    <item
+        android:id="@+id/btnTaiKhoan"
+        android:title="@string/hoso"
+        android:icon="@drawable/user2"
+        />
+</menu>

@@ -9,422 +9,150 @@
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+
+            >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/colorBackGroundGrey"
+                >
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:id="@+id/cstlayout1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/custom_tab"
+                    android:orientation="vertical"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <FrameLayout
-                        android:id="@+id/btnalarm"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="80dp"
-                        android:layout_marginEnd="15dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <ImageView
-                            android:id="@+id/count_notify"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:paddingEnd="20dp"
-                            android:paddingBottom="18dp"
-                            android:src="@drawable/custom_count_notify"
-
-                            />
-
-                        <ImageView
-
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="end|bottom"
-                            android:scaleX="0.7"
-                            android:scaleY="0.7"
-                            android:src="@drawable/alarm" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start|top"
-                            android:layout_marginStart="7dp"
-                            android:paddingEnd="25dp"
-                            android:paddingBottom="28dp"
-                            android:text="@string/so2"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="11sp" />
-                    </FrameLayout>
-
-                    <LinearLayout
-                        android:id="@+id/lnuser"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="50dp"
-                        android:orientation="horizontal"
-                        android:padding="20dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/imgUser"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:background="@drawable/custom_avatar"
-                            android:src="@drawable/avatar1" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="20dp"
-                            android:text="@string/nguyenthuhuong"
-                            android:textColor="@color/cardview_light_background"
-                            android:textSize="16sp"
-                            app:layout_constraintLeft_toRightOf="@+id/imgUser" />
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/lnlayout1"
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/viewpager"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/lnuser">
+                        android:layout_height="230dp" />
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                    <me.relex.circleindicator.CircleIndicator
+                        android:id="@+id/circle_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        app:ci_drawable="@drawable/bg_indicator"
+                        android:layout_gravity="center_horizontal" />
 
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_margin="10dp"
-                            android:layout_weight="5"
-                            android:background="@drawable/customtab1"
-                            android:padding="10dp">
 
-                            <ImageView
-                                android:id="@+id/lnicon1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:src="@drawable/lnicon1"
-                                app:layout_constraintLeft_toLeftOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:gravity="center"
-                                android:padding="3dp"
-                                android:text="@string/hosobenhan"
-                                android:textColor="@color/colorWhite"
-                                android:textStyle="bold"
-                                app:layout_constraintLeft_toLeftOf="@+id/lnicon1"
-                                app:layout_constraintRight_toRightOf="@+id/lnicon1"
-                                app:layout_constraintTop_toBottomOf="@+id/lnicon1" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_margin="10dp"
-                            android:layout_weight="5"
-                            android:background="@drawable/customtab2"
-                            android:padding="10dp">
-
-                            <ImageView
-                                android:id="@+id/lnicon2"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:src="@drawable/lnicon2"
-                                app:layout_constraintLeft_toLeftOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="18dp"
-                                android:gravity="center"
-                                android:paddingHorizontal="10dp"
-                                android:paddingTop="3dp"
-                                android:text="@string/lienhebacsituvan"
-                                android:textColor="@color/colorWhite"
-                                android:textStyle="bold"
-                                app:layout_constraintLeft_toLeftOf="@+id/lnicon2"
-                                app:layout_constraintRight_toRightOf="@+id/lnicon2"
-                                app:layout_constraintTop_toBottomOf="@+id/lnicon2" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/lnlayout2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/lnlayout1">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_margin="10dp"
-                            android:layout_weight="5"
-                            android:background="@drawable/customtab3"
-                            android:paddingHorizontal="5dp"
-                            android:paddingVertical="15dp">
-
-                            <ImageView
-                                android:id="@+id/lnicon3"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:src="@drawable/lnicon3"
-                                app:layout_constraintLeft_toLeftOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:gravity="center"
-                                android:paddingBottom="5dp"
-                                android:text="@string/capnhatketquaxetnghiem"
-                                android:textColor="@color/colorWhite"
-                                android:textStyle="bold"
-                                app:layout_constraintLeft_toLeftOf="@+id/lnicon3"
-                                app:layout_constraintRight_toRightOf="@+id/lnicon3"
-                                app:layout_constraintTop_toBottomOf="@+id/lnicon3" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_margin="10dp"
-                            android:layout_weight="5"
-                            android:background="@drawable/customtab4">
-
-                            <ImageView
-                                android:id="@+id/lnicon4"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="30dp"
-                                android:src="@drawable/lnicon4"
-                                app:layout_constraintLeft_toLeftOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="18dp"
-                                android:gravity="center"
-                                android:paddingHorizontal="10dp"
-                                android:paddingTop="4dp"
-                                android:text="@string/datlichkham"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="15sp"
-                                android:textStyle="bold"
-                                app:layout_constraintLeft_toLeftOf="@+id/lnicon4"
-                                app:layout_constraintRight_toRightOf="@+id/lnicon4"
-                                app:layout_constraintTop_toBottomOf="@+id/lnicon4" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </LinearLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
+                    android:id="@+id/cst2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#F2F2F2"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cstlayout1">
 
-                    <LinearLayout
-                        android:id="@+id/tabckdv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                    <TextView
+                        android:id="@+id/tvt_dangchieu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginRight="10dp"
-                        android:orientation="vertical"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/customln">
-
-                            <TextView
-                                android:id="@+id/btnCK"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="5"
-                                android:background="@drawable/custom_toprcv_left"
-                                android:gravity="center"
-                                android:padding="20dp"
-                                android:text="@string/chuyenkhoa"
-                                android:textColor="@color/colorBlack"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/btnDv"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="5"
-                                android:background="@drawable/custom_toprcv_right"
-                                android:gravity="center"
-                                android:padding="20dp"
-                                android:text="@string/dichvu"
-                                android:textColor="@color/colorBlack"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rcv_search"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/custom_rcvdv"
-                            android:orientation="vertical"
-                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-                    </LinearLayout>
+                        android:text="Đang chiếu"
+                        android:textColor="#000"
+                        android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/tvtNoibat"
+                        android:id="@+id/tvt_sapchieu"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="20dp"
-                        android:text="@string/noibat"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tabckdv" />
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="Sắp chiếu"
+                        android:textColor="#000"
+                        android:textSize="16sp" />
 
-                    <HorizontalScrollView
-                        android:id="@+id/scvImage"
+                    <TextView
+                        android:id="@+id/tvt_toanquoc"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvtNoibat">
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:gravity="end"
+                        android:text="Toàn quốc"
+                        android:textColor="#000"
+                        android:textSize="16sp" />
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="20dp">
+                <include
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/cst2"
+                    layout="@layout/dialog_loading"
+                    />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcv_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@+id/cst2" />
 
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginHorizontal="10dp"
-                                    android:src="@drawable/group2" />
 
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginHorizontal="10dp"
-                                    android:src="@drawable/group2" />
+                <Button
+                    android:id="@+id/btnXemTiep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:text="Xem tiếp >"
+                    android:textColor="#FF5722"
+                    android:background="@drawable/bg_btn_xemtiep"
+                    app:layout_constraintTop_toBottomOf="@+id/rcv_search" />
+                <HorizontalScrollView
+                    android:id="@+id/scrollview_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbarSize="0dp"
+                    android:scrollbars="none"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="55dp"
+                    app:layout_constraintTop_toBottomOf="@+id/btnXemTiep"
 
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginHorizontal="10dp"
-                                    android:src="@drawable/group2" />
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginHorizontal="10dp"
-                                    android:src="@drawable/group2" />
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginHorizontal="10dp"
-                                    android:src="@drawable/group2" />
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginHorizontal="10dp"
-                                    android:src="@drawable/group2" />
-                            </LinearLayout>
-
-                        </LinearLayout>
-                    </HorizontalScrollView>
-
+                    >
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="50dp"
-                        android:gravity="center"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/scvImage">
+                        android:background="#fff"
+                        >
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="100dp"
-                            android:layout_marginEnd="10dp"
-                            android:src="@drawable/ellipseno" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginHorizontal="5dp"
-                            android:src="@drawable/ellipseno" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginHorizontal="5dp"
-                            android:src="@drawable/ellipseyes" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginHorizontal="5dp"
-                            android:src="@drawable/ellipseno" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginEnd="100dp"
-                            android:src="@drawable/ellipseno" />
-
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:src="@drawable/slide1"
+                        android:scaleType="fitCenter"
+                        />
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:src="@drawable/slide2"
+                        android:scaleType="fitCenter"
+                        />
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:src="@drawable/slide3"
+                        android:scaleType="fitCenter"
+                        />
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:src="@drawable/slide4"
+                        android:scaleType="fitCenter"
+                        />
                     </LinearLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </HorizontalScrollView>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
+
     </FrameLayout>
 </layout>

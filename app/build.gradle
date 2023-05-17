@@ -4,7 +4,7 @@ android {
     compileSdkVersion 32
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.base.mvvmbaseproject"
+        applicationId "com.base.movieBooking"
         minSdkVersion 22
         targetSdkVersion 32
         versionCode 1
@@ -52,7 +52,7 @@ android {
     productFlavors {
         base {
             dimension "version"
-            applicationId "com.base.mvvmbaseproject"
+            applicationId "com.base.movieBooking"
         }
         client {
             dimension "version"
@@ -80,8 +80,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-//BottomBar
+    //BottomBar
     implementation 'com.google.android.material:material:1.2.0'
+    implementation 'com.aurelhubert:ahbottomnavigation:2.3.4'
 
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -116,5 +117,7 @@ dependencies {
     implementation 'io.github.ParkSangGwon:tedpermission-normal:3.3.0'
     //expandablelayout
     implementation "com.github.skydoves:expandablelayout:1.0.7"
+    // circle indicator
+    implementation 'me.relex:circleindicator:2.1.6'
 
 }

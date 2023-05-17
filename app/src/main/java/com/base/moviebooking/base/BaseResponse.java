@@ -1,0 +1,17 @@
+package com.base.moviebooking.base;
+
+import com.google.gson.annotations.SerializedName;
+
+public class BaseResponse {
+    @SerializedName("code")
+    private int status;
+
+    private String msg;
+    public int getStatus() {
+        return status;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+}
