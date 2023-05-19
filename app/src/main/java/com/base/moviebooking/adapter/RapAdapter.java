@@ -1,23 +1,19 @@
 package com.base.moviebooking.adapter;
 
 import android.content.Context;
-import android.view.View;
+import android.util.Log;
 import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.base.moviebooking.OnChooseRecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.base.EndlessLoadingRecyclerViewAdapter;
 import com.base.moviebooking.databinding.RcvRapBinding;
 import com.base.moviebooking.entity.Rap;
-import com.base.moviebooking.ui.rapphim.RapViewModel;
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
-
 public class RapAdapter extends EndlessLoadingRecyclerViewAdapter<RcvRapBinding> {
-    private Context mContext;
+    private final Context mContext;
 
     public RapAdapter(Context context, boolean enableSelectedMode, Context mContext) {
         super(context, enableSelectedMode);
@@ -43,7 +39,7 @@ public class RapAdapter extends EndlessLoadingRecyclerViewAdapter<RcvRapBinding>
 
 
     public class RapViewHolder extends NormalViewHolder<Rap> {
-        private RcvRapBinding binding;
+        private final RcvRapBinding binding;
 
         RapViewHolder(RcvRapBinding binding) {
             super(binding.getRoot());
@@ -52,8 +48,11 @@ public class RapAdapter extends EndlessLoadingRecyclerViewAdapter<RcvRapBinding>
 
         @Override
         public void bind(Rap data) {
-
-
+            binding.setRap(data);
+            Glide.with(mContext)
+                    .load(data.getUrlImage())
+                    .into(binding.image);
+            Log.d("fat", "datâRap" + data.getUrlImage(), null);
         }
     }
 }

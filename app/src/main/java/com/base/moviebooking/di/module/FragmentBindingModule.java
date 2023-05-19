@@ -1,6 +1,7 @@
 package com.base.moviebooking.di.module;
 
 
+import com.base.moviebooking.ui.chonghe.ChonGheFragment;
 import com.base.moviebooking.ui.dangky.DangKyFragment;
 import com.base.moviebooking.ui.dangnhap.DangNhapFragment;
 import com.base.moviebooking.ui.dienanh.DienAnhFragment;
@@ -36,6 +37,9 @@ public abstract class FragmentBindingModule {
 
     @ContributesAndroidInjector
     abstract DangNhapFragment bindDangNhapFragment();
+
+    @ContributesAndroidInjector
+    abstract ChonGheFragment bindChonGheFragment();
 
 
 }

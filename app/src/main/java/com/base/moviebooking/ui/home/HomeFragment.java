@@ -7,18 +7,22 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
+import com.base.moviebooking.OnChooseRecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.adapter.HomeAdapter;
 import com.base.moviebooking.adapter.SlideAdapter;
 import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.HomeFragmentBinding;
 import com.base.moviebooking.entity.Phim;
+import com.base.moviebooking.entity.Rap;
 import com.base.moviebooking.entity.Slide;
+import com.base.moviebooking.ui.chonghe.ChonGheFragment;
 import com.base.moviebooking.ui.dienanh.DienAnhFragment;
 import com.base.moviebooking.ui.rapphim.RapFragment;
 import com.base.moviebooking.ui.taikhoan.TaiKhoanFragment;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -83,7 +87,20 @@ public class HomeFragment extends BaseFragment<HomeFragmentBinding> {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
         binding.rcvSearch.setLayoutManager(gridLayoutManager);
 
-        homeAdapter = new HomeAdapter(getContext(),false,getContext());
+        homeAdapter = new HomeAdapter(getContext(), false, getContext(), new OnChooseRecyclerView() {
+            @Override
+            public void onChoosePhim(Phim phim) {
+                mViewController.addFragment(ChonGheFragment.class,null);
+
+
+
+            }
+
+            @Override
+            public void onChooseRap(Rap rap) {
+
+            }
+        });
         homeAdapter.addModels(getListModel(),false);
         binding.rcvSearch.setAdapter(homeAdapter);
     }
@@ -113,11 +130,12 @@ public class HomeFragment extends BaseFragment<HomeFragmentBinding> {
         return list;
     }
     private List<Phim> getListModel() {
-        phimList.add(new Phim("Titanic",R.drawable.slide1,"15/5/2022","Kể về vụ đắm thuyền ngọt ngào"));
-        phimList.add(new Phim("Titanic",R.drawable.slide2,"15/5/2022","Kể về vụ đắm thuyền ngọt ngào"));
-        phimList.add(new Phim("Spiderman",R.drawable.slide3,"15/5/2022","Kể về vụ đắm thuyền ngọt ngào"));
-        phimList.add(new Phim("Marvel",R.drawable.slide1,"15/5/2022","Kể về vụ đắm thuyền ngọt ngào"));
-        phimList.add(new Phim("Titanic",R.drawable.slide4,"15/5/2022","Kể về vụ đắm thuyền ngọt ngào"));
+        phimList.add(new Phim("Vệ binh dải ngân hà 3",R.drawable.phim1,"15/5/2022","Kể về vụ đắm thuyền ngọt ngào"));
+        phimList.add(new Phim("Titanic",R.drawable.phim2,"15/5/2022","Kể về vụ đắm thuyền ngọt ngào"));
+        phimList.add(new Phim("Spiderman",R.drawable.phim1,"15/5/2022","Kể về vụ đắm thuyền ngọt ngào"));
+        phimList.add(new Phim("Marvel",R.drawable.phim2,"15/5/2022","Kể về vụ đắm thuyền ngọt ngào"));
+        phimList.add(new Phim("Mèo siêu quậy ở viện bảo tàng 2",R.drawable.phim1,"15/5/2022","Kể về vụ đắm thuyền ngọt ngào"));
+        phimList.add(new Phim("Mèo siêu quậy ở viện bảo tàng 2",R.drawable.phim1,"15/5/2022","Kể về vụ đắm thuyền ngọt ngào"));
         return phimList;
     }
     @Override

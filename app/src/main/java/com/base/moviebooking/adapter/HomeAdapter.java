@@ -3,31 +3,24 @@ package com.base.moviebooking.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.base.moviebooking.OnChooseRecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.base.EndlessLoadingRecyclerViewAdapter;
-import com.base.moviebooking.base.RecyclerViewAdapter;
-import com.base.moviebooking.databinding.HomeFragmentBinding;
 import com.base.moviebooking.databinding.RcvPhimHomeBinding;
 import com.base.moviebooking.entity.Phim;
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
-
 public class HomeAdapter extends EndlessLoadingRecyclerViewAdapter<RcvPhimHomeBinding> {
     private Context mContext;
+    private OnChooseRecyclerView mOnChooseRecyclerView;
 
-
-    public HomeAdapter(Context context, boolean enableSelectedMode, Context mContext) {
+    public HomeAdapter(Context context, boolean enableSelectedMode, Context mContext, OnChooseRecyclerView onChooseRecyclerView) {
         super(context, enableSelectedMode);
         this.mContext = context;
-
+        this.mOnChooseRecyclerView = onChooseRecyclerView;
     }
 
     @Override
@@ -39,6 +32,7 @@ public class HomeAdapter extends EndlessLoadingRecyclerViewAdapter<RcvPhimHomeBi
     protected void bindNormalViewHolder(NormalViewHolder holder, int position) {
         PhimViewHolder searchViewHolder = (PhimViewHolder) holder;
         searchViewHolder.bind(getItem(position, Phim.class));
+//        searchViewHolder.binding.image.setImageResource(R.drawable.antman);
     }
 
     @Override
@@ -57,7 +51,16 @@ public class HomeAdapter extends EndlessLoadingRecyclerViewAdapter<RcvPhimHomeBi
 
         @Override
         public void bind(Phim data) {
-
+            Glide.with(mContext)
+                    .load(data.getUrlImage())
+                    .into(binding.image);
+            binding.setPhim(data);
+            binding.lnPhim.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mOnChooseRecyclerView.onChoosePhim(data);
+                }
+            });
 //            if (data.getAvatar() != null) {
 //                Glide.with(mContext)
 //                        .load(BASE_STORAGE + data.getAvatar())
