@@ -15,6 +15,7 @@ import com.base.moviebooking.adapter.SeatAdapter;
 import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.ChongheFragmentBinding;
 import com.base.moviebooking.entity.DienAnh;
+import com.base.moviebooking.entity.LichChieu;
 import com.base.moviebooking.entity.Phim;
 import com.base.moviebooking.entity.Rap;
 import com.base.moviebooking.entity.Seat;
@@ -56,6 +57,11 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
 
             @Override
             public void onChooseRap(Rap rap) {
+
+            }
+
+            @Override
+            public void onChooseLichChieu(LichChieu lichChieu) {
 
             }
         });

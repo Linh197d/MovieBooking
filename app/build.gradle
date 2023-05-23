@@ -104,9 +104,7 @@ dependencies {
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
-
-    //tedpermission
-    implementation 'io.github.ParkSangGwon:tedpermission-normal:3.3.0'
+    
     //glide
     implementation 'com.github.bumptech.glide:glide:4.14.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
@@ -115,9 +113,10 @@ dependencies {
     //ted bottom
     implementation 'gun0912.ted:tedbottompicker:1.2.6'
     implementation 'io.github.ParkSangGwon:tedpermission-normal:3.3.0'
-    //expandablelayout
-    implementation "com.github.skydoves:expandablelayout:1.0.7"
+
     // circle indicator
     implementation 'me.relex:circleindicator:2.1.6'
+    //palette
+    implementation 'androidx.palette:palette:1.0.0'
 
 }

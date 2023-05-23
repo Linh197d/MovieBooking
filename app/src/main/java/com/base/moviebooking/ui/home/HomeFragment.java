@@ -13,11 +13,13 @@ import com.base.moviebooking.adapter.HomeAdapter;
 import com.base.moviebooking.adapter.SlideAdapter;
 import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.HomeFragmentBinding;
+import com.base.moviebooking.entity.LichChieu;
 import com.base.moviebooking.entity.Phim;
 import com.base.moviebooking.entity.Rap;
 import com.base.moviebooking.entity.Slide;
 import com.base.moviebooking.ui.chonghe.ChonGheFragment;
 import com.base.moviebooking.ui.dienanh.DienAnhFragment;
+import com.base.moviebooking.ui.lichphim.LichPhimFragment;
 import com.base.moviebooking.ui.rapphim.RapFragment;
 import com.base.moviebooking.ui.taikhoan.TaiKhoanFragment;
 
@@ -90,14 +92,17 @@ public class HomeFragment extends BaseFragment<HomeFragmentBinding> {
         homeAdapter = new HomeAdapter(getContext(), false, getContext(), new OnChooseRecyclerView() {
             @Override
             public void onChoosePhim(Phim phim) {
-                mViewController.addFragment(ChonGheFragment.class,null);
-
-
+                mViewController.addFragment(LichPhimFragment.class,null);
 
             }
 
             @Override
             public void onChooseRap(Rap rap) {
+
+            }
+
+            @Override
+            public void onChooseLichChieu(LichChieu lichChieu) {
 
             }
         });

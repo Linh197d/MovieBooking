@@ -9,10 +9,14 @@ import com.base.moviebooking.ui.dangky.DangKyViewModel;
 import com.base.moviebooking.ui.dangnhap.DangNhapViewModel;
 import com.base.moviebooking.ui.dienanh.DienAnhViewModel;
 import com.base.moviebooking.ui.home.HomeViewModel;
+import com.base.moviebooking.ui.lichchieu.LichChieuViewModel;
+import com.base.moviebooking.ui.lichphim.LichPhimViewModel;
 import com.base.moviebooking.ui.main.MainViewModel;
 import com.base.moviebooking.ui.rapphim.RapViewModel;
 import com.base.moviebooking.ui.splash.SplashViewModel;
 import com.base.moviebooking.ui.taikhoan.TaiKhoanViewModel;
+import com.base.moviebooking.ui.thongtinphim.ThongTinPhimFragment;
+import com.base.moviebooking.ui.thongtinphim.ThongTinPhimViewModel;
 
 import dagger.Binds;
 import dagger.Module;
@@ -62,6 +66,21 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ChonGheViewModel.class)
     abstract ViewModel bindChonGheViewModel(ChonGheViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(LichPhimViewModel.class)
+    abstract ViewModel bindLichPhimViewModel(LichPhimViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(LichChieuViewModel.class)
+    abstract ViewModel bindLichChieuViewModel(LichChieuViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ThongTinPhimViewModel.class)
+    abstract ViewModel bindThongTinPhimViewModel(ThongTinPhimViewModel viewModel);
 
     @Binds
     @IntoMap

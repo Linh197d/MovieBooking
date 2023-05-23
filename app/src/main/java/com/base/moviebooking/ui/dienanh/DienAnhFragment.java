@@ -22,6 +22,7 @@ import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.DienanhFragmentBinding;
 import com.base.moviebooking.databinding.SplashFragmentBinding;
 import com.base.moviebooking.entity.DienAnh;
+import com.base.moviebooking.entity.LichChieu;
 import com.base.moviebooking.entity.Phim;
 import com.base.moviebooking.entity.Rap;
 import com.base.moviebooking.ui.home.HomeFragment;
@@ -64,6 +65,11 @@ public class DienAnhFragment extends BaseFragment<DienanhFragmentBinding> {
 
             @Override
             public void onChooseRap(Rap rap) {
+
+            }
+
+            @Override
+            public void onChooseLichChieu(LichChieu lichChieu) {
 
             }
         });
