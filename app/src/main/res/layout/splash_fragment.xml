@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#4BAEBD"
+        android:background="@color/colorBlack"
         tools:context="com.base.moviebooking.ui.splash.SplashFragment">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -24,7 +24,7 @@
             android:textSize="30sp"
             android:textStyle="bold"
             android:layout_marginTop="120dp"
-            android:textColor="@color/colorBlack" />
+            android:textColor="@color/yellow" />
 
     </FrameLayout>
 </layout>
