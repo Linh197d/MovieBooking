@@ -3,8 +3,8 @@
     <data>
 
         <variable
-            name="rap"
-            type="com.base.moviebooking.entity.Rap" />
+            name="theater"
+            type="com.base.moviebooking.entity.Theater" />
     </data>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -22,7 +22,7 @@
             android:layout_margin="10dp"
             android:scaleType="fitXY"
             app:shapeAppearanceOverlay="@style/roundedCorners"
-            android:src="@drawable/antman" />
+            android:src="@drawable/rap1" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{rap.tenRap}"
+                android:text="@{theater.tenRap}"
                 android:textColor="@color/colorBlack"
                 android:textSize="17sp"
                 android:textStyle="bold"
@@ -40,14 +40,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Địa chỉ: 116 Nguễn Du"
+                android:text="@{theater.diachi}"
                 android:textColor="@color/colorBlack"
                 android:textSize="17sp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Phone:09318231283"
+                android:text="Phone:0123456789"
                 android:textColor="@color/colorBlack"
                 android:textSize="17sp"
                 />

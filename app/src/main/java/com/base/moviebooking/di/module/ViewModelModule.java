@@ -4,19 +4,22 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.base.moviebooking.di.ViewModelFactory;
+import com.base.moviebooking.ui.account.AccountViewModel;
 import com.base.moviebooking.ui.chonghe.ChonGheViewModel;
-import com.base.moviebooking.ui.dangky.DangKyViewModel;
-import com.base.moviebooking.ui.dangnhap.DangNhapViewModel;
-import com.base.moviebooking.ui.dienanh.DienAnhViewModel;
+import com.base.moviebooking.ui.film_info.FilmInfoViewModel;
+import com.base.moviebooking.ui.giaodich.GiaoDichViewModel;
 import com.base.moviebooking.ui.home.HomeViewModel;
-import com.base.moviebooking.ui.lichchieu.LichChieuViewModel;
-import com.base.moviebooking.ui.lichphim.LichPhimViewModel;
 import com.base.moviebooking.ui.main.MainViewModel;
-import com.base.moviebooking.ui.rapphim.RapViewModel;
+import com.base.moviebooking.ui.show_time.ShowTimeViewModel;
+import com.base.moviebooking.ui.show_time_child.ShowTimeChildViewModel;
+import com.base.moviebooking.ui.sign_in.SignInViewModel;
+import com.base.moviebooking.ui.sign_up.SignUpViewModel;
 import com.base.moviebooking.ui.splash.SplashViewModel;
-import com.base.moviebooking.ui.taikhoan.TaiKhoanViewModel;
-import com.base.moviebooking.ui.thongtinphim.ThongTinPhimFragment;
-import com.base.moviebooking.ui.thongtinphim.ThongTinPhimViewModel;
+import com.base.moviebooking.ui.thanhtoan.ThanhToanViewModel;
+import com.base.moviebooking.ui.theater.TheaterViewModel;
+import com.base.moviebooking.ui.detail_movie.DetailMovieViewModel;
+import com.base.moviebooking.ui.thongtin_Thanhtoan.ThongTinThanhToanViewModel;
+import com.base.moviebooking.ui.user_info.UserInfoViewModel;
 
 import dagger.Binds;
 import dagger.Module;
@@ -38,29 +41,29 @@ public abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(TaiKhoanViewModel.class)
-    abstract ViewModel bindTaiKhoanViewModel(TaiKhoanViewModel viewModel);
+    @ViewModelKey(AccountViewModel.class)
+    abstract ViewModel bindAccountViewModel(AccountViewModel viewModel);
 
     @Binds
     @IntoMap
-    @ViewModelKey(DienAnhViewModel.class)
-    abstract ViewModel bindDienAnhViewModel(DienAnhViewModel viewModel);
+    @ViewModelKey(FilmInfoViewModel.class)
+    abstract ViewModel bindFilmInfoViewModel(FilmInfoViewModel viewModel);
 
 
     @Binds
     @IntoMap
-    @ViewModelKey(RapViewModel.class)
-    abstract ViewModel bindRapViewModel(RapViewModel viewModel);
+    @ViewModelKey(TheaterViewModel.class)
+    abstract ViewModel bindTheaterViewModel(TheaterViewModel viewModel);
 
     @Binds
     @IntoMap
-    @ViewModelKey(DangKyViewModel.class)
-    abstract ViewModel bindDangKyViewModel(DangKyViewModel viewModel);
+    @ViewModelKey(SignUpViewModel.class)
+    abstract ViewModel bindSignUpViewModel(SignUpViewModel viewModel);
 
     @Binds
     @IntoMap
-    @ViewModelKey(DangNhapViewModel.class)
-    abstract ViewModel bindDangNhapViewModel(DangNhapViewModel viewModel);
+    @ViewModelKey(SignInViewModel.class)
+    abstract ViewModel bindSignInViewModel(SignInViewModel viewModel);
 
     @Binds
     @IntoMap
@@ -69,18 +72,39 @@ public abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(LichPhimViewModel.class)
-    abstract ViewModel bindLichPhimViewModel(LichPhimViewModel viewModel);
+    @ViewModelKey(ShowTimeViewModel.class)
+    abstract ViewModel bindShowTimeViewModel(ShowTimeViewModel viewModel);
 
     @Binds
     @IntoMap
-    @ViewModelKey(LichChieuViewModel.class)
-    abstract ViewModel bindLichChieuViewModel(LichChieuViewModel viewModel);
+    @ViewModelKey(ShowTimeChildViewModel.class)
+    abstract ViewModel bindShowTimeChildViewModel(ShowTimeChildViewModel viewModel);
 
     @Binds
     @IntoMap
-    @ViewModelKey(ThongTinPhimViewModel.class)
-    abstract ViewModel bindThongTinPhimViewModel(ThongTinPhimViewModel viewModel);
+    @ViewModelKey(ThanhToanViewModel.class)
+    abstract ViewModel bindThanhToanViewModel(ThanhToanViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ThongTinThanhToanViewModel.class)
+    abstract ViewModel bindThongTinThanhToanViewModel(ThongTinThanhToanViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(GiaoDichViewModel.class)
+    abstract ViewModel bindGiaoDichViewModel(GiaoDichViewModel viewModel);
+
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(UserInfoViewModel.class)
+    abstract ViewModel bindUserInfoViewModel(UserInfoViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailMovieViewModel.class)
+    abstract ViewModel bindDetailMovieViewModel(DetailMovieViewModel viewModel);
 
     @Binds
     @IntoMap

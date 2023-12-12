@@ -1,17 +1,22 @@
 package com.base.moviebooking.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.base.moviebooking.OnChooseRecyclerView;
+import com.base.moviebooking.listener.OnChooseRecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.base.EndlessLoadingRecyclerViewAdapter;
 import com.base.moviebooking.databinding.RcvPhimHomeBinding;
-import com.base.moviebooking.entity.Phim;
-import com.bumptech.glide.Glide;
+import com.base.moviebooking.entity.Movie;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class HomeAdapter extends EndlessLoadingRecyclerViewAdapter<RcvPhimHomeBinding> {
     private Context mContext;
@@ -31,7 +36,7 @@ public class HomeAdapter extends EndlessLoadingRecyclerViewAdapter<RcvPhimHomeBi
     @Override
     protected void bindNormalViewHolder(NormalViewHolder holder, int position) {
         PhimViewHolder searchViewHolder = (PhimViewHolder) holder;
-        searchViewHolder.bind(getItem(position, Phim.class));
+        searchViewHolder.bind(getItem(position, Movie.class));
 //        searchViewHolder.binding.image.setImageResource(R.drawable.antman);
     }
 
@@ -41,7 +46,7 @@ public class HomeAdapter extends EndlessLoadingRecyclerViewAdapter<RcvPhimHomeBi
     }
 
 
-    public class PhimViewHolder extends NormalViewHolder<Phim> {
+    public class PhimViewHolder extends NormalViewHolder<Movie> {
         private RcvPhimHomeBinding binding;
 
         PhimViewHolder(RcvPhimHomeBinding binding) {
@@ -50,11 +55,17 @@ public class HomeAdapter extends EndlessLoadingRecyclerViewAdapter<RcvPhimHomeBi
         }
 
         @Override
-        public void bind(Phim data) {
-            Glide.with(mContext)
-                    .load(data.getUrlImage())
-                    .into(binding.image);
-            binding.setPhim(data);
+        public void bind(Movie data) {
+
+
+            // doi anh base64
+            String base64Image = data.getImage();
+//            Log.d("mmm","base64"+base64Image,null);
+            byte[] imageBytes = Base64.decode(parseBase64(base64Image), Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+            binding.image.setImageBitmap(bitmap);
+            binding.tvtAgeLimit.setText("C" + data.getAgeLimit());
+            binding.setMovie(data);
             binding.lnPhim.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -62,20 +73,25 @@ public class HomeAdapter extends EndlessLoadingRecyclerViewAdapter<RcvPhimHomeBi
                     mOnChooseRecyclerView.onChoosePhim(data);
                 }
             });
-//            if (data.getAvatar() != null) {
-//                Glide.with(mContext)
-//                        .load(BASE_STORAGE + data.getAvatar())
-//                        .into(binding.avatarDoctor);
-//            }
-//            if (data.getCreated_by() != 2) {
-//                binding.lskbOut.setVisibility(View.GONE);
-//                binding.deleteLSKBIn.setVisibility(View.VISIBLE);
-//            } else {
-//                binding.lskbOut.setVisibility(View.GONE);
-//                binding.deleteLSKBIn.setVisibility(View.GONE);
-//            }
 
 
         }
+    }
+
+    public static String parseBase64(String base64) {
+
+        try {
+            Pattern pattern = Pattern.compile("((?<=base64,).*\\s*)", Pattern.DOTALL | Pattern.MULTILINE);
+            Matcher matcher = pattern.matcher(base64);
+            if (matcher.find()) {
+                return matcher.group().toString();
+            } else {
+                return "";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return "";
     }
 }

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
@@ -62,16 +61,20 @@
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/bg_image.xml" value="0.1" />
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/bg_indicator.xml" value="0.1" />
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/bg_rate_phim.xml" value="0.1" />
+        <entry key="..\:/MovieBooking/app/src/main/res/drawable/choose_ghe.xml" value="0.11" />
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/custom_avatar.xml" value="0.131" />
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/custom_back_tab.xml" value="0.131" />
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/custom_bg_dialog_camera.xml" value="0.131" />
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/custom_bg_dialog_delete_lskb.xml" value="0.131" />
+        <entry key="..\:/MovieBooking/app/src/main/res/drawable/custom_bg_dienanh.xml" value="0.1" />
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/custom_bg_user_nodata.xml" value="0.131" />
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/custom_blur_lnlayout.xml" value="0.131" />
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/custom_button_login.xml" value="0.1" />
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/custom_button_no.xml" value="0.1" />
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/custom_button_yes.xml" value="0.1" />
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/custom_camera.xml" value="0.1" />
+        <entry key="..\:/MovieBooking/app/src/main/res/drawable/custom_seat_frame.xml" value="0.1275" />
+        <entry key="..\:/MovieBooking/app/src/main/res/drawable/custom_selected_seat.xml" value="0.11" />
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/custom_tab.xml" value="0.1105" />
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/custom_ttcn.xml" value="0.1" />
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/custombarbottom.xml" value="0.122" />
@@ -81,14 +84,18 @@
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/customtab4.xml" value="0.1" />
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/ic_launcher_background.xml" value="0.104" />
         <entry key="..\:/MovieBooking/app/src/main/res/drawable/line_yellow.xml" value="0.1" />
+        <entry key="..\:/MovieBooking/app/src/main/res/drawable/seat_choose_custom.xml" value="0.1245" />
+        <entry key="..\:/MovieBooking/app/src/main/res/drawable/seat_custom.xml" value="0.13333333333333333" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/activity_main.xml" value="0.13333333333333333" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/chonghe_fragment.xml" value="0.14666666666666667" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/count_notify_fragment.xml" value="0.1" />
-        <entry key="..\:/MovieBooking/app/src/main/res/layout/dangky_fragment.xml" value="0.16666666666666666" />
+        <entry key="..\:/MovieBooking/app/src/main/res/layout/dangky_fragment.xml" value="0.22" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/dangnhap_fragment.xml" value="0.16666666666666666" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/dialog_loading.xml" value="0.1" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/dienanh_fragment.xml" value="0.13766566908935443" />
+        <entry key="..\:/MovieBooking/app/src/main/res/layout/film_info_child_fragment.xml" value="0.16873065015479877" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/fragment_tab1.xml" value="0.13766566908935443" />
+        <entry key="..\:/MovieBooking/app/src/main/res/layout/giaodich_fragment.xml" value="0.1" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/header.xml" value="0.13766566908935443" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/header_phim.xml" value="0.13766566908935443" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/home_fragment.xml" value="0.16666666666666666" />
@@ -101,19 +108,23 @@
         <entry key="..\:/MovieBooking/app/src/main/res/layout/lich_chieu_fragment.xml" value="0.14666666666666667" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/lich_phim.xml" value="0.14666666666666667" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/lskhambenh.xml" value="0.1" />
-        <entry key="..\:/MovieBooking/app/src/main/res/layout/rapphim_fragment.xml" value="0.3333333333333333" />
+        <entry key="..\:/MovieBooking/app/src/main/res/layout/rapphim_fragment.xml" value="0.27692307692307694" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/rcv_blood_type.xml" value="0.1" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/rcv_count_notify.xml" value="0.1" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/rcv_dienanh.xml" value="0.13766566908935443" />
+        <entry key="..\:/MovieBooking/app/src/main/res/layout/rcv_giaodich.xml" value="0.16666666666666666" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/rcv_giochieu.xml" value="0.11397214014352047" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/rcv_lichchieu.xml" value="0.14666666666666667" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/rcv_lichphim1.xml" value="0.1" />
-        <entry key="..\:/MovieBooking/app/src/main/res/layout/rcv_phim_home.xml" value="0.1" />
+        <entry key="..\:/MovieBooking/app/src/main/res/layout/rcv_phim_home.xml" value="0.16666666666666666" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/rcv_rap.xml" value="0.13766566908935443" />
-        <entry key="..\:/MovieBooking/app/src/main/res/layout/rcv_seat.xml" value="0.22" />
+        <entry key="..\:/MovieBooking/app/src/main/res/layout/rcv_seat.xml" value="0.4466666666666667" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/splash_fragment.xml" value="0.16666666666666666" />
-        <entry key="..\:/MovieBooking/app/src/main/res/layout/taikhoan_fragment.xml" value="0.2948717948717949" />
-        <entry key="..\:/MovieBooking/app/src/main/res/layout/thongtin_fragment.xml" value="0.1" />
+        <entry key="..\:/MovieBooking/app/src/main/res/layout/taikhoan_fragment.xml" value="0.16666666666666666" />
+        <entry key="..\:/MovieBooking/app/src/main/res/layout/thanhtoan_fragment.xml" value="0.14666666666666667" />
+        <entry key="..\:/MovieBooking/app/src/main/res/layout/thongtin_fragment.xml" value="0.16666666666666666" />
+        <entry key="..\:/MovieBooking/app/src/main/res/layout/thongtin_thanhtoan_fragment.xml" value="0.16666666666666666" />
+        <entry key="..\:/MovieBooking/app/src/main/res/layout/user_info_fragment.xml" value="0.21359223300970873" />
         <entry key="..\:/MovieBooking/app/src/main/res/layout/viewpager_dienanh.xml" value="0.13766566908935443" />
         <entry key="..\:/MovieBooking/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.1" />
         <entry key="..\:/MovieBooking/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1225" />
@@ -123,7 +134,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

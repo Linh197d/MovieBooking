@@ -7,50 +7,53 @@
         android:layout_width="match_parent"
        android:layout_height="match_parent">
     <include
-
-        layout="@layout/header"/>
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
-        >
+        android:layout_height="50dp"
+        layout="@layout/header"
+        android:layout_width="match_parent" />
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:orientation="vertical"
             >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
             <ImageView
                 android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_height="30dp"
                 android:src="@drawable/map"
-              app:tint="@color/colorStrokeBlue"
+                app:tint="@color/yellow"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Toàn quốc"
+                android:layout_gravity="center"
+                android:layout_marginTop="1dp"
+                android:textSize="18sp"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/colorBlack"
                 />
+            </LinearLayout>
 
-        </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorBlack"
                 />
+        </LinearLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/rcv_rapphim"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="60dp"
                 android:layout_marginHorizontal="10dp"
                 />
-        </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
     </FrameLayout>
 </layout>

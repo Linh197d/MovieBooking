@@ -7,9 +7,13 @@
     <color name="colorTextGrey">#808080</color>
     <color name="colorBackGround">#F2F2F2</color>
     <color name="colorBlack">#000000</color>
-    <color name="colorTextHealth">#080909</color>
-    <color name="colorTextUser">#060215</color>
+    <color name="colorBgBlack">#2C2B2B</color>
+
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBackGroundGrey">#D6D6D6</color>
     <color name="colorStrokeBlue">#4BAEBD</color>
+    <color name="colorOrange">#FF5722</color>
+    <color name="red">#D30A22</color>
+    <color name="green">#4CAF50</color>
+    <color name="yellow">#FF9800</color>
 </resources>

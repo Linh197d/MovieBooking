@@ -1,10 +1,19 @@
 package com.base.moviebooking.entity;
 
-public class Rap {
+public class Theater {
+
+    private int id;
     private String tenRap;
     private int urlImage;
     private String diachi;
     private String phone;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTenRap() {
         return tenRap;
@@ -38,7 +47,8 @@ public class Rap {
         this.phone = phone;
     }
 
-    public Rap(String tenRap, int urlImage, String diachi, String phone) {
+    public Theater(int id,String tenRap, int urlImage, String diachi, String phone) {
+        this.id= id;
         this.tenRap = tenRap;
         this.urlImage = urlImage;
         this.diachi = diachi;

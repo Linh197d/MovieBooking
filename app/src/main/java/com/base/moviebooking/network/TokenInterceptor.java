@@ -18,19 +18,12 @@ public class TokenInterceptor implements Interceptor {
     @NonNull
     @Override
     public Response intercept(Interceptor.Chain chain) throws IOException {
-        /*String accessToken="";
-        if ( DataLocalManager.getAccessToken()!=null){//DataLocalManager.getInstance()!=null &&
-            accessToken = DataLocalManager.getAccessToken();
-        }*/
+
         Request.Builder ongoing = chain.request().newBuilder();
         Response response = chain.proceed(ongoing.build());
         int responseCode = response.code();
         //handle token expire here
-        /* response = response.newBuilder()
-                    .addHeader( "Authorization",
-                            "Bearer " + accessToken)
-                    .build();
-                        Log.d("fatggg","header: "+accessToken);*/
+
         return response;
     }
 }

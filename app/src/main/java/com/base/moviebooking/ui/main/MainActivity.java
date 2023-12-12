@@ -1,31 +1,20 @@
 package com.base.moviebooking.ui.main;
 
-import android.annotation.SuppressLint;
 import android.graphics.Color;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
-import com.aurelhubert.ahbottomnavigation.notification.AHNotification;
 import com.base.moviebooking.R;
 import com.base.moviebooking.base.BaseActivity;
+import com.base.moviebooking.base.ViewController;
 import com.base.moviebooking.databinding.ActivityMainBinding;
-import com.base.moviebooking.ui.dienanh.DienAnhFragment;
+import com.base.moviebooking.ui.account.AccountFragment;
+import com.base.moviebooking.ui.film_info.FilmInfoFragment;
 import com.base.moviebooking.ui.home.HomeFragment;
-import com.base.moviebooking.ui.rapphim.RapFragment;
 import com.base.moviebooking.ui.splash.SplashFragment;
-import com.base.moviebooking.ui.taikhoan.TaiKhoanFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.base.moviebooking.ui.theater.TheaterFragment;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
-
     @Override
     public int getLayoutId() {
         return R.layout.activity_main;
@@ -36,33 +25,12 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         return R.id.frame_layout_parent;
     }
 
+    public ViewController getViewController(){
+        return mViewController ;
+    }
     @Override
     public void initView() {
-//        BottomNavigationView bottomNavigation = findViewById(R.id.bottombar);
-//        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                switch (item.getItemId()){
-//                    case R.id.btnTrangchu:
-//                        mViewController.replaceFragment(HomeFragment.class,null);
-//                        break;
-//                    case R.id.btnDienAnh:
-//                        mViewController.replaceFragment(DienAnhFragment.class,null);
-//                        break;
-//
-//                    case R.id.btnRapPhim:
-//                        mViewController.replaceFragment(
-//                                RapFragment.class,null);
-//                        break;
-//
-//                    case R.id.btnTaiKhoan:
-//                        mViewController.replaceFragment(TaiKhoanFragment.class,null);
-//                        break;
-//
-//                }
-//                return true;
-//            }
-//        });
+
         mViewController.addFragment(SplashFragment.class, null);
         AHBottomNavigation bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottombar);
 
@@ -82,7 +50,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 //        // Use colored navigation with circle reveal effect
 //        bottomNavigation.setColored(true);
         // Change colors
-        bottomNavigation.setAccentColor(Color.parseColor("#4BAEBD"));
+        bottomNavigation.setAccentColor(Color.parseColor("#FFFF9800"));
 //        bottomNavigation.setInactiveColor(Color.parseColor("#4BAEBD"));
 //        // Add or remove notification for each item
 //        bottomNavigation.setNotification("1", 3);
@@ -113,15 +81,15 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
                         mViewController.replaceFragment(HomeFragment.class,null);
                         break;
                     case 1:
-                        mViewController.replaceFragment(RapFragment.class,null);
+                        mViewController.replaceFragment(TheaterFragment.class,null);
                         break;
 
                     case 2:
-                        mViewController.replaceFragment(DienAnhFragment.class,null);
+                        mViewController.replaceFragment(FilmInfoFragment.class,null);
                         break;
 
                     case 3:
-                        mViewController.replaceFragment(TaiKhoanFragment.class,null);
+                        mViewController.replaceFragment(AccountFragment.class,null);
                         break;
 
                 }

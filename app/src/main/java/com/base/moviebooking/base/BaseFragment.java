@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.base.moviebooking.utils.Define;
 import com.base.moviebooking.utils.DialogUtil;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -85,6 +86,8 @@ public abstract class BaseFragment<T extends ViewDataBinding> extends DaggerFrag
                 } else if (((ArrayList) entry.getValue()).size() > 0 && ((ArrayList) entry.getValue()).get(0) instanceof Parcelable) {
                     bundle.putParcelableArrayList(entry.getKey(), (ArrayList<? extends Parcelable>) entry.getValue());
                 }
+            } else if (entry.getValue() instanceof Serializable) {
+                bundle.putSerializable(entry.getKey(), (Serializable) entry.getValue());
             }
         }
         setArguments(bundle);

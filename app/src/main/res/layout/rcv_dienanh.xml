@@ -4,7 +4,7 @@
 
         <variable
             name="dienanh"
-            type="com.base.moviebooking.entity.DienAnh" />
+            type="com.base.moviebooking.entity.FilmInfo" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -13,10 +13,12 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
+        android:background="@drawable/custom_bg_dienanh"
         style="@style/roundedCorners"
-        android:background="#E1E4DC"
         android:orientation="vertical"
         android:layout_margin="20dp"
+        android:id="@+id/ln_filminfo"
+        android:paddingBottom="20dp"
         >
 
 
@@ -39,15 +41,11 @@
                 android:text="@{dienanh.tenDienAnh}"
                 android:textColor="@color/colorBlack"
                 android:textSize="17sp"
+                android:layout_marginHorizontal="20dp"
                 android:textStyle="bold"
+                android:gravity="center"
                 />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Đọc thêm"
-                android:textColor="@color/colorStrokeBlue"
-                android:textSize="17sp"
-                />
+
 
 
         </LinearLayout>

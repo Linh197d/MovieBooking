@@ -1,11 +1,11 @@
-package com.base.moviebooking.ui.home;
+package com.base.moviebooking.ui.account;
 
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
 import com.base.moviebooking.base.BaseViewModel;
-import com.base.moviebooking.entity.Movie;
+import com.base.moviebooking.entity.Account;
 import com.base.moviebooking.network.repository.Repository;
 
 import java.util.List;
@@ -15,30 +15,31 @@ import javax.inject.Inject;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
-public class HomeViewModel extends BaseViewModel {
-    private final Repository repository;
-    MutableLiveData<List<Movie>> dataMovie = new MutableLiveData<>();
+public class AccountViewModel extends BaseViewModel {
+    private Repository repository;
+    MutableLiveData<List<Account>> dataUser = new MutableLiveData<>();
 
-    public MutableLiveData<List<Movie>> getDataMovie() {
-        return dataMovie;
+    public MutableLiveData<List<Account>> getDataUser() {
+        return dataUser;
     }
 
     @Inject
-    public HomeViewModel(Repository repository) {
+    public AccountViewModel(Repository repository) {
         this.repository = repository;
     }
 
-    public void getData() {
-        repository.getMovieData()
-                .subscribe(new SingleObserver<List<Movie>>() {
+
+    public void getInfo() {
+        repository.getInfoUser()
+                .subscribe(new SingleObserver<List<Account>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                     }
 
                     @Override
-                    public void onSuccess(List<Movie> movieListResponse) {
-                        dataMovie.postValue(movieListResponse);
-                        Log.d("fat", "successHomeViewMOdell");
+                    public void onSuccess(List<Account> account) {
+                        dataUser.postValue(account);
+                        Log.d("fat", "success get Data User");
                     }
 
 
@@ -51,6 +52,3 @@ public class HomeViewModel extends BaseViewModel {
 
 
 }
-
-
-

@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.base.EndlessLoadingRecyclerViewAdapter;
 import com.base.moviebooking.databinding.RcvRapBinding;
-import com.base.moviebooking.entity.Rap;
+import com.base.moviebooking.entity.Theater;
 import com.bumptech.glide.Glide;
 
-public class RapAdapter extends EndlessLoadingRecyclerViewAdapter<RcvRapBinding> {
+public class TheaterAdapter extends EndlessLoadingRecyclerViewAdapter<RcvRapBinding> {
     private final Context mContext;
 
-    public RapAdapter(Context context, boolean enableSelectedMode, Context mContext) {
+    public TheaterAdapter(Context context, boolean enableSelectedMode, Context mContext) {
         super(context, enableSelectedMode);
         this.mContext = mContext;
     }
@@ -29,7 +29,7 @@ public class RapAdapter extends EndlessLoadingRecyclerViewAdapter<RcvRapBinding>
     @Override
     protected void bindNormalViewHolder(NormalViewHolder holder, int position) {
         RapViewHolder searchViewHolder = (RapViewHolder) holder;
-        searchViewHolder.bind(getItem(position, Rap.class));
+        searchViewHolder.bind(getItem(position, Theater.class));
     }
 
     @Override
@@ -38,7 +38,7 @@ public class RapAdapter extends EndlessLoadingRecyclerViewAdapter<RcvRapBinding>
     }
 
 
-    public class RapViewHolder extends NormalViewHolder<Rap> {
+    public class RapViewHolder extends NormalViewHolder<Theater> {
         private final RcvRapBinding binding;
 
         RapViewHolder(RcvRapBinding binding) {
@@ -47,12 +47,12 @@ public class RapAdapter extends EndlessLoadingRecyclerViewAdapter<RcvRapBinding>
         }
 
         @Override
-        public void bind(Rap data) {
-            binding.setRap(data);
+        public void bind(Theater data) {
+            binding.setTheater(data);
             Glide.with(mContext)
                     .load(data.getUrlImage())
                     .into(binding.image);
-            Log.d("fat", "datâRap" + data.getUrlImage(), null);
+//            Log.d("fat", "datâRap" + data.getUrlImage(), null);
         }
     }
 }

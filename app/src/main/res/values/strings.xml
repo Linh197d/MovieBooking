@@ -2,34 +2,61 @@
     <string name="app_name">Movie Booking</string>
     <string name="trangchu">Trang chủ</string>
     <string name="dienanh">Điện ảnh</string>
-    <string name="rapphim">Rạp phim</string>
+    <string name="rapphim">Rạp movie</string>
     <string name="hoso">Hồ sơ</string>
     <string name="taikhoan">Tài khoản</string>
     <string name="thongbao">Thông báo</string>
     <string name="anh">Ảnh</string>
     <string name="vebinhdainganha3">Vệ binh dải ngân hà 3</string>
-
+    <string name="daoquanglinh">Đào Quang Linh</string>
     <string name="dangnhap">Đăng Nhập</string>
     <string name="dangky">Đăng Ký</string>
-
-
     <string name="thoat">Thoát</string>
     <string name="ok">OK</string>
-
     <string name="taohoso">Tạo hồ sơ</string>
     <string name="thongtincanhan">Thông tin cá nhân</string>
     <string name="anhdaidien">Ảnh đại diện</string>
     <string name="birthday">Birthday</string>
     <string name="nu">Nữ</string>
     <string name="nam">Nam</string>
-
-
     <string name="co">Có</string>
     <string name="khong">Không</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dangnhaptaikhoan">Đăng nhập tài khoản</string>
+    <string name="lastofus2">Tập cuối đánh dấu sự thay đổi của cặp nhân vật chính so với đầu phim. Nét ngây thơ và tinh nghịch trong Ellie biến mất, cô bé trở nên trầm tính. Trái ngược thái độ thờ ơ và kiệm lời ở những tập đầu, Joel là người chủ động gợi chuyện, cố tạo niềm vui cho Ellie. Pedro Pascal biểu đạt sự đối lập trong tính cách Joel ở từng giai đoạn.
+Tên tập một When Yourre Lost in the Darkness (Khi bạn lạc lối trong bóng đêm) đối lập tên tập cuối Look for the Light (Tìm kiếm ánh sáng), ẩn dụ cho con người Joel trước và sau khi gặp Ellie. Trong quá khứ, ông đau khổ và vô tâm, thậm chí từng cố gắng tự tử. Đến cuối, ông yêu thương Ellie, tìm được niềm hy vọng để cứu rỗi bản thân. Joel thể hiện tình cảm với Ellie qua ánh mắt trìu mến, bảo vệ cô bé bằng mọi giá dù có phải hành động tàn nhẫn.</string>
+    <string name="lastofus1">The Last of Us gây ấn tượng nhờ bám sát nội dung và kết thúc của game. Đặt cặp nhân vật chính vào những tình huống phải đối đầu con người, mối quan hệ của Ellie và Joel được xây dựng giàu chiều sâu.
+Trong những tập cuối, phim hé lộ quá khứ đồng thời khai thác tâm lý của Ellie. Người xem được dẫn dắt qua nhiều cung bậc cảm xúc, theo dõi hành trình từ cô bé Ellie hồn nhiên tới lúc trở nên bạo lực và tổn thương.Ở tập bảy, tình cảm giữa Ellie và cô bạn thân Riley (Storm Reid) được xây dựng trong sáng đúng với lứa tuổi vị thành niên.
+        Phân đoạn cuối tập là sự bùng nổ về cảm xúc với người hâm mộ game. Joel tìm thấy Ellie và ôm chặt cô, nói: "It's okay, baby girl. I got you" (Không sao đâu bé yêu. Chú đây rồi). Lần cuối Joel nói "baby girl" là với con gái Sarah đã mất. Chi tiết trên khắc họa tình cảm thiêng liêng Joel dành cho Ellie giống mối quan hệ cha - con. Màn kết hợp giữa Pedro Pascal và Bella Ramsey khơi gợi sự xúc động của người xem, từ ánh mắt và giọng nói lo lắng, chan chứa yêu thương của Joel tới vẻ sợ hãi, đau khổ của Ellie.</string>
     <string name="noidung_sample">Trong Fast Five(2011),Dom và nhóm của anh đã tiêu diệt trùm ma tuý người Brazil ở Rio De Janeiro. Điều họ không biết là con trai của Reyes,Dante đã chứng kiến tất cả và dành 12 năm qua để lên một kế hoạch hoàn hảo sẽ khiến gia đình Dom phải trả giá đắt</string>
+    <string name="avatar1">Sau khi loài người thất bại trong cuộc chiến với tộc Na’vi, Jake Sully (Sam Worthington) cùng Neytiri (Zoe Saldana) có với nhau 3 người con. Trong khi đó, Grace Augustine (Sigourney Weaver) bất ngờ mang thai dù đang được ngủ đông, đứa bé chào đời mang tên Kiri (Sigourney Weaver) trở thành con nuôi của gia đình Jake Sully. Ngoài ra, phim còn đánh dấu sự trở lại của đại tá Miles Quartich (Stephen Lang) trong công cuộc xâm lược tiếp theo của “Người Trời” trên đất Pandora.</string>
+    <string name="avatar2">Sau khi giới thiệu hệ sinh thái rừng rậm gồm thảm thực vật cùng các loài động vật “độc lạ Pandora”, phần 2 của phim mang khán giả đến thế giới dưới nước, nơi rực rỡ không kém cạnh rừng núi. Theo nhiều nguồn tin, đoàn phim đã xây dựng một bể chứa nước khổng lồ, thuê chuyên gia để huấn luyện các diễn viên nhịn thở dưới nước, trung bình mỗi người phải nhịn thở từ 4-6 phút mới đạt yêu cầu của đạo diễn.</string>
+    <string name="pussinboots">Mèo đi hia lần đầu xuất hiện trong loạt phim Shrek (từ phần hai đến bốn), sau đó vào vai chính trong Puss in Boots (2011). Ở phần hậu truyện mới nhất, Puss quyết định "rửa tay gác kiếm" sau khi biết anh chỉ còn một mạng cuối cùng và bị The Big Bad Wolf truy đuổi.
 
+Tại trại nuôi mèo, Puss gặp gỡ và làm quen với chú chó Perrito. Không lâu sau, Puss phát hiện về ngôi sao điều ước - thứ có thể giúp anh khôi phục tám mạng sống đã mất. Đồng hành cùng đồng đội cũ Kitty Soft Paws và Perrito, Puss đối đầu băng nhóm Goldilocks và Three Bears - những người muốn sử dụng điều ước với lý do riêng.</string>
+    <string name="pussinboots2">
+        Puss in Boosts: The Last Wish là sự pha trộn giữa yếu tố giải trí và thông điệp nhân văn. Qua lối kể chuyện hóm hỉnh, tác phẩm dẫn dắt người xem vào thế giới tràn đầy màu sắc. Phát huy thế mạnh từ phần trước, tạo hình các nhân vật, những cảnh thi triển phép thuật và phân đoạn chiến đấu được phác họa sinh động.
+Phim miêu tả chân thực tính cách các loài động vật. Không chỉ mang phong cách mạnh mẽ, Puss được xây dựng gần gũi với những hành động giống mèo ở đời thực: Ăn hạt, đi vệ sinh vào chậu cát...
 
+Bên cạnh bầu không khí tươi sáng và đáng yêu, phim còn tạo dựng thành công nét u ám, đen tối - chất liệu ít được sử dụng trong các tác phẩm hoạt hình nhãn P. Nhân vật The Big Bad Wolf toát lên vẻ nguy hiểm, đe dọa tới mạng sống cuối của Puss. Sau nhiều năm phiêu bạt, lần đầu tiên Puss biết sợ hãi trước cái chết khi đối diện kẻ thù không có điểm yếu. Mỗi lúc xuất hiện, The Big Bad Wolf đều huýt vang giai điệu đặc trưng, gợi sự đáng sợ.
+    </string>
+    <string name="blackpanther1">
+        Doanh thu hơn 1,3 tỷ $ cùng gần chục đề cử Oscar và thắng 3 giải, Black Panther là một trong những tác phẩm xuất sắc nhất thuộc vũ trụ điện ảnh Marvel. Chadwick Boseman cũng nhờ vai diễn T’Challa mà đạt đến đỉnh cao sự nghiệp. Thế nhưng, căn bệnh ung thư nghiệt ngã đột ngột cướp đi anh. Kịch bản đầu tiên của Black Panther: Wakanda Forever mãi mãi chẳng thể lên màn ảnh. Việc ngôi sao qua đời  giữa một dự án dài hơi từng xảy ra ở Hollywood. Cách xử lí đơn giản và hợp lí ở thời điểm Black Panther: Wakanda Forever chưa quay cảnh nào là thay diễn viên. Tuy nhiên, với tất cả sự kính trọng dành cho Chadwick Boseman, Marvel từ chối làm việc đó. Hoàn toàn bất ngờ, đạo diễn kiêm biên kịch Ryan Coogler nhận lấy thử thách nặng ngàn cân – sáng tao phần phim mới giữa cảnh thiếu đi cái tên chủ chốt. May mắn và cũng rất tự hào là anh thành công. Di sản “Black Panther” T’Challa, di sản của Chadwick Boseman đang được giữ gìn và tiếp nối. Xem thêm tại: https://www.galaxycine.vn/binh-luan-phim/review-black-panther-wakanda-forever-bao-den-tim-duoc-nguoi-ke-vi-xung-dang
+
+Xem thêm tại: https://www.galaxycine.vn/binh-luan-phim/review-black-panther-wakanda-forever-bao-den-tim-duoc-nguoi-ke-vi-xung-dang
+    </string>
+    <string name="blackpanther2">
+        Wakanda Forever không dài dòng văn tự hay câu giờ để tạo cảm xúc đau buồn. Ngay từ cảnh mở màn, phim buộc khán giả phải trực tiếp đối mặt đau thương. Chỉ trong vài phút đầu tiên, nhà vua T’Challa vĩ đại đã đi xa. Mất Black Panther, đất nước Wakanda đứng trước muôn vàn thử thách. Mất đi người con và người anh tuyệt vời, thông minh, cao cả… Nữ hoàng Ramonda và công chúa Shuri phải chống chọi vơí đủ thứ áp lực để duy trì sự bình yên cho quê nhà. Thế rồi, kẻ thù mới xuất hiện. Hắn mạnh chẳng kém gì Thor và Hulk. Đó là Namor – Thủ lĩnh dân tộc “da xanh” Talokan. Bên cạnh đó, việc là nước duy nhất sở hữu kim loại siêu quý hiếm vibranium khiến Wakanda trở thành miếng mồi ngon trong mắt các nước khác. Hầu hết công chúng sẽ dễ dàng nhận ra trọng tâm về nữ quyền còn nổi bật hơn hình ảnh người da màu đã xây dựng thành công ở phần trước. Đây là chuyện hiển nhiên, khi “đầu tàu” Chadwick Boseman rời đi quá đột ngột và đau đớn. Trọng tâm tôn vinh nền văn hóa, đạo diễn kiêm biên kịch Ryan Coogler tiếp tục chi mạnh tay cho các đại cảnh hoành tráng như đám tang nhà vua T’Challa, cuộc tấn công của tộc Talokan và nhiều trường đoạn mãn nhãn khác... Màu phim trầm, không tươi sáng như đa số “anh em” nhà Marvel. Xem thêm tại: https://www.galaxycine.vn/binh-luan-phim/review-black-panther-wakanda-forever-bao-den-tim-duoc-nguoi-ke-vi-xung-dang
+
+Xem thêm tại: https://www.galaxycine.vn/binh-luan-phim/review-black-panther-wakanda-forever-bao-den-tim-duoc-nguoi-ke-vi-xung-dang
+    </string>
+    <string name="spiderman1">
+        Cốt truyện Spider-Man: No Way Home xoay quanh cuộc sống đã bị đảo lộn của Peter Parker (Tom Holland) bởi kẻ phản diện Mysterio trong Spider-Man: Far From Home đã công bố danh tính thật của cậu chàng là Spider-Man cho cả thế giới biết. Để bảo vệ gia đình và bạn bè của mình, Peter yêu cầu sự giúp đỡ của phù thủy toàn năng Doctor Strange (Benedict Cumberbatch) nhằm khiến mọi người quên đi danh tính của mình. Nhưng một trục trặc đã xảy ra và năm kẻ thù cũ của Spider- Man đến từ các vũ trụ khác bước vào cuộc đời của anh bao gồm: Doc Ock (Alfred Molina), Green Goblin (Willem Dafoe), Electro (Jamie Foxx), Sandman (Thomas Haden Church) và The Lizard  (Rhys Ifans). Nghe thật hấp dẫn phải không nào?
+    </string>
+    <string name="spiderman2">
+        Spider-Man: No Way Home giữ những điều bất ngờ đến đoạn cuối, nhưng có lẽ điều bất ngờ nhất là quyết định của Peter cùng với bạn gái MJ và người bạn tốt nhất Ned (Jacob Batalon) bất chấp sự phản đối của Doctor Strange. Không hề dễ chịu cho người xem khi thấy hai thầy trò không hề đứng cùng phe. Ở đây, bộ phim gợi ra rất nhiều suy nghĩ về khái niệm “cơ hội thứ hai”, tại sao chỉ có siêu anh hùng mới có cơ hội thứ hai? Bộ phim này tập trung vào chiều hướng bi kịch của các vai phản diện và khả năng tự cứu rỗi và được cứu rỗi của họ.
+
+Chính vì vậy, các phân cảnh giao chiến của hai thầy-trò, sự ghép cặp mới mẻ nhất từ Marvel, dù họ khác xa về tuổi đời này lại càng nhuốm thêm màu sắc thú vị, hài hước nhưng cũng rất… dữ dội. Chỉ nghĩ đến thời khắc mà áo choàng Levitation của Doctor Strange truy bắt chàng Nhện thích nhún nhảy, bay lượn khắp nơi thôi là Ví MoMo đã cảm thấy rất “bánh cuốn” rồi.
+    </string>
 </resources>

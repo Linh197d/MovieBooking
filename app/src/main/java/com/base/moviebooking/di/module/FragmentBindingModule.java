@@ -2,16 +2,21 @@ package com.base.moviebooking.di.module;
 
 
 import com.base.moviebooking.ui.chonghe.ChonGheFragment;
-import com.base.moviebooking.ui.dangky.DangKyFragment;
-import com.base.moviebooking.ui.dangnhap.DangNhapFragment;
-import com.base.moviebooking.ui.dienanh.DienAnhFragment;
+import com.base.moviebooking.ui.film_info.FilmInfoChildFragment;
+import com.base.moviebooking.ui.giaodich.GiaoDichFragment;
+import com.base.moviebooking.ui.show_time.ShowTimeFragment;
+import com.base.moviebooking.ui.account.AccountFragment;
 import com.base.moviebooking.ui.home.HomeFragment;
-import com.base.moviebooking.ui.lichchieu.LichChieuFragment;
-import com.base.moviebooking.ui.lichphim.LichPhimFragment;
-import com.base.moviebooking.ui.rapphim.RapFragment;
+import com.base.moviebooking.ui.show_time_child.ShowTimeChildFragment;
+import com.base.moviebooking.ui.sign_in.SignInFragment;
+import com.base.moviebooking.ui.sign_up.SignUpFragment;
 import com.base.moviebooking.ui.splash.SplashFragment;
-import com.base.moviebooking.ui.taikhoan.TaiKhoanFragment;
-import com.base.moviebooking.ui.thongtinphim.ThongTinPhimFragment;
+import com.base.moviebooking.ui.thanhtoan.ThanhToanFragment;
+import com.base.moviebooking.ui.theater.TheaterFragment;
+import com.base.moviebooking.ui.film_info.FilmInfoFragment;
+import com.base.moviebooking.ui.detail_movie.DetailMovieFragment;
+import com.base.moviebooking.ui.thongtin_Thanhtoan.ThongTinThanhToanFragment;
+import com.base.moviebooking.ui.user_info.UserInfoFragment;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -27,31 +32,46 @@ public abstract class FragmentBindingModule {
     abstract HomeFragment bindHomeFragment();
 
     @ContributesAndroidInjector
-    abstract TaiKhoanFragment bindTaiKhoanFragment();
+    abstract AccountFragment bindAccountFragment();
 
     @ContributesAndroidInjector
-    abstract RapFragment bindRapFragment();
+    abstract TheaterFragment bindTheaterFragment();
 
     @ContributesAndroidInjector
-    abstract DienAnhFragment bindDienAnhFragment();
+    abstract FilmInfoFragment bindFilmInfoFragment();
 
     @ContributesAndroidInjector
-    abstract DangKyFragment bindDangKyFragment();
+    abstract FilmInfoChildFragment bindFilmInfoChildFragment();
 
     @ContributesAndroidInjector
-    abstract DangNhapFragment bindDangNhapFragment();
+    abstract SignUpFragment bindSignUpFragment();
+
+    @ContributesAndroidInjector
+    abstract SignInFragment bindSignInFragment();
 
     @ContributesAndroidInjector
     abstract ChonGheFragment bindChonGheFragment();
 
     @ContributesAndroidInjector
-    abstract LichPhimFragment bindLichPhimFragment();
+    abstract ShowTimeFragment bindShowTimeFragment();
 
     @ContributesAndroidInjector
-    abstract LichChieuFragment bindLichChieuFragment();
+    abstract ShowTimeChildFragment bindShowTimeChildFragment();
 
     @ContributesAndroidInjector
-    abstract ThongTinPhimFragment bindThongTinPhimFragment();
+    abstract DetailMovieFragment bindDetailMovieFragment();
+
+    @ContributesAndroidInjector
+    abstract ThanhToanFragment bindThanhToanFragment();
+
+    @ContributesAndroidInjector
+    abstract ThongTinThanhToanFragment bindThongTinThanhToanFragment();
+
+    @ContributesAndroidInjector
+    abstract GiaoDichFragment bindGiaoDichFragment();
+
+    @ContributesAndroidInjector
+    abstract UserInfoFragment bindUserInfoFragment();
 
 
 }

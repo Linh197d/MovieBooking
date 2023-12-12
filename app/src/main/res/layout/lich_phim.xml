@@ -3,6 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     >
+
+
+
+
+
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -19,14 +24,16 @@
                         android:id="@+id/collapsing_layout"
                         android:layout_height="260dp"
                         app:title="@string/vebinhdainganha3"
+                        android:textSize="18sp"
                         app:expandedTitleMarginBottom="60dp"
                         app:layout_scrollFlags="scroll|exitUntilCollapsed"
                         >
                         <ImageView
+                            android:id="@+id/img_movie"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/antman"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/avatar"
                             app:layout_collapseMode="parallax"
                             />
                         <View

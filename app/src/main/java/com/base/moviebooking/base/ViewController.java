@@ -1,6 +1,8 @@
 package com.base.moviebooking.base;
 
 
+import android.util.Log;
+
 import androidx.fragment.app.FragmentManager;
 
 
@@ -105,6 +107,7 @@ public class ViewController<T extends BaseFragment> {
         }
 
         if (data != null) {
+            Log.d("cat","data"+data);
             currentFragment.setData(data);
         }
 

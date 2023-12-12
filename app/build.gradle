@@ -27,23 +27,20 @@ android {
             //signingConfig signingConfigs.debug
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField 'String', 'BASE_URL', '"http://hsba-v2.beetechdev.vn:1680/api/v1/"'
-            buildConfigField 'String', 'BASE_STORAGE', '"http://hsba-v2.beetechdev.vn:1680/storage/"'
-            buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
+            buildConfigField 'String', 'BASE_URL', '"http://35.213.177.38:8080/"'
+
         }
         stage {
             //signingConfig signingConfigs.debug
-            buildConfigField 'String', 'BASE_URL', '"http://hsba-v2.beetechdev.vn:1680/api/v1/"'
-            buildConfigField 'String', 'BASE_STORAGE', '"http://hsba-v2.beetechdev.vn:1680/storage/"'
-            buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
+            buildConfigField 'String', 'BASE_URL', '"http://35.213.177.38:8080/"'
+
         }
         release {
             signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField 'String', 'BASE_URL', '"http://hsba-v2.beetechdev.vn:1680/api/v1/"'
-            buildConfigField 'String', 'BASE_STORAGE', '"http://hsba-v2.beetechdev.vn:1680/storage/"'
-            buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
+            buildConfigField 'String', 'BASE_URL', '"http://35.213.177.38:8080/"'////35.213.177.38
+
         }
     }
 
@@ -81,7 +78,7 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     //BottomBar
-    implementation 'com.google.android.material:material:1.2.0'
+    implementation 'com.google.android.material:material:1.4.0'
     implementation 'com.aurelhubert:ahbottomnavigation:2.3.4'
 
     //Retrofit
@@ -118,5 +115,12 @@ dependencies {
     implementation 'me.relex:circleindicator:2.1.6'
     //palette
     implementation 'androidx.palette:palette:1.0.0'
+    //qr
+    implementation('com.journeyapps:zxing-android-embedded:4.3.0') { transitive = false }
+    implementation 'com.google.zxing:core:3.3.0'
+    //
+      implementation files('libs/activation.jar')
+    implementation files('libs/additionnal.jar')
+    implementation files('libs/mail.jar')
 
 }
