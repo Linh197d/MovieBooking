@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="giaodich"
+            type="com.base.moviebooking.entity.ThongTinThanhToan" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/bg_ticket"
+        style="@style/roundedCorners"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:id="@+id/ln_rcvgiaodich"
+        >
+
+
+        <LinearLayout
+            android:id="@+id/ln_GDich"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+        <TextView
+            android:id="@+id/tien"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tổng tiền: 120000 VNĐ"
+            android:textColor="@color/colorWhite"
+            android:layout_marginTop="10dp"
+            android:textSize="17sp"
+            android:layout_marginHorizontal="20dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/cinema"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rạp: Mê Linh Plaza"
+            android:textColor="@color/colorWhite"
+            android:textSize="17sp"
+            android:layout_marginHorizontal="20dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/room"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phòng: Room 02"
+            android:textColor="@color/colorWhite"
+            android:textSize="17sp"
+            android:layout_marginHorizontal="20dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/movie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phim: The Last Of Us"
+            android:textColor="@color/colorWhite"
+            android:textSize="17sp"
+            android:layout_marginHorizontal="20dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/gio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thời gian: 12:15  20/03/2002"
+            android:textColor="@color/colorWhite"
+            android:textSize="17sp"
+            android:layout_marginHorizontal="20dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/chair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ghế đã đặt: E1,E2,E5"
+            android:textColor="@color/colorWhite"
+            android:textSize="17sp"
+            android:layout_marginHorizontal="20dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            />
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/bongngo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:textSize="17sp"
+            android:layout_marginHorizontal="20dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            />
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/nuoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:textSize="17sp"
+            android:layout_marginHorizontal="20dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            />
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/combo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:textSize="17sp"
+            android:layout_marginHorizontal="20dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            />
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+
+</layout>
