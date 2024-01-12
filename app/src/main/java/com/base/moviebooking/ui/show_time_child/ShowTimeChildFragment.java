@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.base.moviebooking.DataLocalManager;
+import com.base.moviebooking.entity.News;
 import com.base.moviebooking.listener.OnChooseRecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.VietnamComparator;

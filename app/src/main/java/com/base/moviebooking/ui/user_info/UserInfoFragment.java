@@ -21,8 +21,11 @@ import com.base.moviebooking.R;
 import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.UserInfoFragmentBinding;
 import com.base.moviebooking.entity.Account;
+import com.base.moviebooking.entity.ChangePass;
 import com.base.moviebooking.entity.RegisterResponse;
 import com.base.moviebooking.entity.UserUpdate;
+import com.base.moviebooking.ui.account.AccountFragment;
+import com.base.moviebooking.ui.change_pass.ChangePassFragment;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.normal.TedPermission;
 
@@ -87,6 +90,13 @@ public class UserInfoFragment extends BaseFragment<UserInfoFragmentBinding> {
                     binding.nu.setChecked(true);
 
                 }
+            }
+        });
+        binding.btnPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mViewController.addFragment(ChangePassFragment.class, null);
+
             }
         });
         binding.backTt.setOnClickListener(new View.OnClickListener() {

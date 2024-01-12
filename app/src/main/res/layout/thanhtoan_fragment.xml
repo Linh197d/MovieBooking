@@ -227,145 +227,145 @@
                         />
 
                 </LinearLayout>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Phương thức thanh toán"
-                    android:textColor="@color/colorBlack"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginHorizontal="10dp"
-                    />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Chọn loại ngân hàng"
-                            android:textStyle="bold"
-                            android:textSize="17sp"
-                            android:layout_marginStart="20dp"
-                            />
-                        <Spinner
-                            android:id="@+id/spinner"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Vietcombank"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginVertical="10dp"
-                            android:layout_gravity="center"
-                            />
-                    </LinearLayout>
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Phương thức thanh toán"-->
+<!--                    android:textColor="@color/colorBlack"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="20sp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginHorizontal="10dp"-->
+<!--                    />-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    >-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical"-->
+<!--                        >-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Chọn loại ngân hàng"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:textSize="17sp"-->
+<!--                            android:layout_marginStart="20dp"-->
+<!--                            />-->
+<!--                        <Spinner-->
+<!--                            android:id="@+id/spinner"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Vietcombank"-->
+<!--                            android:layout_marginStart="15dp"-->
+<!--                            android:layout_marginVertical="10dp"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            />-->
+<!--                    </LinearLayout>-->
 
 
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="10dp"
-                        >
+<!--                </LinearLayout>-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    >-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:layout_marginStart="10dp"-->
+<!--                        >-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="17sp"
-                            android:text="Họ tên"
-                            />
-                        <EditText
-                            android:id="@+id/edt_Ten"
-                            android:layout_width="220dp"
-                            android:layout_height="wrap_content"
-                            android:hint="họ tên"
-                            />
-                    </LinearLayout>
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:textSize="17sp"-->
+<!--                            android:text="Họ tên"-->
+<!--                            />-->
+<!--                        <EditText-->
+<!--                            android:id="@+id/edt_Ten"-->
+<!--                            android:layout_width="220dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:hint="họ tên"-->
+<!--                            />-->
+<!--                    </LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="20dp"
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:layout_marginStart="20dp"-->
 
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ngày hết hạn"
-                            android:textSize="17sp"
-                            android:textStyle="bold"
-                            />
-                        <TextView
-                            android:id="@+id/edt_ngay"
-                            android:layout_marginTop="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="dd/MM/yyyy"
-                            />
-                    </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="10dp"
-                        >
+<!--                        >-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Ngày hết hạn"-->
+<!--                            android:textSize="17sp"-->
+<!--                            android:textStyle="bold"-->
+<!--                            />-->
+<!--                        <TextView-->
+<!--                            android:id="@+id/edt_ngay"-->
+<!--                            android:layout_marginTop="15dp"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:hint="dd/MM/yyyy"-->
+<!--                            />-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    >-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:layout_marginStart="10dp"-->
+<!--                        >-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="17sp"
-                            android:text="Số thẻ"
-                            />
-                        <EditText
-                            android:id="@+id/edt_sothe"
-                            android:layout_width="220dp"
-                            android:layout_height="wrap_content"
-                            android:hint="số thẻ"
-                            android:inputType="number"
-                            />
-                    </LinearLayout>
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:textSize="17sp"-->
+<!--                            android:text="Số thẻ"-->
+<!--                            />-->
+<!--                        <EditText-->
+<!--                            android:id="@+id/edt_sothe"-->
+<!--                            android:layout_width="220dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:hint="số thẻ"-->
+<!--                            android:inputType="number"-->
+<!--                            />-->
+<!--                    </LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="20dp"
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:layout_marginStart="20dp"-->
 
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Mã thẻ"
-                            android:textSize="17sp"
-                            android:textStyle="bold"
-                            />
-                        <EditText
-                            android:id="@+id/edt_mathe"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="mã thẻ"
-                            android:inputType="number"
-                            />
-                    </LinearLayout>
-                </LinearLayout>
+<!--                        >-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Mã thẻ"-->
+<!--                            android:textSize="17sp"-->
+<!--                            android:textStyle="bold"-->
+<!--                            />-->
+<!--                        <EditText-->
+<!--                            android:id="@+id/edt_mathe"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:hint="mã thẻ"-->
+<!--                            android:inputType="number"-->
+<!--                            />-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
 
 
             </LinearLayout>

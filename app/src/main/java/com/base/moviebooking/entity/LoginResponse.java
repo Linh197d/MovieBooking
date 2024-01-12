@@ -2,10 +2,10 @@ package com.base.moviebooking.entity;
 
 public class LoginResponse {
     private boolean success;
-    private Account data;
+    private Data data;
     private String accessToken;
 
-    public LoginResponse(boolean success, Account data,String accessToken) {
+    public LoginResponse(boolean success, Data data,String accessToken) {
         this.success = success;
         this.data = data;
         this.accessToken=accessToken;
@@ -19,11 +19,11 @@ public class LoginResponse {
         this.success = success;
     }
 
-    public Account getData() {
+    public Data getData() {
         return data;
     }
 
-    public void setData(Account data) {
+    public void setData(Data data) {
         this.data = data;
     }
 
@@ -34,4 +34,17 @@ public class LoginResponse {
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
     }
+
+
+    public class Data{
+        private String message;
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+    }
 }
+

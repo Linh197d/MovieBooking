@@ -4,11 +4,15 @@ package com.base.moviebooking.network;
 import com.base.moviebooking.base.ListResponse;
 import com.base.moviebooking.entity.Account;
 import com.base.moviebooking.entity.Amount;
+import com.base.moviebooking.entity.CancelTicket;
 import com.base.moviebooking.entity.Chair;
+import com.base.moviebooking.entity.ChangePass;
 import com.base.moviebooking.entity.Cinema;
+import com.base.moviebooking.entity.ForgetPass;
 import com.base.moviebooking.entity.LoginRequest;
 import com.base.moviebooking.entity.LoginResponse;
 import com.base.moviebooking.entity.Movie;
+import com.base.moviebooking.entity.News;
 import com.base.moviebooking.entity.Product;
 import com.base.moviebooking.entity.RegisterRequest;
 import com.base.moviebooking.entity.RegisterResponse;
@@ -44,6 +48,7 @@ public interface ApiInterface {
     @GET("auth/information")
     Single<List<Account>> infoUser();
 
+
     //get cinema
     @GET("cinemas")
     Single<Theater> getTheater();
@@ -74,7 +79,7 @@ public interface ApiInterface {
 
     // thanh toan
 
-    @POST("schedules/bookingChairs")
+    @POST("schedules/bookingChairsCheckout")
     Single<RegisterResponse> thanhtoan(@Body ThanhToan thanhToan);
 
     //update user
@@ -87,4 +92,33 @@ public interface ApiInterface {
 
     @POST("checkout/create_payment_url")
     Single<String> postWebviewTT(@Body VNPay vnPay);
+
+    @POST("auth/changePassword")
+    Single<LoginResponse> changPass(@Body ChangePass changePass);
+    //confirm pass
+//    @POST("auth/confirmPassword")
+//    Single<List<Account>> infoUser();
+
+    //get News
+    @GET("/news?type=NEWS")
+    Single<List<News>> getNews();
+
+     //create News
+    @POST("news")
+    Single<List<News>> postNews();
+
+
+    @POST("schedules/cancelTicket")
+    Single<LoginResponse> cancelTicket(@Body CancelTicket code);
+
+    @POST("auth/forgotPassword")
+    Single<LoginResponse> forgotPass(@Body ForgetPass forgetPass);
+
+
+ //get News ny ID
+    @GET("news/{id}")
+    Single<News> getNewsByID(@Path("id") int id);
+
+
+
 }

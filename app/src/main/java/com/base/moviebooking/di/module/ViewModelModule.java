@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.base.moviebooking.di.ViewModelFactory;
 import com.base.moviebooking.ui.account.AccountViewModel;
+import com.base.moviebooking.ui.change_pass.ChangePassViewModel;
 import com.base.moviebooking.ui.chonghe.ChonGheViewModel;
 import com.base.moviebooking.ui.film_info.FilmInfoViewModel;
 import com.base.moviebooking.ui.giaodich.GiaoDichViewModel;
@@ -105,6 +106,11 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(DetailMovieViewModel.class)
     abstract ViewModel bindDetailMovieViewModel(DetailMovieViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ChangePassViewModel.class)
+    abstract ViewModel bindChangePassViewModel(ChangePassViewModel viewModel);
 
     @Binds
     @IntoMap

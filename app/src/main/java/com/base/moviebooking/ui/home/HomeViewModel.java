@@ -44,6 +44,8 @@ public class HomeViewModel extends BaseViewModel {
 
                     @Override
                     public void onError(Throwable e) {
+
+
                         Log.d("fat", "" + e.getMessage());
                     }
                 });

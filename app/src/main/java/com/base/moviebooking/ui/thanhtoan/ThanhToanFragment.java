@@ -133,14 +133,39 @@ public class ThanhToanFragment extends BaseFragment<ThanhtoanFragmentBinding> {
             @Override
             public void onChanged(RegisterResponse response) {
                 if (response.isSuccess()) {
-                    Toast.makeText(getContext(), "Thanh toán thành công", Toast.LENGTH_SHORT).show();
-                    mViewController.replaceFragment(ThongTinThanhToanFragment.class, null);
-                    getActivity().findViewById(R.id.bottombar).setVisibility(View.VISIBLE);
+                    binding.webviewTT.loadUrl(response.getData().getUrl());
+                    binding.webviewTT.setVisibility(View.VISIBLE);
+//                    Toast.makeText(getContext(), "Thanh toán thành công", Toast.LENGTH_SHORT).show();
+//                    mViewController.replaceFragment(ThongTinThanhToanFragment.class, null);
+//                    getActivity().findViewById(R.id.bottombar).setVisibility(View.VISIBLE);
                 } else {
                     Toast.makeText(getContext(), "Thanh toán thất bại", Toast.LENGTH_SHORT).show();
 
                 }
             }
+        });
+        binding.webviewTT.setWebViewClient(new WebViewClient() {
+
+            @Override
+
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+
+                if (url.equals("http://localhost:8080/stripe/payment/success")) {
+
+                    // Xử lý ở đây khi thanh toán thành công
+                    Toast.makeText(getContext(), "Thanh toán thành công", Toast.LENGTH_SHORT).show();
+                    mViewController.replaceFragment(ThongTinThanhToanFragment.class, null);
+                    getActivity().findViewById(R.id.bottombar).setVisibility(View.VISIBLE);
+                    return true;
+
+                }
+
+
+
+                return false; // Cho phép WebView xử lý URL
+
+            }
+
         });
         binding.backTt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,47 +176,35 @@ public class ThanhToanFragment extends BaseFragment<ThanhtoanFragmentBinding> {
         binding.btnThanhtoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               if(binding.edtMathe.getText().toString().equals("")||binding.edtNgay.getText().toString().equals("")
-               ||binding.edtSothe.getText().toString().equals("")||binding.edtTen.getText().toString().equals("")){
-                   Toast.makeText(getContext(), "Không được để trống", Toast.LENGTH_SHORT).show();
-               }else if(binding.spinner.getSelectedItemPosition()==0){
-                   Toast.makeText(getContext(), "Vui lòng chọn ngân hàng", Toast.LENGTH_SHORT).show();
-
-               }else {
+//               if(binding.edtMathe.getText().toString().equals("")||binding.edtNgay.getText().toString().equals("")
+//               ||binding.edtSothe.getText().toString().equals("")||binding.edtTen.getText().toString().equals("")){
+//                   Toast.makeText(getContext(), "Không được để trống", Toast.LENGTH_SHORT).show();
+//               }else if(binding.spinner.getSelectedItemPosition()==0){
+//                   Toast.makeText(getContext(), "Vui lòng chọn ngân hàng", Toast.LENGTH_SHORT).show();
+//
+//               }else {
+                binding.webviewTT.getSettings().setJavaScriptEnabled(true);
                    thanhToan= new ThanhToan(schedule.getId()+"",arrayListGhe,deleteVND(priceSeat.getTongTien().toString()),listProduct);
                    mViewModel.getThanhToan(thanhToan);
-               }
-//                mViewModel.postThanhToanWebview(new VNPay(60000, "vn"));
-//                binding.webviewTT.setVisibility(View.VISIBLE);
-//                binding.webviewTT.setWebViewClient(new WebViewClient() {
-//                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
-//                        // do your handling codes here, which url is the requested url
-//                        // probably you need to open that url rather than redirect:
-//                        view.loadUrl("http://35.213.177.38:8080//checkout.html?amount=60000&language=vn");
-//                        return false; // then it is not handled by default action
+//               }
+            }
+        });
+
+
+//        binding.edtNgay.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
+//                    @Override
+//                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+//                        month = month + 1;
+//                        String date = dayOfMonth + "/" + month + "/" + year;
+//                        binding.edtNgay.setText(date);
 //                    }
-//
-//                    ;
-////                binding.webviewTT.loadUrl("http://35.213.177.38:8080/checkout/create_payment_url");
-//                });
-            }
-        });
-
-
-        binding.edtNgay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        month = month + 1;
-                        String date = dayOfMonth + "/" + month + "/" + year;
-                        binding.edtNgay.setText(date);
-                    }
-                }, year, month, day);
-                datePickerDialog.show();
-            }
-        });
+//                }, year, month, day);
+//                datePickerDialog.show();
+//            }
+//        });
         String s = schedule.getPremiere().toString().substring(11, 16);
         s = changeTimeZone(s);
         String s1 = schedule.getPremiere().toString().substring(0, 10);
@@ -206,18 +219,18 @@ public class ThanhToanFragment extends BaseFragment<ThanhtoanFragmentBinding> {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         binding.tvtTime.setText(s + " - " + dateFormat.format(date));
         //set data spinner
-        List<String> itemSpin = new ArrayList<>();
-        itemSpin.add("Chọn ngân hàng");
-        itemSpin.add("Vietcombank");
-        itemSpin.add("VPBank");
-        itemSpin.add("MBBank");
-        itemSpin.add("TPBank");
-        itemSpin.add("Techcombank");
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, itemSpin);
-//
-//// Specify the layout to use for the dropdown list
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        binding.spinner.setAdapter(adapter2);
+//        List<String> itemSpin = new ArrayList<>();
+//        itemSpin.add("Chọn ngân hàng");
+//        itemSpin.add("Vietcombank");
+//        itemSpin.add("VPBank");
+//        itemSpin.add("MBBank");
+//        itemSpin.add("TPBank");
+//        itemSpin.add("Techcombank");
+//        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, itemSpin);
+////
+////// Specify the layout to use for the dropdown list
+//        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        binding.spinner.setAdapter(adapter2);
     }
 
     public int deleteVND(String s) {

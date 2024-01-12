@@ -1,6 +1,7 @@
 package com.base.moviebooking.listener;
 
 import com.base.moviebooking.entity.FilmInfo;
+import com.base.moviebooking.entity.News;
 import com.base.moviebooking.entity.Schedule;
 import com.base.moviebooking.entity.Seat;
 import com.base.moviebooking.entity.ShowTime;

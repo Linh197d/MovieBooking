@@ -60,7 +60,7 @@ public class ThanhToanViewModel extends BaseViewModel {
             @Override
             public void onSuccess(RegisterResponse response) {
             dataThanhToan.postValue(response);
-                Log.d("fat","sucess thanh toan ");
+                Log.d("linhd",response.getData().getUrl());
 
             }
 

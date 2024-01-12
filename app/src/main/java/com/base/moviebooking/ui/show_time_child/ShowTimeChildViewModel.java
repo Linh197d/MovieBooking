@@ -46,7 +46,7 @@ public class ShowTimeChildViewModel extends BaseViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("fat", "" + e.getMessage());
+                        Log.d("token", "" + e.getMessage());
                     }
                 });
     }

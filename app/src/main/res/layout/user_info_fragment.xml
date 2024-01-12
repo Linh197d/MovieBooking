@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="50dp"
-            android:text="Dao Linh"
+            android:text=""
             android:textSize="18sp"
             android:background="@color/colorTextGrey"
             style="@style/roundedCorners"
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
-            android:text="0971390602"
+            android:text=""
             android:textSize="18sp"
             android:background="@color/colorGrey"
             style="@style/roundedCorners"
@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
-            android:text="04/06/2002"
+            android:text=""
             android:textSize="18sp"
             android:editable="false"
             android:background="@color/colorGrey"
@@ -106,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
-            android:text="linh197d@gmail.com"
+            android:text=""
             android:textSize="18sp"
             android:background="@color/colorGrey"
             style="@style/roundedCorners"
@@ -118,7 +118,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
-            android:text="Ha Noi"
+            android:text=""
             android:textSize="18sp"
             android:background="@color/colorGrey"
             style="@style/roundedCorners"
@@ -144,14 +144,31 @@
                 android:text="Nữ"
                 />
         </RadioGroup>
-        <Button
-            android:id="@+id/btnCapnhat"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cập nhật"
-            android:textColor="@color/yellow"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="20dp"
-            />
+            android:layout_marginHorizontal="20dp"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/btnPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đổi mật khẩu"
+                android:textColor="@color/yellow"
+                android:layout_gravity="center_vertical|start"
+                />
+            <Button
+                android:id="@+id/btnCapnhat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cập nhật"
+                android:textColor="@color/yellow"
+                android:layout_marginStart="90dp"
+                android:layout_gravity="center_vertical"
+                />
+
+        </LinearLayout>
+
     </LinearLayout>
 </layout>

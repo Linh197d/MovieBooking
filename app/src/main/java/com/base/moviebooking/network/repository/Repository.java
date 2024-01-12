@@ -2,11 +2,15 @@ package com.base.moviebooking.network.repository;
 
 import com.base.moviebooking.entity.Account;
 import com.base.moviebooking.entity.Amount;
+import com.base.moviebooking.entity.CancelTicket;
 import com.base.moviebooking.entity.Chair;
+import com.base.moviebooking.entity.ChangePass;
 import com.base.moviebooking.entity.Cinema;
+import com.base.moviebooking.entity.ForgetPass;
 import com.base.moviebooking.entity.LoginRequest;
 import com.base.moviebooking.entity.LoginResponse;
 import com.base.moviebooking.entity.Movie;
+import com.base.moviebooking.entity.News;
 import com.base.moviebooking.entity.Product;
 import com.base.moviebooking.entity.RegisterRequest;
 import com.base.moviebooking.entity.RegisterResponse;
@@ -130,6 +134,37 @@ public class Repository {
     // thanh toan webview
     public Single<String> thanhToanWebview(VNPay vnPay) {
         return apiInterface.postWebviewTT(vnPay)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+    //get News
+    public Single<List<News>> getNews() {
+        return apiInterface.getNews()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+    //get News by ID
+    public Single<News> getNewsByID(int id) {
+        return apiInterface.getNewsByID(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+    //change pass
+    public Single<LoginResponse> changePassword(ChangePass changePass) {
+        return apiInterface.changPass(changePass)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+    //cancel ticket
+    public Single<LoginResponse> cancelTicket(CancelTicket cancelTicket) {
+        return apiInterface.cancelTicket(cancelTicket)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    //quen mk
+    public Single<LoginResponse> forgotPassword(ForgetPass email) {
+        return apiInterface.forgotPass(email)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }

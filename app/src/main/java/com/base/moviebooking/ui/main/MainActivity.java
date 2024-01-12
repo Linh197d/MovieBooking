@@ -34,13 +34,13 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         mViewController.addFragment(SplashFragment.class, null);
         AHBottomNavigation bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottombar);
 
-// Create items
+    // Create items
         AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.trangchu, R.drawable.home2, R.color.colorStrokeBlue);
         AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.rapphim, R.drawable.rap2, R.color.colorStrokeBlue);
         AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.dienanh, R.drawable.movieglass, R.color.colorStrokeBlue);
         AHBottomNavigationItem item4 = new AHBottomNavigationItem(R.string.hoso, R.drawable.user2, R.color.colorStrokeBlue);
 
-// Add items
+    // Add items
         bottomNavigation.addItem(item1);
         bottomNavigation.addItem(item2);
         bottomNavigation.addItem(item3);

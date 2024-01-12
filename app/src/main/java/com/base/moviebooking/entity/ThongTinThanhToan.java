@@ -12,6 +12,7 @@ public class ThongTinThanhToan {
     private ArrayList<String> chairs;
     private ArrayList<ProductThanhToan> products;
     private String premiere;
+    private int is_cancel;
 
     public ThongTinThanhToan(int id, int value, String code, String cinema, String room) {
         this.id = id;
@@ -19,6 +20,14 @@ public class ThongTinThanhToan {
         this.code = code;
         this.cinema = cinema;
         this.room = room;
+    }
+
+    public int getIs_cancel() {
+        return is_cancel;
+    }
+
+    public void setIs_cancel(int is_cancel) {
+        this.is_cancel = is_cancel;
     }
 
     public String getMovie() {

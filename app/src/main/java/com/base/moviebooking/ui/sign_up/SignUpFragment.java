@@ -52,7 +52,7 @@ public class SignUpFragment extends BaseFragment<DangkyFragmentBinding> {
             @Override
             public void onChanged(RegisterResponse response) {
                 if(response.isSuccess()){
-                    Toast.makeText(getContext(), "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Kiểm tra gmail để xác thực tài khoản", Toast.LENGTH_SHORT).show();
                     mViewController.replaceFragment(SignInFragment.class,null);
                     getActivity().findViewById(R.id.bottombar).setVisibility(View.VISIBLE);
                 }else

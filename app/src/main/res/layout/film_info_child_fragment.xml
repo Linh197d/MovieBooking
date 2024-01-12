@@ -41,7 +41,7 @@
                     android:layout_marginHorizontal="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hello my name ....."
+                    android:text="**Overview**\n\nA young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.\n![Spirited Away](https://www.themoviedb.org/t/p/w1280/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg)\n\n**Hayao Miyazaki**\n\nDirector, Writer"
                     android:textColor="#E23A3A3A"
                     />
                     <ImageView
@@ -54,7 +54,7 @@
                     android:id="@+id/tvt_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/daoquanglinh"
+                    android:text="**Overview**\n\nA young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.\n![Spirited Away](https://www.themoviedb.org/t/p/w1280/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg)\n\n**Hayao Miyazaki**\n\nDirector, Writer"
                     android:layout_marginHorizontal="20dp"
                     android:textColor="#E23A3A3A"/>
             </LinearLayout>

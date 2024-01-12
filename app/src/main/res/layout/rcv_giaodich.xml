@@ -131,7 +131,25 @@
             />
 
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lnHuy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#B5534F4F"
+            android:visibility="gone"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Đã huỷ"
+                android:gravity="top"
+                android:textSize="30sp"
+                android:layout_margin="10dp"
+                android:textColor="@color/red"
+                android:textStyle="bold"
+                />
 
+        </LinearLayout>
 
     </FrameLayout>
 

@@ -8,6 +8,8 @@
     <color name="colorBackGround">#F2F2F2</color>
     <color name="colorBlack">#000000</color>
     <color name="colorBgBlack">#2C2B2B</color>
+    <color name="primary">#D70000</color>
+    <color name="neutral_50">#F2F2F2</color>
 
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBackGroundGrey">#D6D6D6</color>
