@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 32
-    buildToolsVersion "29.0.2"
+    compileSdkVersion 33
+    namespace "com.base.moviebooking"
     defaultConfig {
-        applicationId "com.base.movieBooking"
+        applicationId "com.base.moviebooking"
         minSdkVersion 22
-        targetSdkVersion 32
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -65,6 +65,16 @@ android {
     dataBinding {
         enabled = true
     }
+    buildFeatures{
+        buildConfig =true
+    }
+    configurations.all {
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == "org.jetbrains.kotlin") {
+                details.useVersion "1.9.23"
+            }
+        }
+    }
 }
 
 dependencies {
@@ -79,7 +89,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     //BottomBar
     implementation 'com.google.android.material:material:1.4.0'
-    implementation 'com.aurelhubert:ahbottomnavigation:2.3.4'
 
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -107,9 +116,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
     //circle image
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-    //ted bottom
-    implementation 'gun0912.ted:tedbottompicker:1.2.6'
-    implementation 'io.github.ParkSangGwon:tedpermission-normal:3.3.0'
+
 
     // circle indicator
     implementation 'me.relex:circleindicator:2.1.6'

@@ -18,13 +18,10 @@ import com.base.moviebooking.DataLocalManager;
 import com.base.moviebooking.R;
 import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.DangnhapFragmentBinding;
-import com.base.moviebooking.entity.CancelTicket;
-import com.base.moviebooking.entity.ForgetPass;
 import com.base.moviebooking.entity.LoginRequest;
 import com.base.moviebooking.entity.LoginResponse;
 import com.base.moviebooking.ui.account.AccountFragment;
 import com.base.moviebooking.ui.sign_up.SignUpFragment;
-import com.base.moviebooking.utils.MyUtils;
 
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;

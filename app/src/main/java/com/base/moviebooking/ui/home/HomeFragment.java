@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
 import com.base.moviebooking.DataLocalManager;
-import com.base.moviebooking.entity.News;
 import com.base.moviebooking.listener.OnChooseRecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.adapter.HomeAdapter;

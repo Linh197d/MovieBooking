@@ -5,7 +5,6 @@ import android.view.View;
 
 import androidx.lifecycle.ViewModelProviders;
 
-import com.base.moviebooking.DataLocalManager;
 import com.base.moviebooking.R;
 import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.SplashFragmentBinding;
