@@ -11,11 +11,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.DataLocalManager;
 import com.base.moviebooking.R;
+import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.DangnhapFragmentBinding;
 import com.base.moviebooking.entity.LoginRequest;
 import com.base.moviebooking.entity.LoginResponse;
@@ -38,11 +40,6 @@ public class SignInFragment extends BaseFragment<DangnhapFragmentBinding> {
 
     private SignInViewModel mViewModel;
     private Dialog dialog;
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.dangnhap_fragment;
-    }
 
     @Override
     public void backFromAddFragment() {
@@ -186,5 +183,10 @@ public class SignInFragment extends BaseFragment<DangnhapFragmentBinding> {
     }
 
 
+    @NonNull
+    @Override
+    public DangnhapFragmentBinding getViewBinding() {
+        return DangnhapFragmentBinding.inflate(getLayoutInflater());
+    }
 }
 

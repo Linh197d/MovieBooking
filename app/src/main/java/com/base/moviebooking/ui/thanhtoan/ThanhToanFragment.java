@@ -11,10 +11,12 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.R;
+import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.ThanhtoanFragmentBinding;
 import com.base.moviebooking.entity.Movie;
 import com.base.moviebooking.entity.PriceSeat;
@@ -247,4 +249,9 @@ public class ThanhToanFragment extends BaseFragment<ThanhtoanFragmentBinding> {
     }
 
 
+    @NonNull
+    @Override
+    public ThanhtoanFragmentBinding getViewBinding() {
+        return ThanhtoanFragmentBinding.inflate(getLayoutInflater());
+    }
 }

@@ -19,6 +19,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.R;
+import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.ThongtinThanhtoanFragmentBinding;
 import com.base.moviebooking.entity.Account;
 import com.base.moviebooking.entity.ThongTinThanhToan;
@@ -169,8 +170,11 @@ public class ThongTinThanhToanFragment extends BaseFragment<ThongtinThanhtoanFra
      }
 
 
-
-
+    @NonNull
+    @Override
+    public ThongtinThanhtoanFragmentBinding getViewBinding() {
+        return ThongtinThanhtoanFragmentBinding.inflate(getLayoutInflater());
+    }
 }
 
 

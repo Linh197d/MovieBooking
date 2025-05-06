@@ -6,10 +6,12 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.R;
+import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.DangkyFragmentBinding;
 import com.base.moviebooking.entity.RegisterRequest;
 import com.base.moviebooking.entity.RegisterResponse;
@@ -135,4 +137,9 @@ public class SignUpFragment extends BaseFragment<DangkyFragmentBinding> {
     }
 
 
+    @NonNull
+    @Override
+    public DangkyFragmentBinding getViewBinding() {
+        return DangkyFragmentBinding.inflate(getLayoutInflater());
+    }
 }

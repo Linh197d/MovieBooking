@@ -4,12 +4,14 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
 import com.base.moviebooking.DataLocalManager;
+import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.listener.OnChooseRecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.adapter.HomeAdapter;
@@ -144,13 +146,6 @@ public class HomeFragment extends BaseFragment<HomeFragmentBinding> {
 
     }
 
-    ;
-
-    @Override
-    protected void getListResponse(List<?> data, boolean isRefresh, boolean canLoadmore) {
-
-    }
-
     private List<Slide> getListSlide() {
         list = new ArrayList<>();
         list.add(new Slide(R.drawable.avatar));
@@ -167,9 +162,9 @@ public class HomeFragment extends BaseFragment<HomeFragmentBinding> {
         mHandler.removeCallbacks(mRunnable);
     }
 
+    @NonNull
     @Override
-    public void onResume() {
-        super.onResume();
-//        mHandler.postDelayed(mRunnable,3000);
+    public HomeFragmentBinding getViewBinding() {
+        return HomeFragmentBinding.inflate(getLayoutInflater());
     }
 }

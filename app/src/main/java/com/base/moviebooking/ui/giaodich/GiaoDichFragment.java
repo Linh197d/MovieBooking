@@ -9,6 +9,7 @@ import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -48,7 +49,7 @@ public class GiaoDichFragment extends BaseFragment<GiaodichFragmentBinding> {
 
     @Override
     public void initView() {
-        mViewModel = ViewModelProviders.of(this, viewModelFactory).get(GiaoDichViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(GiaoDichViewModel.class);
         mViewModel.getThongTinThanhToan();
         binding.rcvGd.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         giaoDichAdapter = new GiaoDichAdapter(getContext(), false, new GiaoDichListener() {
@@ -126,5 +127,11 @@ public class GiaoDichFragment extends BaseFragment<GiaodichFragmentBinding> {
         TextView t = getActivity().findViewById(R.id.tvt_headerphim);
         t.setText("Thông tin giao dịch");
         super.onResume();
+    }
+
+    @NonNull
+    @Override
+    public GiaodichFragmentBinding getViewBinding() {
+        return GiaodichFragmentBinding.inflate(getLayoutInflater());
     }
 }

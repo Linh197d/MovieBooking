@@ -14,6 +14,7 @@ import androidx.palette.graphics.Palette;
 
 import com.base.moviebooking.R;
 import com.base.moviebooking.adapter.ViewPagerAdapter;
+import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.LichPhimBinding;
 import com.base.moviebooking.entity.Movie;
 import com.base.moviebooking.ui.home.HomeFragment;
@@ -21,16 +22,11 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 
-public class ShowTimeFragment extends BaseFragment<LichPhimBinding>  {
+public class ShowTimeFragment extends BaseFragment<LichPhimBinding> {
     public final String TAG = "fat";
     private ShowTimeViewModel mViewModel;
     private ViewPagerAdapter viewPagerAdapter;
     Movie movie;
-    @Override
-    protected int getLayoutId() {
-        return R.layout.lich_phim;
-    }
-
 
     @Override
     public void backFromAddFragment() {
@@ -161,4 +157,9 @@ public class ShowTimeFragment extends BaseFragment<LichPhimBinding>  {
         }
     }
 
+    @NonNull
+    @Override
+    public LichPhimBinding getViewBinding() {
+        return LichPhimBinding.inflate(getLayoutInflater());
+    }
 }

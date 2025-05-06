@@ -20,7 +20,7 @@ import javax.inject.Inject
 class AccountFragment : BaseFragment<TaikhoanFragmentBinding>() {
 
     private val TAG = "fat"
-    private  var mViewModel: AccountViewModel by viewModels()
+    private lateinit var mViewModel: AccountViewModel
 
     @Inject
     private var imageUser: Uri? = null
@@ -30,9 +30,9 @@ class AccountFragment : BaseFragment<TaikhoanFragmentBinding>() {
     }
 
     override fun initView() {
-//        mViewModel = ViewModelProviders.of(this, viewModelFactory).get<AccountViewModel>(
-//            AccountViewModel::class.java
-//        )
+        mViewModel = ViewModelProviders.of(this).get<AccountViewModel>(
+            AccountViewModel::class.java
+        )
         mViewModel.getInfo()
         mViewModel.dataUser.observe(viewLifecycleOwner) { accountList ->
             if (!accountList.isNullOrEmpty()) {

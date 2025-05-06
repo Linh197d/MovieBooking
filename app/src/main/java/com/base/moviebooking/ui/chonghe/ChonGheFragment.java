@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -50,12 +51,6 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
     private SeatAdapter seatAdapter;
     private List<Seat> seatList = new ArrayList<>();
     private List<Chair> chairList = new ArrayList<>();
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.chonghe_fragment;
-    }
-
     @Override
     public void backFromAddFragment() {
 
@@ -68,7 +63,7 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
 
     @Override
     public void initView() {
-        mViewModel = ViewModelProviders.of(this, viewModelFactory).get(ChonGheViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(ChonGheViewModel.class);
         Bundle bundle = getArguments();
         if (bundle != null && !bundle.isEmpty()) {
             schedule = (Schedule) bundle.getSerializable("schedule");
@@ -412,5 +407,11 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
     public void onResume() {
         super.onResume();
 
+    }
+
+    @NonNull
+    @Override
+    public ChongheFragmentBinding getViewBinding() {
+        return ChongheFragmentBinding.inflate(getLayoutInflater());
     }
 }

@@ -3,10 +3,12 @@ package com.base.moviebooking.ui.film_info;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.listener.OnChooseRecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.adapter.FilmInformationAdapter;
@@ -21,15 +23,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class FilmInfoFragment extends BaseFragment<DienanhFragmentBinding> {
-    private FilmInfoViewModel mViewModel;
     private FilmInformationAdapter filmInformationAdapter;
     private List<FilmInfo> dienAnhList = new ArrayList<>();
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.dienanh_fragment;
-    }
-
     @Override
     public void backFromAddFragment() {
 
@@ -43,7 +38,6 @@ public class FilmInfoFragment extends BaseFragment<DienanhFragmentBinding> {
 
     @Override
     public void initView() {
-        mViewModel = ViewModelProviders.of(this, viewModelFactory).get(FilmInfoViewModel.class);
         binding.rcvDienanh.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         filmInformationAdapter = new FilmInformationAdapter(getContext(), false, getContext(), new OnChooseRecyclerView() {
             @Override
@@ -102,4 +96,9 @@ public class FilmInfoFragment extends BaseFragment<DienanhFragmentBinding> {
     }
 
 
+    @NonNull
+    @Override
+    public DienanhFragmentBinding getViewBinding() {
+        return DienanhFragmentBinding.inflate(getLayoutInflater());
+    }
 }

@@ -4,21 +4,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.R;
+import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.FilmInfoChildFragmentBinding;
 import com.base.moviebooking.entity.FilmInfo;
 import com.base.moviebooking.ui.home.HomeFragment;
 
 public class FilmInfoChildFragment extends BaseFragment<FilmInfoChildFragmentBinding> {
-    private FilmInfoViewModel mViewModel;
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.film_info_child_fragment;
-    }
-
     @Override
     public void backFromAddFragment() {
 
@@ -32,7 +27,6 @@ public class FilmInfoChildFragment extends BaseFragment<FilmInfoChildFragmentBin
 
     @Override
     public void initView() {
-        mViewModel = ViewModelProviders.of(this, viewModelFactory).get(FilmInfoViewModel.class);
         Bundle bundle = getArguments();
 
         if (bundle != null && !bundle.isEmpty()) {
@@ -46,13 +40,6 @@ public class FilmInfoChildFragment extends BaseFragment<FilmInfoChildFragmentBin
             getActivity().findViewById(R.id.bottombar).setVisibility(View.GONE);
         }
     }
-
-    @Override
-    public void onResume() {
-
-        super.onResume();
-    }
-
     @Override
     public void initData() {
         getActivity().findViewById(R.id.img_headerphim).setOnClickListener(new View.OnClickListener() {
@@ -75,5 +62,10 @@ public class FilmInfoChildFragment extends BaseFragment<FilmInfoChildFragmentBin
     }
 
 
+    @NonNull
+    @Override
+    public FilmInfoChildFragmentBinding getViewBinding() {
+        return FilmInfoChildFragmentBinding.inflate(getLayoutInflater());
+    }
 }
 
