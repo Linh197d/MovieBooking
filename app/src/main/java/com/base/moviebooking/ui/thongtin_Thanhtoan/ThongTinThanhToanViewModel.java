@@ -3,8 +3,8 @@ package com.base.moviebooking.ui.thongtin_Thanhtoan;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
-import com.base.moviebooking.base.BaseViewModel;
 import com.base.moviebooking.entity.Account;
 import com.base.moviebooking.entity.ThongTinThanhToan;
 import com.base.moviebooking.network.repository.Repository;
@@ -16,7 +16,7 @@ import javax.inject.Inject;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
-public class ThongTinThanhToanViewModel extends BaseViewModel {
+public class ThongTinThanhToanViewModel extends ViewModel {
     private Repository repository;
     MutableLiveData<List<ThongTinThanhToan>> dataThanhToan = new MutableLiveData<>();
     MutableLiveData<List<Account>> dataUser = new MutableLiveData<>();

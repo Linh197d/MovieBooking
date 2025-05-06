@@ -10,7 +10,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.R;
-import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.DangkyFragmentBinding;
 import com.base.moviebooking.entity.RegisterRequest;
 import com.base.moviebooking.entity.RegisterResponse;

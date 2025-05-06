@@ -1,10 +1,11 @@
 package com.base.moviebooking.ui.home;
 
 import android.util.Log;
+import android.view.View;
 
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
-import com.base.moviebooking.base.BaseViewModel;
 import com.base.moviebooking.entity.Movie;
 import com.base.moviebooking.network.repository.Repository;
 
@@ -15,7 +16,7 @@ import javax.inject.Inject;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
-public class HomeViewModel extends BaseViewModel {
+public class HomeViewModel extends ViewModel {
     private final Repository repository;
     MutableLiveData<List<Movie>> dataMovie = new MutableLiveData<>();
 

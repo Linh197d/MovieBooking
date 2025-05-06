@@ -3,8 +3,8 @@ package com.base.moviebooking.ui.sign_in;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
-import com.base.moviebooking.base.BaseViewModel;
 import com.base.moviebooking.entity.ForgetPass;
 import com.base.moviebooking.entity.LoginRequest;
 import com.base.moviebooking.entity.LoginResponse;
@@ -15,7 +15,7 @@ import javax.inject.Inject;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
-public class SignInViewModel extends BaseViewModel {
+public class SignInViewModel extends ViewModel {
     private  Repository repository;
     MutableLiveData<LoginResponse> dataLogin = new MutableLiveData<>();
     MutableLiveData<LoginResponse> dataResponeMK = new MutableLiveData<>();

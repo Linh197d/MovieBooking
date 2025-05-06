@@ -3,8 +3,8 @@ package com.base.moviebooking.ui.account;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
-import com.base.moviebooking.base.BaseViewModel;
 import com.base.moviebooking.entity.Account;
 import com.base.moviebooking.network.repository.Repository;
 
@@ -12,10 +12,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
-public class AccountViewModel extends BaseViewModel {
+@HiltViewModel
+public class AccountViewModel extends ViewModel {
     private Repository repository;
     MutableLiveData<List<Account>> dataUser = new MutableLiveData<>();
 

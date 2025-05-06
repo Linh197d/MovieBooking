@@ -4,7 +4,6 @@ import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.base.moviebooking.base.BaseViewModel;
 import com.base.moviebooking.entity.Amount;
 import com.base.moviebooking.entity.Chair;
 import com.base.moviebooking.entity.Product;

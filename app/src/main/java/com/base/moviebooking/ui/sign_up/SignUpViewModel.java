@@ -3,8 +3,8 @@ package com.base.moviebooking.ui.sign_up;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
-import com.base.moviebooking.base.BaseViewModel;
 import com.base.moviebooking.entity.RegisterRequest;
 import com.base.moviebooking.entity.RegisterResponse;
 import com.base.moviebooking.network.repository.Repository;
@@ -14,7 +14,7 @@ import javax.inject.Inject;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
-public class SignUpViewModel extends BaseViewModel {
+public class SignUpViewModel extends ViewModel {
     private Repository repository;
     MutableLiveData<RegisterResponse> dataRegister = new MutableLiveData<>();
 

@@ -11,10 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.base.moviebooking.R;
 import com.base.moviebooking.adapter.TheaterAdapter;
-import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.RapphimFragmentBinding;
 import com.base.moviebooking.entity.Theater;
-import com.base.moviebooking.ui.theater.TheaterViewModel;
 
 import java.util.ArrayList;
 import java.util.List;

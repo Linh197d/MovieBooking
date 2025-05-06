@@ -16,7 +16,6 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.DataLocalManager;
 import com.base.moviebooking.R;
-import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.DangnhapFragmentBinding;
 import com.base.moviebooking.entity.LoginRequest;
 import com.base.moviebooking.entity.LoginResponse;
@@ -24,11 +23,9 @@ import com.base.moviebooking.ui.account.AccountFragment;
 import com.base.moviebooking.ui.sign_up.SignUpFragment;
 
 import java.io.IOException;
-import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateException;
 import java.util.Objects;

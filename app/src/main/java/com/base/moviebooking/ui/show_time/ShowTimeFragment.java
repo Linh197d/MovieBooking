@@ -14,7 +14,6 @@ import androidx.palette.graphics.Palette;
 
 import com.base.moviebooking.R;
 import com.base.moviebooking.adapter.ViewPagerAdapter;
-import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.LichPhimBinding;
 import com.base.moviebooking.entity.Movie;
 import com.base.moviebooking.ui.home.HomeFragment;

@@ -3,8 +3,8 @@ package com.base.moviebooking.ui.user_info;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
-import com.base.moviebooking.base.BaseViewModel;
 import com.base.moviebooking.entity.Account;
 import com.base.moviebooking.entity.RegisterResponse;
 import com.base.moviebooking.entity.UserUpdate;
@@ -17,7 +17,7 @@ import javax.inject.Inject;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
-public class UserInfoViewModel extends BaseViewModel {
+public class UserInfoViewModel extends ViewModel {
     private Repository repository;
     MutableLiveData<List<Account>> dataUser = new MutableLiveData<>();
     MutableLiveData<RegisterResponse> update = new MutableLiveData<>();

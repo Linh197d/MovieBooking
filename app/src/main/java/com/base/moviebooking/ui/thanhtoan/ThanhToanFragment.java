@@ -2,7 +2,6 @@ package com.base.moviebooking.ui.thanhtoan;
 
 import static com.base.moviebooking.adapter.HomeAdapter.parseBase64;
 
-import android.app.DatePickerDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -10,15 +9,12 @@ import android.util.Base64;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
 import android.widget.Toast;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.R;
-import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.ThanhtoanFragmentBinding;
 import com.base.moviebooking.entity.Movie;
 import com.base.moviebooking.entity.PriceSeat;
@@ -26,7 +22,6 @@ import com.base.moviebooking.entity.ProductThanhToan;
 import com.base.moviebooking.entity.RegisterResponse;
 import com.base.moviebooking.entity.Schedule;
 import com.base.moviebooking.entity.ThanhToan;
-import com.base.moviebooking.entity.VNPay;
 import com.base.moviebooking.ui.thongtin_Thanhtoan.ThongTinThanhToanFragment;
 
 import java.text.ParseException;
@@ -34,7 +29,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 public class ThanhToanFragment extends BaseFragment<ThanhtoanFragmentBinding> {
 

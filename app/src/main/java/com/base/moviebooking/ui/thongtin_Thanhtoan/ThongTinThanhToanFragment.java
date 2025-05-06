@@ -19,7 +19,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.R;
-import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.ThongtinThanhtoanFragmentBinding;
 import com.base.moviebooking.entity.Account;
 import com.base.moviebooking.entity.ThongTinThanhToan;
@@ -38,14 +37,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
 public class ThongTinThanhToanFragment extends BaseFragment<ThongtinThanhtoanFragmentBinding> {
 

@@ -1,10 +1,10 @@
 package com.base.moviebooking.ui.main;
 
-import com.base.moviebooking.base.BaseViewModel;
+import androidx.lifecycle.ViewModel;
 
 import javax.inject.Inject;
 
-public class MainViewModel extends BaseViewModel {
+public class MainViewModel extends ViewModel {
     @Inject
     public MainViewModel() {
     }

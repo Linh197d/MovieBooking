@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.base.moviebooking.listener.OnChooseRecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.adapter.FilmInformationAdapter;
-import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.DienanhFragmentBinding;
 import com.base.moviebooking.entity.FilmInfo;
 import com.base.moviebooking.entity.Movie;

@@ -14,7 +14,6 @@ import com.base.moviebooking.listener.OnChooseRecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.adapter.HomeAdapter;
 import com.base.moviebooking.adapter.SlideAdapter;
-import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.HomeFragmentBinding;
 import com.base.moviebooking.entity.FilmInfo;
 import com.base.moviebooking.entity.Movie;

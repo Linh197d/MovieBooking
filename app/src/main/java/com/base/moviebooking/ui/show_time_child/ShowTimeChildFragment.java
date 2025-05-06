@@ -18,7 +18,6 @@ import com.base.moviebooking.listener.OnChooseRecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.VietnamComparator;
 import com.base.moviebooking.adapter.ShowTimesAdapter;
-import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.LichChieuFragmentBinding;
 import com.base.moviebooking.entity.Cinema;
 import com.base.moviebooking.entity.FilmInfo;

@@ -3,8 +3,8 @@ package com.base.moviebooking.ui.show_time_child;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
-import com.base.moviebooking.base.BaseViewModel;
 import com.base.moviebooking.entity.Cinema;
 import com.base.moviebooking.entity.Schedule;
 import com.base.moviebooking.network.repository.Repository;
@@ -16,7 +16,7 @@ import javax.inject.Inject;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
-public class ShowTimeChildViewModel extends BaseViewModel {
+public class ShowTimeChildViewModel extends ViewModel {
     private Repository repository;
     MutableLiveData<List<Cinema>> data = new MutableLiveData<>();
     MutableLiveData<List<Schedule>> listSchedule = new MutableLiveData<>();

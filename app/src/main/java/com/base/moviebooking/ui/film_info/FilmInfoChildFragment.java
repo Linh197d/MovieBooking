@@ -7,7 +7,6 @@ import android.widget.TextView;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.R;
-import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.FilmInfoChildFragmentBinding;
 import com.base.moviebooking.entity.FilmInfo;
 import com.base.moviebooking.ui.home.HomeFragment;

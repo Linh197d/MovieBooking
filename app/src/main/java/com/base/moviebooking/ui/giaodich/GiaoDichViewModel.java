@@ -3,8 +3,8 @@ package com.base.moviebooking.ui.giaodich;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
-import com.base.moviebooking.base.BaseViewModel;
 import com.base.moviebooking.entity.CancelTicket;
 import com.base.moviebooking.entity.LoginResponse;
 import com.base.moviebooking.entity.ThongTinThanhToan;
@@ -17,7 +17,7 @@ import javax.inject.Inject;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
-public class GiaoDichViewModel extends BaseViewModel {
+public class GiaoDichViewModel extends ViewModel {
     private Repository repository;
     MutableLiveData<List<ThongTinThanhToan>> dataThanhtoan = new MutableLiveData<>();
     MutableLiveData<LoginResponse> dataRespone = new MutableLiveData<>();

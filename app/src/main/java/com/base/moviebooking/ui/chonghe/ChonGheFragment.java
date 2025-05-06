@@ -16,10 +16,10 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.listener.OnChooseSeat;
 import com.base.moviebooking.R;
 import com.base.moviebooking.adapter.SeatAdapter;
-import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.ChongheFragmentBinding;
 import com.base.moviebooking.entity.Amount;
 import com.base.moviebooking.entity.Chair;
