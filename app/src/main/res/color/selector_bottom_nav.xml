@@ -1,0 +1,4 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/orange" android:state_checked="true"/> <!-- Cam -->
+    <item android:color="#B0B0B0"/> <!-- Xám nhạt khi không chọn -->
+</selector>
