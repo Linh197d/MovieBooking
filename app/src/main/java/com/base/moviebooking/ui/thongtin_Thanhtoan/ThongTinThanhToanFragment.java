@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.R;
@@ -39,6 +40,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
+
 public class ThongTinThanhToanFragment extends BaseFragment<ThongtinThanhtoanFragmentBinding> {
 
     private ThongTinThanhToanViewModel mViewModel;
@@ -46,11 +51,6 @@ public class ThongTinThanhToanFragment extends BaseFragment<ThongtinThanhtoanFra
     private String code;
     private String gmail="thieuhaitam@gmail.com";
     private Bitmap bitmapImage;
-    @Override
-    protected int getLayoutId() {
-        return R.layout.thongtin_thanhtoan_fragment;
-    }
-
     @Override
     public void backFromAddFragment() {
 
@@ -64,7 +64,7 @@ public class ThongTinThanhToanFragment extends BaseFragment<ThongtinThanhtoanFra
     @Override
     public void initView() {
         getActivity().findViewById(R.id.bottombar).setVisibility(View.GONE);
-        mViewModel = ViewModelProviders.of(this,viewModelFactory).get(ThongTinThanhToanViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(ThongTinThanhToanViewModel.class);
         mViewModel.getThongTinThanhToan();
         mViewModel.getInfo();
         mViewModel.dataUser.observe(getViewLifecycleOwner(), new Observer<List<Account>>() {

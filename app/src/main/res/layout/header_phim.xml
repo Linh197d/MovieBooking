@@ -3,20 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#F2F2F2">
+    android:background="@color/main_color">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/img_headerphim"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="14dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/oval_btn_blackground"
+            android:padding="8dp"
             android:src="@drawable/back"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,13 +28,15 @@
             android:id="@+id/tvt_headerphim"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Avatar"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
-            android:textColor="@color/colorBlack"
+            android:text="Avatar"
+            android:textColor="@color/white"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/img_headerphim"
             app:layout_constraintTop_toTopOf="parent" />
 

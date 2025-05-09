@@ -5,7 +5,9 @@ import static android.app.Activity.RESULT_OK;
 import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.Toast;
@@ -14,7 +16,11 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.R;
@@ -23,12 +29,17 @@ import com.base.moviebooking.databinding.UserInfoFragmentBinding;
 import com.base.moviebooking.entity.Account;
 import com.base.moviebooking.entity.RegisterResponse;
 import com.base.moviebooking.entity.UserUpdate;
+import com.base.moviebooking.ui.change_pass.ChangePassFragment;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 
 public class UserInfoFragment extends BaseFragment<UserInfoFragmentBinding> {
 
@@ -40,12 +51,7 @@ public class UserInfoFragment extends BaseFragment<UserInfoFragmentBinding> {
     final int day = calendar.get(Calendar.DAY_OF_MONTH);
     Uri selectedImageUri;
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.user_info_fragment;
-    }
-
-    @Override
+   @Override
     public void backFromAddFragment() {
 
     }
@@ -58,7 +64,7 @@ public class UserInfoFragment extends BaseFragment<UserInfoFragmentBinding> {
     @Override
     public void initView() {
         getActivity().findViewById(R.id.bottombar).setVisibility(View.GONE);
-        mViewModel = ViewModelProviders.of(this,viewModelFactory).get(UserInfoViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(UserInfoViewModel.class);
         mViewModel.getInfo();
         mViewModel.dataUser.observe(getViewLifecycleOwner(), new Observer<List<Account>>() {
             @Override
@@ -162,31 +168,52 @@ public class UserInfoFragment extends BaseFragment<UserInfoFragmentBinding> {
         binding.pickImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionListener permissionlistener = new PermissionListener() {
-                    @Override
-                    public void onPermissionGranted() { Intent intent = new Intent();
-                        intent.setType("image/*");
-                        Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);// camera
-                        intent.setAction(Intent.ACTION_GET_CONTENT);
-                        mActivityResult.launch(intent);
-                        Toast.makeText(getContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
-
-                    }
-
-                    @Override
-                    public void onPermissionDenied(List<String> deniedPermissions) {
-                        Toast.makeText(getContext(), "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
-                    }
-
-                };
-                TedPermission.create()
-                        .setPermissionListener(permissionlistener)
-                        .setDeniedMessage("If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
-                        .setPermissions( Manifest.permission.READ_EXTERNAL_STORAGE)
-                        .check();
-
+                if (hasImagePermission()) {
+                    openImagePicker();
+                } else {
+                    requestImagePermission();
+                }
             }
         });
+    }
+    private static final int REQUEST_IMAGE_PERMISSION = 1001;
+
+    private boolean hasImagePermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            return ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_MEDIA_IMAGES)
+                    == PackageManager.PERMISSION_GRANTED;
+        } else {
+            return ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED;
+        }
+    }
+
+    private void requestImagePermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ActivityCompat.requestPermissions(requireActivity(),
+                    new String[]{Manifest.permission.READ_MEDIA_IMAGES}, REQUEST_IMAGE_PERMISSION);
+        } else {
+            ActivityCompat.requestPermissions(requireActivity(),
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_IMAGE_PERMISSION);
+        }
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == REQUEST_IMAGE_PERMISSION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                openImagePicker();
+            } else {
+                Toast.makeText(requireContext(), "Permission Denied", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+    private void openImagePicker() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        mActivityResult.launch(intent);
     }
     private final ActivityResultLauncher<Intent> mActivityResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult()
             , new ActivityResultCallback<ActivityResult>() {
@@ -201,4 +228,9 @@ public class UserInfoFragment extends BaseFragment<UserInfoFragmentBinding> {
             });
 
 
+    @NonNull
+    @Override
+    public UserInfoFragmentBinding getViewBinding() {
+        return UserInfoFragmentBinding.inflate(getLayoutInflater());
+    }
 }

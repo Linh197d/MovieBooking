@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.R;
@@ -23,6 +24,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
+
 public class SignUpFragment extends BaseFragment<DangkyFragmentBinding> {
 
     private SignUpViewModel mViewModel;
@@ -30,10 +35,6 @@ public class SignUpFragment extends BaseFragment<DangkyFragmentBinding> {
     final int year = calendar.get(Calendar.YEAR);
     final int month = calendar.get(Calendar.MONTH);
     final int day = calendar.get(Calendar.DAY_OF_MONTH);
-    @Override
-    protected int getLayoutId() {
-        return R.layout.dangky_fragment;
-    }
 
     @Override
     public void backFromAddFragment() {
@@ -48,7 +49,7 @@ public class SignUpFragment extends BaseFragment<DangkyFragmentBinding> {
     @Override
     public void initView() {
         getActivity().findViewById(R.id.bottombar).setVisibility(View.GONE);
-        mViewModel = ViewModelProviders.of(this,viewModelFactory).get(SignUpViewModel.class);
+        mViewModel =new ViewModelProvider(this).get(SignUpViewModel.class);
         mViewModel.dataRegister.observe(getViewLifecycleOwner(), new Observer<RegisterResponse>() {
             @Override
             public void onChanged(RegisterResponse response) {

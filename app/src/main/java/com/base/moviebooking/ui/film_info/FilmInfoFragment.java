@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.base.moviebooking.base.BaseFragment;
+import com.base.moviebooking.entity.Category;
 import com.base.moviebooking.listener.OnChooseRecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.adapter.FilmInformationAdapter;
@@ -21,6 +22,10 @@ import com.base.moviebooking.entity.Theater;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 
 public class FilmInfoFragment extends BaseFragment<DienanhFragmentBinding> {
     private FilmInformationAdapter filmInformationAdapter;
@@ -59,6 +64,16 @@ public class FilmInfoFragment extends BaseFragment<DienanhFragmentBinding> {
 
             @Override
             public void onChooseLichChieu(Schedule lichChieu) {
+
+            }
+
+            @Override
+            public void onChooseCategory(Category category) {
+
+            }
+
+            @Override
+            public void onChooseTime(Schedule schedule) {
 
             }
         });

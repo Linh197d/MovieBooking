@@ -11,8 +11,10 @@ import com.base.moviebooking.network.repository.Repository;
 
 import javax.inject.Inject;
 
+import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
+@HiltViewModel
 
 public class SignUpViewModel extends ViewModel {
     private Repository repository;

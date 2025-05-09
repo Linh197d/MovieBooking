@@ -17,11 +17,11 @@ import com.base.moviebooking.ui.splash.SplashFragment;
 import com.base.moviebooking.ui.theater.TheaterFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
+
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
-    @Override
-    public int getLayoutId() {
-        return R.layout.activity_main;
-    }
 
     @Override
     public int getFragmentContainerId() {
@@ -39,32 +39,21 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         binding.bottombar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.btnTrangchu:
-                        mViewController.replaceFragment(HomeFragment.class, null);
-                        break;
-                    case R.id.btnRapPhim:
-                        mViewController.replaceFragment(TheaterFragment.class, null);
-                        break;
-                    case R.id.btnDienAnh:
-                        mViewController.replaceFragment(FilmInfoFragment.class, null);
-                        break;
-                    case R.id.btnTaiKhoan:
-                        mViewController.replaceFragment(AccountFragment.class, null);
-                        break;
+                int itemId = item.getItemId();
+
+                if (itemId == R.id.btnTrangchu) {
+                    mViewController.replaceFragment(HomeFragment.class, null);
+                } else if (itemId == R.id.btnRapPhim) {
+                    mViewController.replaceFragment(TheaterFragment.class, null);
+                } else if (itemId == R.id.btnDienAnh) {
+                    mViewController.replaceFragment(FilmInfoFragment.class, null);
+                } else if (itemId == R.id.btnTaiKhoan) {
+                    mViewController.replaceFragment(AccountFragment.class, null);
                 }
                 return true;
             }
         });
     }
-
-    @Override
-    public void initData() {
-
-
-
-    }
-
     @NonNull
     @Override
     public ActivityMainBinding setBinding(@NonNull LayoutInflater layoutInflater) {

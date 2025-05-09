@@ -1,12 +1,16 @@
 package com.base.moviebooking.entity;
 
-public class Theater {
+import java.io.Serializable;
+
+public class Theater  implements Serializable {
 
     private int id;
-    private String tenRap;
-    private int urlImage;
-    private String diachi;
+    private String name;
+    private String urlImage;
+    private String address;
+    private String city;
     private String phone;
+
     public int getId() {
         return id;
     }
@@ -15,28 +19,36 @@ public class Theater {
         this.id = id;
     }
 
-    public String getTenRap() {
-        return tenRap;
+    public String getName() {
+        return name;
     }
 
-    public void setTenRap(String tenRap) {
-        this.tenRap = tenRap;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getUrlImage() {
+    public String getUrlImage() {
         return urlImage;
     }
 
-    public void setUrlImage(int urlImage) {
+    public void setUrlImage(String urlImage) {
         this.urlImage = urlImage;
     }
 
-    public String getDiachi() {
-        return diachi;
+    public String getAddress() {
+        return address;
     }
 
-    public void setDiachi(String diachi) {
-        this.diachi = diachi;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getPhone() {
@@ -47,11 +59,12 @@ public class Theater {
         this.phone = phone;
     }
 
-    public Theater(int id,String tenRap, int urlImage, String diachi, String phone) {
-        this.id= id;
-        this.tenRap = tenRap;
+    public Theater(int id, String name, String urlImage, String address, String city, String phone) {
+        this.id = id;
+        this.name = name;
         this.urlImage = urlImage;
-        this.diachi = diachi;
+        this.address = address;
+        this.city = city;
         this.phone = phone;
     }
 }

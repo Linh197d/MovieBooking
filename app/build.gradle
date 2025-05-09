@@ -134,5 +134,7 @@ dependencies {
       implementation files('libs/activation.jar')
     implementation files('libs/additionnal.jar')
     implementation files('libs/mail.jar')
+    implementation "com.airbnb.android:lottie:3.4.0"
+    implementation 'com.google.android.exoplayer:exoplayer:2.19.1'
 
 }

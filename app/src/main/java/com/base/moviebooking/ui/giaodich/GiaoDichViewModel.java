@@ -14,8 +14,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
+@HiltViewModel
 
 public class GiaoDichViewModel extends ViewModel {
     private Repository repository;

@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.R;
@@ -32,6 +33,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
+
 public class ThanhToanFragment extends BaseFragment<ThanhtoanFragmentBinding> {
 
     private ThanhToanViewModel mViewModel;
@@ -48,11 +53,6 @@ public class ThanhToanFragment extends BaseFragment<ThanhtoanFragmentBinding> {
     private ArrayList<Integer> arrayListGhe = new ArrayList<>();
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.thanhtoan_fragment;
-    }
-
-    @Override
     public void backFromAddFragment() {
 
     }
@@ -65,7 +65,7 @@ public class ThanhToanFragment extends BaseFragment<ThanhtoanFragmentBinding> {
     @Override
     public void initView() {
 
-        mViewModel = ViewModelProviders.of(this, viewModelFactory).get(ThanhToanViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(ThanhToanViewModel.class);
         Bundle bundle = getArguments();
         if (bundle != null && !bundle.isEmpty()) {
 //            Log.d("fat", "bundle chair okay");

@@ -1,164 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginHorizontal="10dp"
-    android:orientation="vertical"
-    android:id="@+id/thongtin_fragment"
-    >
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Nội dung"
-    android:textSize="20sp"
-    android:textStyle="bold"
-    android:textColor="#000"
-    />
-    <TextView
-        android:id="@+id/descriptionMovie"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/noidung_sample"
-        android:textSize="16sp"
-        />
-    <TextView
-        android:id="@+id/xemtiep"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Xem tiếp"
-        android:textSize="20sp"
-        android:textColor="#FF9800"
-        />
-        <View
-            android:layout_marginVertical="5dp"
+        android:layout_height="match_parent"
+        android:background="@color/main_color">
+
+        <LinearLayout
+            android:id="@+id/thongtin_fragment"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#817070"
-            />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Diễn viên"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="#000"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            >
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                app:shapeAppearanceOverlay="@style/circle"
-                android:src="@drawable/dv1"
-                />
+            android:layout_height="match_parent"
+            android:paddingBottom="10dp"
+            android:padding="@dimen/define_dimen_10"
+            android:orientation="vertical">
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/txtCategory"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:text="Perdo Pascal"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginHorizontal="10dp"
-            >
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                app:shapeAppearanceOverlay="@style/circle"
-                android:src="@drawable/dv2"
-                />
-            <TextView
-                android:layout_width="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Thể loại"
+                android:textColor="@color/yellow"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cateView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:text="Anna Torv"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+            <include
+                android:id="@+id/category_load"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/cateView"
+                layout="@layout/dialog_loading"
                 />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginHorizontal="10dp"
-            >
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                app:shapeAppearanceOverlay="@style/circle"
-                android:src="@drawable/dv3"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:text="Nico Parker"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginHorizontal="10dp"
-            >
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                app:shapeAppearanceOverlay="@style/circle"
-                android:src="@drawable/dv4"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:text="Nick Offerman"
-                />
-        </LinearLayout>
 
+            <TextView
+                android:id="@+id/test1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Nội dung"
+                android:textColor="@color/yellow"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/descriptionMovie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="10dp"
+                android:padding="10dp"
+                android:text="@string/noidung_sample"
+                android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/trailer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:text="Video Trailer"
+                android:textColor="@color/yellow"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/define_dimen_200"
+                android:layout_marginTop="@dimen/define_dimen_5">
 
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#817070"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Đạo diễn"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="#000"
-        />
-    <com.google.android.material.imageview.ShapeableImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:shapeAppearanceOverlay="@style/circle"
-        android:src="@drawable/dv5"
-        android:layout_marginHorizontal="20dp"
-        />
-    <TextView
-        android:id="@+id/directorMovie"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Grame Done"
-        android:layout_marginHorizontal="20dp"
-        />
-</LinearLayout>
+                <com.google.android.exoplayer2.ui.PlayerView
+                    android:id="@+id/exoplayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/define_dimen_200" />
+
+                <ImageView
+                    android:id="@+id/img_play_movie"
+                    android:layout_width="@dimen/define_dimen_60"
+                    android:layout_height="@dimen/define_dimen_60"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_play_movie_white"
+                    tools:ignore="ContentDescription" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/dienvien"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:text="Diễn viên"
+                android:textColor="@color/yellow"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+<!--            <TextView-->
+<!--                android:id="@+id/movieActorInfo"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="test"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:padding="10dp"-->
+<!--                android:textColor="@color/white" />-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listActor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginStart="3dp"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp" />
+
+            <include
+                android:id="@+id/actor_load"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/listActor"
+                layout="@layout/dialog_loading"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đạo diễn"
+                android:textStyle="bold"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/yellow"
+                android:textSize="16sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/directorImage"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/dv5"
+                app:shapeAppearanceOverlay="@style/circle" />
+
+            <TextView
+                android:id="@+id/directorMovie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="20dp"
+                android:text="Grame Done" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
 </layout>

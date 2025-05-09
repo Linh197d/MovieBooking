@@ -18,4 +18,10 @@
     <color name="red">#D30A22</color>
     <color name="green">#4CAF50</color>
     <color name="yellow">#FF9800</color>
+    <color name="main_color">#1F1D2B</color>
+    <color name="dark_blue">#252836</color>
+    <color name="orange">#FF7427</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="yellow_2">#FFC107</color>
 </resources>

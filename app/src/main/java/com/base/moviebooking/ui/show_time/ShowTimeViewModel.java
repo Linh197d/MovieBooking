@@ -7,6 +7,10 @@ import com.base.moviebooking.entity.Movie;
 
 import javax.inject.Inject;
 
+import dagger.hilt.android.lifecycle.HiltViewModel;
+
+@HiltViewModel
+
 public class ShowTimeViewModel extends ViewModel {
     public  MutableLiveData<Movie> dataMovie = new MutableLiveData<>();
     public MutableLiveData<Movie> getData() {

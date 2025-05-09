@@ -18,6 +18,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;
+import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.components.SingletonComponent;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -48,7 +49,7 @@ public class NetworkModule {
 
     @Provides
     @Singleton
-    OkHttpClient provideHttpClient(Context context) {
+    OkHttpClient provideHttpClient(@ApplicationContext Context context) {
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 

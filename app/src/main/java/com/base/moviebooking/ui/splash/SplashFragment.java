@@ -3,9 +3,12 @@ package com.base.moviebooking.ui.splash;
 import android.os.Handler;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.R;
+import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.SplashFragmentBinding;
 import com.base.moviebooking.ui.home.HomeFragment;
 import com.base.moviebooking.utils.MyUtils;
@@ -17,15 +20,13 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.cert.CertificateException;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 
 public class SplashFragment extends BaseFragment<SplashFragmentBinding> {
 
     private SplashViewModel mViewModel;
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.splash_fragment;
-    }
 
     @Override
     public void backFromAddFragment() {
@@ -56,7 +57,7 @@ public class SplashFragment extends BaseFragment<SplashFragmentBinding> {
         }
 
         getActivity().findViewById(R.id.bottombar).setVisibility(View.GONE);
-        mViewModel = ViewModelProviders.of(this,viewModelFactory).get(SplashViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(SplashViewModel.class);
     }
 
     @Override
@@ -67,4 +68,9 @@ public class SplashFragment extends BaseFragment<SplashFragmentBinding> {
     }
 
 
+    @NonNull
+    @Override
+    public SplashFragmentBinding getViewBinding() {
+        return SplashFragmentBinding.inflate(getLayoutInflater());
+    }
 }

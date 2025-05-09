@@ -13,6 +13,10 @@ import com.base.moviebooking.databinding.FilmInfoChildFragmentBinding;
 import com.base.moviebooking.entity.FilmInfo;
 import com.base.moviebooking.ui.home.HomeFragment;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
+
 public class FilmInfoChildFragment extends BaseFragment<FilmInfoChildFragmentBinding> {
     @Override
     public void backFromAddFragment() {

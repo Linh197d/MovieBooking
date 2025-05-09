@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -35,6 +36,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 
 public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
     public final String TAG = "fat";
@@ -63,7 +67,7 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
 
     @Override
     public void initView() {
-        mViewModel = ViewModelProviders.of(this).get(ChonGheViewModel.class);
+        mViewModel =new ViewModelProvider(this).get(ChonGheViewModel.class);
         Bundle bundle = getArguments();
         if (bundle != null && !bundle.isEmpty()) {
             schedule = (Schedule) bundle.getSerializable("schedule");

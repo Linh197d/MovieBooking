@@ -9,6 +9,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.palette.graphics.Palette;
 
@@ -21,6 +22,9 @@ import com.base.moviebooking.ui.home.HomeFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 
 public class ShowTimeFragment extends BaseFragment<LichPhimBinding> {
     public final String TAG = "fat";
@@ -41,7 +45,7 @@ public class ShowTimeFragment extends BaseFragment<LichPhimBinding> {
     @Override
     public void initView() {
         AppCompatActivity activity = (AppCompatActivity) requireActivity();
-        mViewModel = ViewModelProviders.of(this, viewModelFactory).get(ShowTimeViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(ShowTimeViewModel.class);
         viewPagerAdapter = new ViewPagerAdapter(this);
         binding.viewpagerLichphim.setAdapter(viewPagerAdapter);
         new TabLayoutMediator(binding.tabLayout, binding.viewpagerLichphim, new TabLayoutMediator.TabConfigurationStrategy() {

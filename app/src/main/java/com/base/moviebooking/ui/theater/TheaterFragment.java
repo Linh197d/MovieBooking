@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,16 +19,14 @@ import com.base.moviebooking.entity.Theater;
 import java.util.ArrayList;
 import java.util.List;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
+
 public class TheaterFragment extends BaseFragment<RapphimFragmentBinding> {
     String TAG="fat";
-    private TheaterViewModel mViewModel;
     private List<Theater> rapList= new ArrayList<>();
     private TheaterAdapter rapAdapter;
-    @Override
-    protected int getLayoutId() {
-
-        return R.layout.rapphim_fragment;
-    }
 
     @Override
     public void backFromAddFragment() {
@@ -41,7 +40,6 @@ public class TheaterFragment extends BaseFragment<RapphimFragmentBinding> {
 
     @Override
     public void initView() {
-        mViewModel = ViewModelProviders.of(this,viewModelFactory).get(TheaterViewModel.class);
         binding.rcvRapphim.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
         rapAdapter = new TheaterAdapter(getContext(),false,getContext());
         rapAdapter.addModels(getListModel(),false);
@@ -50,14 +48,14 @@ public class TheaterFragment extends BaseFragment<RapphimFragmentBinding> {
         binding.rcvRapphim.addItemDecoration(itemDecoration);
     }
     private List<Theater> getListModel() {
-        rapList.add(new Theater(1,"Mê Linh Plaza",R.drawable.rap5,"Hà Nội","0987654321"));
-        rapList.add(new Theater(2,"Joy City Point",R.drawable.rap1,"116 Nguyễn Du,Quận 1,Tp.HCM","0987654321"));
-        rapList.add(new Theater(3,"Vincom Plaza",R.drawable.rap_2,"Thái Bình","0987654321"));
-        rapList.add(new Theater(4,"Tower Plaza",R.drawable.rap_3,"Nam Định","0987654321"));
-        rapList.add(new Theater(6,"Thăng Long Plaza",R.drawable.rap4,"Hà Nội","0987654321"));
-        rapList.add(new Theater(8,"Hoàn Kiếm Plaza",R.drawable.rap5,"Hà Nội","0987654321"));
-        rapList.add(new Theater(9,"Vincom Thái Bình",R.drawable.rap6,"Hà Nội","0987654321"));
-        rapList.add(new Theater(10,"Lotte Hà Nội",R.drawable.rap_3,"Hà Nội","0987654321"));
+        rapList.add(new Theater(1,"Mê Linh Plaza","http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg","","Hà Nội","0987654321"));
+        rapList.add(new Theater(2,"Joy City Point","http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg","116 Nguyễn Du,Quận 1,Tp.HCM","TPHCM","0987654321"));
+        rapList.add(new Theater(3,"Vincom Plaza","http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg","","Hà Nội","0987654321"));
+        rapList.add(new Theater(4,"Tower Plaza","http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg","","Hà Nội","0987654321"));
+        rapList.add(new Theater(6,"Thăng Long Plaza","http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg","","Hà Nội","0987654321"));
+        rapList.add(new Theater(8,"Hoàn Kiếm Plaza","http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg","","Hà Nội","0987654321"));
+        rapList.add(new Theater(9,"Vincom Thái Bình","http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg","","Hà Nội","0987654321"));
+        rapList.add(new Theater(10,"Lotte Hà Nội","http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg","","Hà Nội","0987654321"));
 
         return rapList;
     }
@@ -82,5 +80,9 @@ public class TheaterFragment extends BaseFragment<RapphimFragmentBinding> {
     }
 
 
-
+    @NonNull
+    @Override
+    public RapphimFragmentBinding getViewBinding() {
+        return RapphimFragmentBinding.inflate(getLayoutInflater());
+    }
 }

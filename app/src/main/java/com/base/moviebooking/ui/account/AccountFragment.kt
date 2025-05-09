@@ -1,10 +1,9 @@
 package com.base.moviebooking.ui.account
 
-import android.net.Uri
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.base.moviebooking.DataLocalManager
 import com.base.moviebooking.base.BaseFragment
 import com.base.moviebooking.databinding.TaikhoanFragmentBinding
@@ -13,7 +12,6 @@ import com.base.moviebooking.ui.sign_in.SignInFragment
 import com.base.moviebooking.ui.sign_up.SignUpFragment
 import com.base.moviebooking.ui.user_info.UserInfoFragment
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -21,16 +19,12 @@ class AccountFragment : BaseFragment<TaikhoanFragmentBinding>() {
 
     private val TAG = "fat"
     private lateinit var mViewModel: AccountViewModel
-
-    @Inject
-    private var imageUser: Uri? = null
-
     override fun getViewBinding(): TaikhoanFragmentBinding {
         return TaikhoanFragmentBinding.inflate(layoutInflater)
     }
 
     override fun initView() {
-        mViewModel = ViewModelProviders.of(this).get<AccountViewModel>(
+        mViewModel = ViewModelProvider(this).get<AccountViewModel>(
             AccountViewModel::class.java
         )
         mViewModel.getInfo()
@@ -72,18 +66,6 @@ class AccountFragment : BaseFragment<TaikhoanFragmentBinding>() {
             binding.btnDangKy.visibility = View.VISIBLE
             DataLocalManager.setBooleanValue(false)
             Toast.makeText(requireContext(), "Đăng xuất thành công", Toast.LENGTH_SHORT).show()
-        }
-
-        binding.doiqua.setOnClickListener {
-            Toast.makeText(requireContext(), "Tính năng sắp ra mắt", Toast.LENGTH_SHORT).show()
-        }
-
-        binding.tichdiem.setOnClickListener {
-            Toast.makeText(requireContext(), "Tính năng sắp ra mắt", Toast.LENGTH_SHORT).show()
-        }
-
-        binding.uudai.setOnClickListener {
-            Toast.makeText(requireContext(), "Tính năng sắp ra mắt", Toast.LENGTH_SHORT).show()
         }
 
         binding.lnThongtin.setOnClickListener {

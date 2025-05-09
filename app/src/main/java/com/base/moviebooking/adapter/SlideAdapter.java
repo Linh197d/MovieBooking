@@ -7,51 +7,72 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.viewpager.widget.PagerAdapter;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.base.moviebooking.R;
 import com.base.moviebooking.entity.Slide;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.List;
 
-public class SlideAdapter extends PagerAdapter {
-    private final Context mContext;
-    private final List<Slide> mListSlide;
+public class SlideAdapter extends RecyclerView.Adapter<SlideAdapter.SliderViewHolder> {
+    private List<Slide> sliderItems;
+    private ViewPager2 viewPager2;
+    private Context context;
 
-    public SlideAdapter(Context mContext, List<Slide> mListSlide) {
-        this.mContext = mContext;
-        this.mListSlide = mListSlide;
+    public SlideAdapter(List<Slide> sliderItems, ViewPager2 viewPager2) {
+        this.sliderItems = sliderItems;
+        this.viewPager2 = viewPager2;
     }
 
     @NonNull
     @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        View view = LayoutInflater.from(container.getContext()).inflate(R.layout.item_slide, container, false);
-        ImageView imgSlide = view.findViewById(R.id.img_slide);
-        Slide slide = mListSlide.get(position);
-        if (slide != null) {
-            Glide.with(mContext).load(slide.getResourceId()).into(imgSlide);
+    public SlideAdapter.SliderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        context= parent.getContext();
+        return new SliderViewHolder(LayoutInflater.from(parent.getContext()).inflate(
+                R.layout.item_slide,parent,false
+        ));
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull SlideAdapter.SliderViewHolder holder, int position) {
+        holder.setImage(sliderItems.get(position));
+        if(position==sliderItems.size()-2){
+            viewPager2.post(runnable);
         }
-        container.addView(view);
-        return view;
     }
 
     @Override
-    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((View) object);
+    public int getItemCount() {
+        return sliderItems.size();
     }
 
-    @Override
-    public int getCount() {
-        if (mListSlide != null) {
-            return mListSlide.size();
+    public class SliderViewHolder extends RecyclerView.ViewHolder{
+        private ImageView imageView;
+        public SliderViewHolder(@NonNull View itemView) {
+            super(itemView);
+            imageView = itemView.findViewById(R.id.img_slide);
         }
-        return 0;
+        void setImage(Slide sliderItems){
+            RequestOptions requestOptions = new RequestOptions();
+            requestOptions= requestOptions.transform(new CenterCrop(),new RoundedCorners(60));
+            Glide.with(context)
+                    .load(sliderItems.getResourceId())
+                    .apply(requestOptions)
+                    .into(imageView);
+
+        }
     }
 
-    @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == object;
-    }
+    private  Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            sliderItems.addAll(sliderItems);
+            notifyDataSetChanged();
+        }
+    };
 }

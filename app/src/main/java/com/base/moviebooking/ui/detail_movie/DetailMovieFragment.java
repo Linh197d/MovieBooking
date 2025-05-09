@@ -13,6 +13,10 @@ import com.base.moviebooking.databinding.ThongtinFragmentBinding;
 import com.base.moviebooking.entity.Movie;
 import com.base.moviebooking.ui.show_time.ShowTimeViewModel;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
+
 public class DetailMovieFragment extends BaseFragment<ThongtinFragmentBinding> {
     ShowTimeViewModel showTimeViewModel;
 

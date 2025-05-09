@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,16 +27,15 @@ import com.base.moviebooking.listener.GiaoDichListener;
 
 import java.util.List;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
+
 public class GiaoDichFragment extends BaseFragment<GiaodichFragmentBinding> {
     private GiaoDichAdapter giaoDichAdapter;
     private GiaoDichViewModel mViewModel;
     private List<ThongTinThanhToan> listTT;
     private Dialog dialog;
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.giaodich_fragment;
-    }
 
     @Override
     public void backFromAddFragment() {
@@ -49,7 +49,7 @@ public class GiaoDichFragment extends BaseFragment<GiaodichFragmentBinding> {
 
     @Override
     public void initView() {
-        mViewModel = ViewModelProviders.of(this).get(GiaoDichViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(GiaoDichViewModel.class);
         mViewModel.getThongTinThanhToan();
         binding.rcvGd.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         giaoDichAdapter = new GiaoDichAdapter(getContext(), false, new GiaoDichListener() {

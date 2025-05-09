@@ -13,12 +13,14 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.DataLocalManager;
 import com.base.moviebooking.R;
 import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.DangnhapFragmentBinding;
+import com.base.moviebooking.entity.ForgetPass;
 import com.base.moviebooking.entity.LoginRequest;
 import com.base.moviebooking.entity.LoginResponse;
 import com.base.moviebooking.ui.account.AccountFragment;
@@ -35,6 +37,10 @@ import java.util.Objects;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 
 public class SignInFragment extends BaseFragment<DangnhapFragmentBinding> {
 
@@ -54,7 +60,7 @@ public class SignInFragment extends BaseFragment<DangnhapFragmentBinding> {
     @Override
     public void initView() {
         getActivity().findViewById(R.id.bottombar).setVisibility(View.GONE);
-        mViewModel = ViewModelProviders.of(this, viewModelFactory).get(SignInViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(SignInViewModel.class);
         mViewModel.dataLogin.observe(getViewLifecycleOwner(), new Observer<LoginResponse>() {
             @Override
             public void onChanged(LoginResponse loginRespone) {
