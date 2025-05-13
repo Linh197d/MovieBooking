@@ -71,15 +71,15 @@ public class ShowTimeChildFragment extends BaseFragment<LichChieuFragmentBinding
     public void initView() {
         stopAllVideos();
         getActivity().findViewById(R.id.bottombar).setVisibility(View.GONE);
-
-        showTimeViewModel = new ViewModelProvider(this).get(ShowTimeViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(ShowTimeChildViewModel.class);
+        showTimeViewModel = new ViewModelProvider(requireParentFragment()).get(ShowTimeViewModel.class);
         showTimeViewModel.dataMovie.observe(getViewLifecycleOwner(), new Observer<Movie>() {
             @Override
             public void onChanged(Movie movie) {
                 nMovie = movie;
+                Log.d("linhd","mMovie"+nMovie.getId());
             }
         });
-        mViewModel = new ViewModelProvider(this).get(ShowTimeChildViewModel.class);
         binding.rcvRap.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         showTimesAdapter = new ShowTimesAdapter(getContext(), false, getContext(), new OnChooseRecyclerView() {
             @Override
@@ -215,7 +215,6 @@ public class ShowTimeChildFragment extends BaseFragment<LichChieuFragmentBinding
                     if (binding.spinnerNgay.getSelectedItemPosition() != 0) {
                         mViewModel.getListSchedule(listCinema.get(binding.spinnerRap.getSelectedItemPosition() - 1).getId(), dateFormat.format(date), nMovie.getId());
                     }
-
                 }
 
                 @Override

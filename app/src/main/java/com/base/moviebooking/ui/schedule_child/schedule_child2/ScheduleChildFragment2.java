@@ -45,7 +45,7 @@ public class ScheduleChildFragment2 extends BaseFragment<SchedulleChildFragment1
 
     @Override
     public void initView() {
-        scheduleCinemaModel = new ViewModelProvider(this).get(ScheduleCinemaModel.class);
+        scheduleCinemaModel = new ViewModelProvider(requireParentFragment()).get(ScheduleCinemaModel.class);
         mViewModel = new ViewModelProvider(this).get(ScheduleChildModel2.class);
         binding.rcvLichphim.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         String day = scheduleCinemaModel.day1.getValue().toString();

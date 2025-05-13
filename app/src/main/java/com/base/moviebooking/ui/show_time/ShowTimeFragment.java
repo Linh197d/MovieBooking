@@ -175,11 +175,12 @@ public class ShowTimeFragment extends BaseFragment<LichPhimBinding> {
 
     private void setDataView() {
         Bundle bundle = getArguments();
-        Log.d("cather", "detail");
 
         if (bundle != null && !bundle.isEmpty()) {
             movie = (Movie) bundle.getSerializable("movie");
             // Xử lý dữ liệu trong bundle
+            Log.d("linhd", "movie"+movie.getId());
+
             mViewModel.sendData(movie);
             mViewModel.sendDataMovieComment(movie);
 

@@ -54,7 +54,7 @@ public class DetailMovieFragment extends BaseFragment<ThongtinFragmentBinding> {
     public void initView() {
         mViewModel = new ViewModelProvider(this).get(DetailMovieViewModel.class);
 //        mViewModel = ViewModelProviders.of(this,viewModelFactory).get(DetailMovieViewModel.class);
-        showTimeViewModel = new ViewModelProvider(this).get(ShowTimeViewModel.class);
+        showTimeViewModel = new ViewModelProvider(requireParentFragment()).get(ShowTimeViewModel.class);
         showTimeViewModel.getData().observe(getViewLifecycleOwner(), new Observer<Movie>() {
             @Override
             public void onChanged(Movie s) {

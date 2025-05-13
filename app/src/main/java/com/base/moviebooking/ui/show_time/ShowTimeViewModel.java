@@ -28,6 +28,7 @@ public class ShowTimeViewModel extends ViewModel {
 
     public void sendData(Movie movie) {
         dataMovie.setValue(movie);
+
     }
 
     public void sendDataMovieComment(Movie movie) {

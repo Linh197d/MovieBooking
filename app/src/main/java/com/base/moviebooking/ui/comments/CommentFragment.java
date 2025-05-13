@@ -85,7 +85,7 @@ public class CommentFragment extends BaseFragment<ActiveCommentFragmentBinding> 
     public void initView() {
 //        getActivity().findViewById(R.id.bottombar).setVisibility(View.GONE);
         mViewModel = new ViewModelProvider(this).get(CommentModel.class);
-        showTimeViewModel = new ViewModelProvider(this).get(ShowTimeViewModel.class);
+        showTimeViewModel = new ViewModelProvider(requireParentFragment()).get(ShowTimeViewModel.class);
         showTimeViewModel.getDataMovieComent().observe(getViewLifecycleOwner(), new Observer<Movie>() {
             @Override
             public void onChanged(Movie movie) {
