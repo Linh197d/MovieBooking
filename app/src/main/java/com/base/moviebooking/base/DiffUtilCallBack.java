@@ -1,7 +1,6 @@
 package com.base.moviebooking.base;
 
 
-
 import androidx.recyclerview.widget.DiffUtil;
 
 import java.util.List;

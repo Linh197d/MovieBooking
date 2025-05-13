@@ -25,9 +25,10 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 
 public class MyUtils {
+    public static final String ALIAS = "MovieBookingKey";
     private static MyUtils instance = null;
-
     private Context context;
+
     public static MyUtils getInstance() {
         if (instance != null) {
             return instance;
@@ -36,8 +37,6 @@ public class MyUtils {
             return instance;
         }
     }
-
-    public static final String ALIAS = "MovieBookingKey";
 
     public void createKey() throws NoSuchProviderException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, CertificateException, IOException {
 
@@ -76,6 +75,7 @@ public class MyUtils {
         }
 
     }
+
     public String encryptData(String plaintext) throws KeyStoreException,
 
             UnrecoverableEntryException, NoSuchAlgorithmException, NoSuchPaddingException,
@@ -99,7 +99,6 @@ public class MyUtils {
         byte[] encryptedBytes = cipher.doFinal(plaintext.getBytes("UTF-8"));
 
 
-
         // Prepend IV to data for later retrieval
 
         return Base64.encodeToString(ivBytes, Base64.DEFAULT) +
@@ -109,6 +108,7 @@ public class MyUtils {
                 Base64.encodeToString(encryptedBytes, Base64.DEFAULT);
 
     }
+
     public String decryptData(String ciphertext) throws KeyStoreException,
 
             UnrecoverableEntryException, NoSuchAlgorithmException, NoSuchPaddingException,

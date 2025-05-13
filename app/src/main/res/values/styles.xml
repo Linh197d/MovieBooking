@@ -9,14 +9,6 @@
     </style>
 
 
-
-    <style name="MyAlertDialogTheme" parent="Base.Theme.AppCompat.Light.Dialog.Alert">
-        <item name="windowFixedWidthMajor">90%</item>
-        <item name="windowFixedWidthMinor">90%</item>
-        <item name="windowFixedHeightMajor">90%</item>
-        <item name="windowFixedHeightMinor">90%</item>
-    </style>
-
     <style name="CustomDialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -37,18 +29,22 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">16dp</item>
     </style>
+
     <style name="roundedCorners" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">10dp</item>
     </style>
+
     <style name="circle">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+
     <style name="roundedImageView">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+
     <style name="BottomNavTextActive" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textSize">12sp</item>
         <item name="android:textStyle">bold</item>
@@ -57,4 +53,19 @@
     <style name="BottomNavTextInactive" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textSize">12sp</item>
     </style>
+
+    <style name="MyAlertDialogTheme" parent="Base.Theme.AppCompat.Light.Dialog.Alert">
+        <item name="windowFixedWidthMajor">90%</item>
+        <item name="windowFixedWidthMinor">90%</item>
+        <item name="windowFixedHeightMajor">90%</item>
+        <item name="windowFixedHeightMinor">90%</item>
+    </style>
+
+    <style name="MyAlertDialogTheme2" parent="Base.Theme.AppCompat.Light.Dialog.Alert">
+        <item name="windowFixedWidthMajor">100%</item>
+        <item name="windowFixedWidthMinor">100%</item>
+        <item name="windowFixedHeightMajor">100%</item>
+        <item name="windowFixedHeightMinor">100%</item>
+    </style>
+
 </resources>

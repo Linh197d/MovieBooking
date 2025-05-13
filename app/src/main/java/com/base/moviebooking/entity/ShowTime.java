@@ -1,9 +1,6 @@
 package com.base.moviebooking.entity;
 
-import java.io.Serializable;
-import java.sql.Array;
-
-public class ShowTime  {
+public class ShowTime {
     private int id;
     private String name;
     private String[] array;

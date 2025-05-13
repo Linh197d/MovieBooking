@@ -17,12 +17,12 @@ import javax.inject.Inject;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
-@HiltViewModel
 
+@HiltViewModel
 public class GiaoDichViewModel extends ViewModel {
-    private Repository repository;
     MutableLiveData<List<ThongTinThanhToan>> dataThanhtoan = new MutableLiveData<>();
     MutableLiveData<LoginResponse> dataRespone = new MutableLiveData<>();
+    private Repository repository;
 
     @Inject
     public GiaoDichViewModel(Repository repository) {
@@ -50,6 +50,7 @@ public class GiaoDichViewModel extends ViewModel {
                     }
                 });
     }
+
     public void huyVe(CancelTicket code) {
         repository.cancelTicket(code)
                 .subscribe(new SingleObserver<LoginResponse>() {

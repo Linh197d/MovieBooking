@@ -34,12 +34,6 @@ public class DataLocalManager {
         return instance;
     }
 
-    public static void setAccessToken(String token)  {
-//        token =  MyUtils.getInstance().encryptData(token);
-//        Log.d("linhd","token encrypte:"+token);
-        DataLocalManager.getInstance().mySharePreferences.putStringValue("acessToken", token);
-    }
-
     public static String getAccessToken() {
         return DataLocalManager.getInstance().mySharePreferences.getStringValue("acessToken");
 
@@ -69,23 +63,24 @@ public class DataLocalManager {
 //        }
     }
 
-    public static void setBooleanValue(boolean value) {
-        DataLocalManager.getInstance().mySharePreferences.putBooleanValue("dataluu", value);
+    public static void setAccessToken(String token) {
+//        token =  MyUtils.getInstance().encryptData(token);
+//        Log.d("linhd","token encrypte:"+token);
+        DataLocalManager.getInstance().mySharePreferences.putStringValue("acessToken", token);
     }
 
     public static boolean getBooleanValue() {
         return DataLocalManager.getInstance().mySharePreferences.getBooleanValue("dataluu");
     }
-    public static void setStringValue(String value) throws UnrecoverableEntryException, NoSuchPaddingException, IllegalBlockSizeException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, BadPaddingException, InvalidKeyException {
-        value = MyUtils.getInstance().encryptData(value);
-        Log.d("linhd","value encrypte:"+value);
-        DataLocalManager.getInstance().mySharePreferences.putStringValue("dataString", value);
+
+    public static void setBooleanValue(boolean value) {
+        DataLocalManager.getInstance().mySharePreferences.putBooleanValue("dataluu", value);
     }
 
     public static String getStringValue() {
         String s = DataLocalManager.getInstance().mySharePreferences.getStringValue("dataString");
         try {
-            Log.d("linhd","getvalue decrypte:"+ MyUtils.getInstance().decryptData(s));
+            Log.d("linhd", "getvalue decrypte:" + MyUtils.getInstance().decryptData(s));
             return MyUtils.getInstance().decryptData(s);
         } catch (KeyStoreException e) {
             throw new RuntimeException(e);
@@ -109,5 +104,11 @@ public class DataLocalManager {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public static void setStringValue(String value) throws UnrecoverableEntryException, NoSuchPaddingException, IllegalBlockSizeException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, BadPaddingException, InvalidKeyException {
+        value = MyUtils.getInstance().encryptData(value);
+        Log.d("linhd", "value encrypte:" + value);
+        DataLocalManager.getInstance().mySharePreferences.putStringValue("dataString", value);
     }
 }

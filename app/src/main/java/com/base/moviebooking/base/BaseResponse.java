@@ -7,6 +7,7 @@ public class BaseResponse {
     private int status;
 
     private String msg;
+
     public int getStatus() {
         return status;
     }

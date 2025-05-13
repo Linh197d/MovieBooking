@@ -1,11 +1,6 @@
 package com.base.moviebooking;
 
-import android.app.Activity;
 import android.app.Application;
-
-
-import javax.inject.Inject;
-
 
 import dagger.hilt.android.HiltAndroidApp;
 

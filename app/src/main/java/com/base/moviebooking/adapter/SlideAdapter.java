@@ -23,6 +23,13 @@ public class SlideAdapter extends RecyclerView.Adapter<SlideAdapter.SliderViewHo
     private List<Slide> sliderItems;
     private ViewPager2 viewPager2;
     private Context context;
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            sliderItems.addAll(sliderItems);
+            notifyDataSetChanged();
+        }
+    };
 
     public SlideAdapter(List<Slide> sliderItems, ViewPager2 viewPager2) {
         this.sliderItems = sliderItems;
@@ -31,17 +38,17 @@ public class SlideAdapter extends RecyclerView.Adapter<SlideAdapter.SliderViewHo
 
     @NonNull
     @Override
-    public SlideAdapter.SliderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        context= parent.getContext();
+    public SliderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        context = parent.getContext();
         return new SliderViewHolder(LayoutInflater.from(parent.getContext()).inflate(
-                R.layout.item_slide,parent,false
+                R.layout.item_slide, parent, false
         ));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SlideAdapter.SliderViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SliderViewHolder holder, int position) {
         holder.setImage(sliderItems.get(position));
-        if(position==sliderItems.size()-2){
+        if (position == sliderItems.size() - 2) {
             viewPager2.post(runnable);
         }
     }
@@ -51,15 +58,17 @@ public class SlideAdapter extends RecyclerView.Adapter<SlideAdapter.SliderViewHo
         return sliderItems.size();
     }
 
-    public class SliderViewHolder extends RecyclerView.ViewHolder{
+    public class SliderViewHolder extends RecyclerView.ViewHolder {
         private ImageView imageView;
+
         public SliderViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.img_slide);
         }
-        void setImage(Slide sliderItems){
+
+        void setImage(Slide sliderItems) {
             RequestOptions requestOptions = new RequestOptions();
-            requestOptions= requestOptions.transform(new CenterCrop(),new RoundedCorners(60));
+            requestOptions = requestOptions.transform(new CenterCrop(), new RoundedCorners(60));
             Glide.with(context)
                     .load(sliderItems.getResourceId())
                     .apply(requestOptions)
@@ -67,12 +76,4 @@ public class SlideAdapter extends RecyclerView.Adapter<SlideAdapter.SliderViewHo
 
         }
     }
-
-    private  Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            sliderItems.addAll(sliderItems);
-            notifyDataSetChanged();
-        }
-    };
 }

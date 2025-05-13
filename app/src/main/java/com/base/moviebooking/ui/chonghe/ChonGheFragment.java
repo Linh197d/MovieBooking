@@ -15,13 +15,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 
-import com.base.moviebooking.base.BaseFragment;
-import com.base.moviebooking.listener.OnChooseSeat;
 import com.base.moviebooking.R;
 import com.base.moviebooking.adapter.SeatAdapter;
+import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.ChongheFragmentBinding;
 import com.base.moviebooking.entity.Amount;
 import com.base.moviebooking.entity.Chair;
@@ -30,16 +28,21 @@ import com.base.moviebooking.entity.PriceSeat;
 import com.base.moviebooking.entity.Product;
 import com.base.moviebooking.entity.Schedule;
 import com.base.moviebooking.entity.Seat;
+import com.base.moviebooking.listener.OnChooseSeat;
 import com.base.moviebooking.ui.thanhtoan.ThanhToanFragment;
 
+import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-
 public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
     public final String TAG = "fat";
     private Movie movie;
@@ -55,6 +58,11 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
     private SeatAdapter seatAdapter;
     private List<Seat> seatList = new ArrayList<>();
     private List<Chair> chairList = new ArrayList<>();
+
+    public static String removeDot(String str) {
+        return str.replace(",", "");
+    }
+
     @Override
     public void backFromAddFragment() {
 
@@ -62,19 +70,62 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
 
     @Override
     public boolean backPressed() {
+        mViewController.backFromAddFragment(null);
         return false;
+    }
+
+    private String truncateText(String text, int maxCharacters) {
+        if (text.length() <= maxCharacters) {
+            return text;
+        } else {
+            int colonIndex = text.indexOf(":");
+            if (colonIndex != -1 && colonIndex < maxCharacters) {
+                return text.substring(0, colonIndex + 1) + "...";
+            } else {
+                String truncatedText = text.substring(0, maxCharacters);
+                int lastSpaceIndex = truncatedText.lastIndexOf(" ");
+                if (lastSpaceIndex != -1) {
+                    truncatedText = truncatedText.substring(0, lastSpaceIndex);
+                }
+                return truncatedText + "...";
+            }
+        }
     }
 
     @Override
     public void initView() {
-        mViewModel =new ViewModelProvider(this).get(ChonGheViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(ChonGheViewModel.class);
         Bundle bundle = getArguments();
         if (bundle != null && !bundle.isEmpty()) {
             schedule = (Schedule) bundle.getSerializable("schedule");
             movie = (Movie) bundle.getSerializable("movie");
             nameCinema = bundle.getString("cinema");
             mViewModel.getChaired(schedule.getId());
-            mViewModel.getAmount(2, 1, 1);
+
+            Calendar calendar = Calendar.getInstance(); // Lấy ngày hiện tại
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); // Định dạng của chuỗi ngày
+            try {
+                Date premiereDate = dateFormat.parse(schedule.getPremiere()); // Chuyển đổi chuỗi thành đối tượng Date
+                calendar.setTime(premiereDate); // Thiết lập ngày đã chuyển đổi cho calendar
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+            String format = movie.getFormat();
+            if (format.equals("2D")) {
+                if (dayOfWeek >= Calendar.MONDAY && dayOfWeek <= Calendar.FRIDAY) {
+                    mViewModel.getAmount(1, 1, 1);
+                } else if (dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY) {
+                    mViewModel.getAmount(1, 2, 1);
+                }
+            } else {
+                if (dayOfWeek >= Calendar.MONDAY && dayOfWeek <= Calendar.FRIDAY) {
+                    mViewModel.getAmount(2, 1, 3);
+                } else if (dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY) {
+                    mViewModel.getAmount(2, 2, 3);
+                }
+            }
+
             // Xử lý dữ liệu trong bundle
         }
         mViewModel.getProduct();
@@ -99,7 +150,8 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
             }
         });
         //set duwx lieu movie
-        binding.nameMovie.setText(movie.getName());
+        binding.nameMovie.setText(truncateText(movie.getName(), 15));
+        binding.format.setText(movie.getFormat() + " PHỤ ĐỀ");
         binding.tvtAgeLimit.setText("C" + movie.getAgeLimit());
         TextView t = getActivity().findViewById(R.id.tvt_headerphim);
         t.setText("Đặt ghế");
@@ -113,8 +165,8 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
         mViewModel.dataAmount.observe(getViewLifecycleOwner(), new Observer<List<Amount>>() {
             @Override
             public void onChanged(List<Amount> list) {
-                binding.amountThuong.setText(list.get(0).getAmount() + "VNĐ");
-                binding.amountVip.setText(list.get(0).getAmount_vip() + "VNĐ");
+                binding.amountThuong.setText(formatNumber(list.get(0).getAmount()) + "VNĐ");
+                binding.amountVip.setText(formatNumber(list.get(0).getAmount_vip()) + "VNĐ");
             }
         });
         binding.rcvSeat.setLayoutManager(new GridLayoutManager(getContext(), 11));
@@ -156,7 +208,7 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
                         }
 //                        Log.d(TAG, "a" + a);
 //                        Log.d(TAG, "i" + i);
-                        binding.tvtTongtien.setText("" + i + "VNĐ");
+                        binding.tvtTongtien.setText("" + formatNumber(i) + "VNĐ");
 
                     }
 
@@ -223,7 +275,7 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
                         gheThuong = gheThuong.replaceAll(s2 + "\\b", "");
                         ;
                     }
-                    binding.tvtTongtien.setText("" + i + "VNĐ");
+                    binding.tvtTongtien.setText("" + formatNumber(i) + "VNĐ");
                 }
 
             }
@@ -255,12 +307,12 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
 
     public int deleteVND(String s) {
         if (!s.equals("")) {
+            s = removeDot(s);
             s = s.replaceAll("[^0-9]+", "");
             return Integer.parseInt(s);
         }
         return 0;
     }
-
 
     @Override
     public void initData() {
@@ -289,9 +341,9 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
                     binding.truCombo.setEnabled(binding.cbCombo.isChecked());
 
                 if (binding.cbCombo.isChecked())
-                    binding.tvtTongtien.setText(deleteVND(binding.tvtTongtien.getText().toString()) + deleteVND(binding.giaCombo.getText().toString()) + "VNĐ");
+                    binding.tvtTongtien.setText(formatNumber(deleteVND(binding.tvtTongtien.getText().toString()) + deleteVND(binding.giaCombo.getText().toString())) + "VNĐ");
                 else
-                    binding.tvtTongtien.setText(deleteVND(binding.tvtTongtien.getText().toString()) - deleteVND(binding.giaCombo.getText().toString()) + "VNĐ");
+                    binding.tvtTongtien.setText(formatNumber(deleteVND(binding.tvtTongtien.getText().toString()) - deleteVND(binding.giaCombo.getText().toString())) + "VNĐ");
 
             }
         });
@@ -305,9 +357,9 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
                 else
                     binding.truBong.setEnabled(binding.cbBong.isChecked());
                 if (binding.cbBong.isChecked())
-                    binding.tvtTongtien.setText(deleteVND(binding.tvtTongtien.getText().toString()) + deleteVND(binding.giaBong.getText().toString()) + "VNĐ");
+                    binding.tvtTongtien.setText(formatNumber(deleteVND(binding.tvtTongtien.getText().toString()) + deleteVND(binding.giaBong.getText().toString())) + "VNĐ");
                 else
-                    binding.tvtTongtien.setText(deleteVND(binding.tvtTongtien.getText().toString()) - deleteVND(binding.giaBong.getText().toString()) + "VNĐ");
+                    binding.tvtTongtien.setText(formatNumber(deleteVND(binding.tvtTongtien.getText().toString()) - deleteVND(binding.giaBong.getText().toString())) + "VNĐ");
 
             }
         });
@@ -320,9 +372,9 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
                 else
                     binding.truNuoc.setEnabled(binding.cbNuoc.isChecked());
                 if (binding.cbNuoc.isChecked())
-                    binding.tvtTongtien.setText(deleteVND(binding.tvtTongtien.getText().toString()) + deleteVND(binding.giaNuoc.getText().toString()) + "VNĐ");
+                    binding.tvtTongtien.setText(formatNumber(deleteVND(binding.tvtTongtien.getText().toString()) + deleteVND(binding.giaNuoc.getText().toString())) + "VNĐ");
                 else
-                    binding.tvtTongtien.setText(deleteVND(binding.tvtTongtien.getText().toString()) - deleteVND(binding.giaNuoc.getText().toString()) + "VNĐ");
+                    binding.tvtTongtien.setText(formatNumber(deleteVND(binding.tvtTongtien.getText().toString()) - deleteVND(binding.giaNuoc.getText().toString())) + "VNĐ");
 
             }
         });
@@ -335,8 +387,8 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
                     binding.truCombo.setEnabled(true);
                 }
                 binding.slCombo.setText(i + 1 + "");
-                binding.giaCombo.setText((i + 1) * 70000 + "VNĐ");
-                binding.tvtTongtien.setText(deleteVND(binding.tvtTongtien.getText().toString()) + 70000 + "VNĐ");
+                binding.giaCombo.setText(formatNumber((i + 1) * 70000) + "VNĐ");
+                binding.tvtTongtien.setText(formatNumber(deleteVND(binding.tvtTongtien.getText().toString()) + 70000) + "VNĐ");
             }
         });
 
@@ -348,8 +400,8 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
                     binding.truBong.setEnabled(true);
                 }
                 binding.slBong.setText(i + 1 + "");
-                binding.giaBong.setText((i + 1) * 50000 + "VNĐ");
-                binding.tvtTongtien.setText(deleteVND(binding.tvtTongtien.getText().toString()) + 50000 + "VNĐ");
+                binding.giaBong.setText(formatNumber((i + 1) * 50000) + "VNĐ");
+                binding.tvtTongtien.setText(formatNumber(deleteVND(binding.tvtTongtien.getText().toString()) + 50000) + "VNĐ");
 
             }
         });
@@ -361,8 +413,8 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
                     binding.truNuoc.setEnabled(true);
                 }
                 binding.slNuoc.setText(i + 1 + "");
-                binding.giaNuoc.setText((i + 1) * 30000 + "VNĐ");
-                binding.tvtTongtien.setText(deleteVND(binding.tvtTongtien.getText().toString()) + 30000 + "VNĐ");
+                binding.giaNuoc.setText(formatNumber((i + 1) * 30000) + "VNĐ");
+                binding.tvtTongtien.setText(formatNumber(deleteVND(binding.tvtTongtien.getText().toString()) + 30000) + "VNĐ");
 
             }
         });
@@ -375,8 +427,8 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
                     binding.truCombo.setEnabled(false);
                 }
                 binding.slCombo.setText(i - 1 + "");
-                binding.giaCombo.setText((deleteVND(binding.giaCombo.getText().toString()) - 70000) + "VNĐ");
-                binding.tvtTongtien.setText(deleteVND(binding.tvtTongtien.getText().toString()) - 70000 + "VNĐ");
+                binding.giaCombo.setText(formatNumber(deleteVND(binding.giaCombo.getText().toString()) - 70000) + "VNĐ");
+                binding.tvtTongtien.setText(formatNumber(deleteVND(binding.tvtTongtien.getText().toString()) - 70000) + "VNĐ");
             }
         });
         binding.truBong.setOnClickListener(new View.OnClickListener() {
@@ -387,8 +439,8 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
                     binding.truBong.setEnabled(false);
                 }
                 binding.slBong.setText(i - 1 + "");
-                binding.giaBong.setText((deleteVND(binding.giaBong.getText().toString()) - 50000) + "VNĐ");
-                binding.tvtTongtien.setText(deleteVND(binding.tvtTongtien.getText().toString()) - 50000 + "VNĐ");
+                binding.giaBong.setText(formatNumber(deleteVND(binding.giaBong.getText().toString()) - 50000) + "VNĐ");
+                binding.tvtTongtien.setText(formatNumber(deleteVND(binding.tvtTongtien.getText().toString()) - 50000) + "VNĐ");
 
             }
         });
@@ -400,8 +452,8 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
                     binding.truNuoc.setEnabled(false);
                 }
                 binding.slNuoc.setText(i - 1 + "");
-                binding.giaNuoc.setText((deleteVND(binding.giaNuoc.getText().toString()) - 30000) + "VNĐ");
-                binding.tvtTongtien.setText(deleteVND(binding.tvtTongtien.getText().toString()) - 30000 + "VNĐ");
+                binding.giaNuoc.setText(formatNumber(deleteVND(binding.giaNuoc.getText().toString()) - 30000) + "VNĐ");
+                binding.tvtTongtien.setText(formatNumber(deleteVND(binding.tvtTongtien.getText().toString()) - 30000) + "VNĐ");
 
             }
         });
@@ -411,6 +463,16 @@ public class ChonGheFragment extends BaseFragment<ChongheFragmentBinding> {
     public void onResume() {
         super.onResume();
 
+    }
+
+    public String formatNumber(int number) {
+        try {
+            DecimalFormat decimalFormat = new DecimalFormat("#,###");
+            return decimalFormat.format(number);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number format");
+            return null;
+        }
     }
 
     @NonNull

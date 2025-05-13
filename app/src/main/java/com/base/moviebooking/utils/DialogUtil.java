@@ -17,23 +17,10 @@ import com.base.moviebooking.databinding.DialogLoadingBinding;
 
 public class DialogUtil {
     private static boolean shown = false;
-
-    private AlertDialog dialog = null;
-
-    private DialogLoadingBinding binding;
-
     private static DialogUtil instance = null;
-
+    private AlertDialog dialog = null;
+    private DialogLoadingBinding binding;
     private Context context;
-
-    public static DialogUtil getInstance(Context context) {
-        if (instance != null) {
-            return instance;
-        } else {
-            instance = new DialogUtil(context);
-            return instance;
-        }
-    }
 
     private DialogUtil(Context context) {
         this.context = context;
@@ -59,6 +46,27 @@ public class DialogUtil {
         }
     }
 
+    public static DialogUtil getInstance(Context context) {
+        if (instance != null) {
+            return instance;
+        } else {
+            instance = new DialogUtil(context);
+            return instance;
+        }
+    }
+
+    private static boolean isShown() {
+        return shown;
+    }
+
+    private static void forceShown() {
+        shown = true;
+    }
+
+    private static void initialize() {
+        shown = false;
+    }
+
     public void show() {
         if (!((Activity) context).isFinishing()) {
             if (!DialogUtil.isShown() && dialog != null) {
@@ -73,18 +81,6 @@ public class DialogUtil {
             initialize();
             dialog.dismiss();
         }
-    }
-
-    private static boolean isShown() {
-        return shown;
-    }
-
-    private static void forceShown() {
-        shown = true;
-    }
-
-    private static void initialize() {
-        shown = false;
     }
 
     public void destroyLoadingDialog() {

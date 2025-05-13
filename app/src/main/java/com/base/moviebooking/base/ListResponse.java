@@ -4,14 +4,13 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-
 import com.base.moviebooking.utils.Define;
 
 import java.util.List;
 
 import io.reactivex.annotations.Nullable;
 
-public class ListResponse<T> extends BaseResponse{
+public class ListResponse<T> extends BaseResponse {
     private int type;
 
     @Nullable
@@ -27,10 +26,8 @@ public class ListResponse<T> extends BaseResponse{
         this.type = type;
         this.data = data;
         this.error = error;
-        Log.d("mmm","data"+data);
+        Log.d("mmm", "data" + data);
     }
-
-
 
 
     public int getType() {

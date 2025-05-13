@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.R;
 import com.base.moviebooking.base.BaseFragment;
@@ -13,11 +12,8 @@ import com.base.moviebooking.databinding.FilmInfoChildFragmentBinding;
 import com.base.moviebooking.entity.FilmInfo;
 import com.base.moviebooking.ui.home.HomeFragment;
 
-import dagger.hilt.android.AndroidEntryPoint;
-
-@AndroidEntryPoint
-
 public class FilmInfoChildFragment extends BaseFragment<FilmInfoChildFragmentBinding> {
+
     @Override
     public void backFromAddFragment() {
 
@@ -26,7 +22,9 @@ public class FilmInfoChildFragment extends BaseFragment<FilmInfoChildFragmentBin
 
     @Override
     public boolean backPressed() {
-        return true;
+        mViewController.backFromAddFragment(null);
+        getActivity().findViewById(R.id.bottombar).setVisibility(View.VISIBLE);
+        return false;
     }
 
     @Override
@@ -44,6 +42,13 @@ public class FilmInfoChildFragment extends BaseFragment<FilmInfoChildFragmentBin
             getActivity().findViewById(R.id.bottombar).setVisibility(View.GONE);
         }
     }
+
+    @Override
+    public void onResume() {
+
+        super.onResume();
+    }
+
     @Override
     public void initData() {
         getActivity().findViewById(R.id.img_headerphim).setOnClickListener(new View.OnClickListener() {

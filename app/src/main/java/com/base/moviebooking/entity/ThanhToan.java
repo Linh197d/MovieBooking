@@ -8,7 +8,7 @@ public class ThanhToan {
     private int totalMoney;
     private ArrayList<ProductThanhToan> products;
 
-    public ThanhToan(String scheduleId, ArrayList<Integer> selectedChairs, int totalMoney,ArrayList<ProductThanhToan> products) {
+    public ThanhToan(String scheduleId, ArrayList<Integer> selectedChairs, int totalMoney, ArrayList<ProductThanhToan> products) {
         this.scheduleId = scheduleId;
         this.selectedChairs = selectedChairs;
         this.totalMoney = totalMoney;
@@ -19,16 +19,16 @@ public class ThanhToan {
         return scheduleId;
     }
 
+    public void setScheduleId(String scheduleId) {
+        this.scheduleId = scheduleId;
+    }
+
     public ArrayList<ProductThanhToan> getProducts() {
         return products;
     }
 
     public void setProducts(ArrayList<ProductThanhToan> products) {
         this.products = products;
-    }
-
-    public void setScheduleId(String scheduleId) {
-        this.scheduleId = scheduleId;
     }
 
     public ArrayList<Integer> getSelectedChairs() {

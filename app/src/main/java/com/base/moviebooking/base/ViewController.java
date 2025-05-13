@@ -1,8 +1,8 @@
 package com.base.moviebooking.base;
 
 
-import android.util.Log;
 import androidx.fragment.app.FragmentManager;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

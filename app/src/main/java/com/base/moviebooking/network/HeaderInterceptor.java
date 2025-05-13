@@ -16,7 +16,7 @@ public class HeaderInterceptor implements Interceptor {
 
     @NonNull
     @Override
-    public Response intercept(Interceptor.Chain chain) throws IOException {
+    public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
         String accessToken;
         if (DataLocalManager.getInstance() != null && DataLocalManager.getAccessToken() != null) {// &&

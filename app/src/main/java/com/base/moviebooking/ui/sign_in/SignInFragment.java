@@ -14,7 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.DataLocalManager;
 import com.base.moviebooking.R;
@@ -25,6 +24,7 @@ import com.base.moviebooking.entity.LoginRequest;
 import com.base.moviebooking.entity.LoginResponse;
 import com.base.moviebooking.ui.account.AccountFragment;
 import com.base.moviebooking.ui.sign_up.SignUpFragment;
+import com.base.moviebooking.utils.StringUtil;
 
 import java.io.IOException;
 import java.security.InvalidKeyException;
@@ -41,11 +41,11 @@ import javax.crypto.NoSuchPaddingException;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-
 public class SignInFragment extends BaseFragment<DangnhapFragmentBinding> {
 
     private SignInViewModel mViewModel;
     private Dialog dialog;
+
 
     @Override
     public void backFromAddFragment() {
@@ -54,6 +54,8 @@ public class SignInFragment extends BaseFragment<DangnhapFragmentBinding> {
 
     @Override
     public boolean backPressed() {
+        getActivity().findViewById(R.id.bottombar).setVisibility(View.VISIBLE);
+        mViewController.replaceFragment(AccountFragment.class, null);
         return false;
     }
 
@@ -67,7 +69,7 @@ public class SignInFragment extends BaseFragment<DangnhapFragmentBinding> {
                 if (loginRespone.getAccessToken() != null) {
                     DataLocalManager.setBooleanValue(true);
 
-                        DataLocalManager.setAccessToken( loginRespone.getAccessToken());
+                    DataLocalManager.setAccessToken(loginRespone.getAccessToken());
 
                     try {
                         DataLocalManager.setStringValue(Objects.requireNonNull(binding.edtMk.getText()).toString());
@@ -107,11 +109,10 @@ public class SignInFragment extends BaseFragment<DangnhapFragmentBinding> {
         mViewModel.dataResponeMK.observe(getViewLifecycleOwner(), new Observer<LoginResponse>() {
             @Override
             public void onChanged(LoginResponse response) {
-                if(response.isSuccess()){
-                    Toast.makeText(requireContext(),"Kiểm tra gmail để xác thực tài khoản",Toast.LENGTH_SHORT).show();
-                }else
-                {
-                    Toast.makeText(requireContext(),response.getData().getMessage(),Toast.LENGTH_SHORT).show();
+                if (response.isSuccess()) {
+                    Toast.makeText(requireContext(), "Kiểm tra gmail để xác thực tài khoản", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(requireContext(), response.getData().getMessage(), Toast.LENGTH_SHORT).show();
                     quenMK();
                 }
             }
@@ -133,6 +134,8 @@ public class SignInFragment extends BaseFragment<DangnhapFragmentBinding> {
             public void onClick(View view) {
                 if (binding.edtTk.getText().toString().equals("") || binding.edtMk.getText().toString().equals("")) {
                     Toast.makeText(getContext(), "Không được để trống", Toast.LENGTH_SHORT).show();
+                } else if (!StringUtil.isValidEmail(binding.edtTk.getText().toString())) {
+                    Toast.makeText(getContext(), "Email không hợp lệ", Toast.LENGTH_SHORT).show();
                 } else {
                     LoginRequest loginRequest = new LoginRequest(binding.edtTk.getText().toString(), binding.edtMk.getText().toString());
                     mViewModel.login(loginRequest);
@@ -154,6 +157,7 @@ public class SignInFragment extends BaseFragment<DangnhapFragmentBinding> {
             }
         });
     }
+
     private void quenMK() {
         dialog = new Dialog(requireContext(), R.style.MyAlertDialogTheme);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -162,10 +166,10 @@ public class SignInFragment extends BaseFragment<DangnhapFragmentBinding> {
         window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         window.setGravity(Gravity.CENTER);
         dialog.setCancelable(false);
-        TextView textView =dialog.findViewById(R.id.title);
-        TextView quenMK =dialog.findViewById(R.id.huyVe);
+        TextView textView = dialog.findViewById(R.id.title);
+        TextView quenMK = dialog.findViewById(R.id.huyVe);
         quenMK.setText("Xác nhận");
-        EditText editText =dialog.findViewById(R.id.edtMK);
+        EditText editText = dialog.findViewById(R.id.edtFeedBack);
         editText.setVisibility(View.VISIBLE);
         textView.setText("Quên mật khẩu");
         dialog.show();
@@ -179,9 +183,11 @@ public class SignInFragment extends BaseFragment<DangnhapFragmentBinding> {
         quenMK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(editText.getText().toString().equals(""))
-                    Toast.makeText(requireContext(),"Email trống",Toast.LENGTH_SHORT).show();
-                else {
+                if (editText.getText().toString().equals(""))
+                    Toast.makeText(requireContext(), "Email trống", Toast.LENGTH_SHORT).show();
+                else if (!StringUtil.isValidEmail(editText.getText().toString())) {
+                    Toast.makeText(getContext(), "Email không hợp lệ", Toast.LENGTH_SHORT).show();
+                } else {
                     mViewModel.quenMK(new ForgetPass(editText.getText().toString()));
                 }
             }

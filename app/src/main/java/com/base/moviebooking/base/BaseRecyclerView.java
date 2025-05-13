@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,13 +18,13 @@ import com.base.moviebooking.R;
 import java.util.List;
 
 public class BaseRecyclerView<T> extends RelativeLayout implements EndlessLoadingRecyclerViewAdapter.OnLoadingMoreListener {
-    private Context context;
-    private EndlessLoadingRecyclerViewAdapter mAdapter;
-    private OnLoadmoreListener listener;
     RecyclerView rcv;
     SwipeRefreshLayout swipeRefresh;
     RelativeLayout rlNoResult;
     TextView tvNoResult;
+    private Context context;
+    private EndlessLoadingRecyclerViewAdapter mAdapter;
+    private OnLoadmoreListener listener;
 
 
     public BaseRecyclerView(Context context) {
@@ -45,7 +46,7 @@ public class BaseRecyclerView<T> extends RelativeLayout implements EndlessLoadin
 
     private void setParams(AttributeSet attrs) {
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.BaseRecyclerView, 0, 0);
-        View view = LayoutInflater.from(context).inflate(R.layout.layout_base_recyclerview,this,true);
+        View view = LayoutInflater.from(context).inflate(R.layout.layout_base_recyclerview, this, true);
         rcv = view.findViewById(R.id.rcv);
         swipeRefresh = view.findViewById(R.id.swipeRefresh);
         rlNoResult = view.findViewById(R.id.layout_no_result);
@@ -71,11 +72,11 @@ public class BaseRecyclerView<T> extends RelativeLayout implements EndlessLoadin
         swipeRefresh.setEnabled(enableRefresh);
     }
 
-    public void enableLoadmore(boolean enableLoadmore){
+    public void enableLoadmore(boolean enableLoadmore) {
         mAdapter.enableLoadingMore(enableLoadmore);
     }
 
-    public void enableRefresh(boolean enableRefresh){
+    public void enableRefresh(boolean enableRefresh) {
         swipeRefresh.setRefreshing(enableRefresh);
     }
 
@@ -103,9 +104,9 @@ public class BaseRecyclerView<T> extends RelativeLayout implements EndlessLoadin
     }
 
     public void refresh(List<T> data) {
-        if(data.size() == 0){
+        if (data.size() == 0) {
             rlNoResult.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             rlNoResult.setVisibility(View.GONE);
             mAdapter.refresh(data);
         }
@@ -143,7 +144,7 @@ public class BaseRecyclerView<T> extends RelativeLayout implements EndlessLoadin
         listener.onLoadmore();
     }
 
-    public interface OnLoadmoreListener{
+    public interface OnLoadmoreListener {
         void onLoadmore();
     }
 }

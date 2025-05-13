@@ -6,16 +6,17 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.base.moviebooking.listener.OnChooseRecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.base.EndlessLoadingRecyclerViewAdapter;
 import com.base.moviebooking.databinding.RcvDienanhBinding;
 import com.base.moviebooking.entity.FilmInfo;
+import com.base.moviebooking.listener.OnChooseRecyclerView;
 import com.bumptech.glide.Glide;
 
 public class FilmInformationAdapter extends EndlessLoadingRecyclerViewAdapter<RcvDienanhBinding> {
     private Context mContext;
     private OnChooseRecyclerView mOnChooseRecyclerView;
+
     public FilmInformationAdapter(Context context, boolean enableSelectedMode, Context mContext, OnChooseRecyclerView onChooseRecyclerView) {
         super(context, enableSelectedMode);
         this.mContext = mContext;
@@ -52,7 +53,7 @@ public class FilmInformationAdapter extends EndlessLoadingRecyclerViewAdapter<Rc
         public void bind(FilmInfo data) {
 
             Glide.with(mContext)
-                    .load( data.getUrlImage())
+                    .load(data.getUrlImage())
                     .into(binding.image);
             binding.setDienanh(data);
             binding.lnFilminfo.setOnClickListener(new View.OnClickListener() {

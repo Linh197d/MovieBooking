@@ -2,7 +2,6 @@ package com.base.moviebooking.di;
 
 import android.app.Application;
 
-
 import com.base.moviebooking.BaseApplication;
 import com.base.moviebooking.di.module.NetworkModule;
 

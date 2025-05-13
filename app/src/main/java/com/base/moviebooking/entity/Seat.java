@@ -7,20 +7,20 @@ public class Seat {
     private int status;
     private boolean isChoosed = false;
 
-    public boolean getChoosed() {
-        return isChoosed;
-    }
-
-    public void setChoosed(boolean choosed) {
-        isChoosed = choosed;
-    }
-
     public Seat(int id, String xPosition, int yPosition, int status) {
         this.id = id;
         this.xPosition = xPosition;
         this.yPosition = yPosition;
         this.status = status;
 
+    }
+
+    public boolean getChoosed() {
+        return isChoosed;
+    }
+
+    public void setChoosed(boolean choosed) {
+        isChoosed = choosed;
     }
 
     public int getId() {

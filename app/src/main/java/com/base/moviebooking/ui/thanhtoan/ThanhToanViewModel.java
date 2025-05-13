@@ -18,12 +18,12 @@ import javax.inject.Inject;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
-@HiltViewModel
 
+@HiltViewModel
 public class ThanhToanViewModel extends ViewModel {
-    private Repository repository;
     MutableLiveData<List<Cinema>> dataCinema = new MutableLiveData<>();
     MutableLiveData<RegisterResponse> dataThanhToan = new MutableLiveData<>();
+    private Repository repository;
 
     @Inject
     public ThanhToanViewModel(Repository repository) {
@@ -31,7 +31,7 @@ public class ThanhToanViewModel extends ViewModel {
     }
 
 
-    public void getCinemaById(int id ) {
+    public void getCinemaById(int id) {
         repository.getCinemaFromID(id)
                 .subscribe(new SingleObserver<List<Cinema>>() {
                     @Override
@@ -52,7 +52,7 @@ public class ThanhToanViewModel extends ViewModel {
                 });
     }
 
-    public void getThanhToan(ThanhToan thanhToan){
+    public void getThanhToan(ThanhToan thanhToan) {
         repository.getThanhToan(thanhToan).subscribe(new SingleObserver<RegisterResponse>() {
             @Override
             public void onSubscribe(Disposable d) {
@@ -61,33 +61,34 @@ public class ThanhToanViewModel extends ViewModel {
 
             @Override
             public void onSuccess(RegisterResponse response) {
-            dataThanhToan.postValue(response);
-                Log.d("linhd",response.getData().getUrl());
+                dataThanhToan.postValue(response);
+                Log.d("linhd", response.getData().getUrl());
 
             }
 
             @Override
             public void onError(Throwable e) {
-            Log.d("fat","fail thanh toan :"+e);
+                Log.d("fat", "fail thanh toan :" + e);
             }
         });
     }
 
-    public void postThanhToanWebview(VNPay vnPay){
+    public void postThanhToanWebview(VNPay vnPay) {
         repository.thanhToanWebview(vnPay).subscribe(new SingleObserver<String>() {
             @Override
             public void onSubscribe(Disposable d) {
 
             }
+
             @Override
             public void onSuccess(String s) {
-                Log.d("fat","sucess thanh toan Webview ");
+                Log.d("fat", "sucess thanh toan Webview ");
 
             }
 
             @Override
             public void onError(Throwable e) {
-                Log.d("fat","fail thanh toan Webview ");
+                Log.d("fat", "fail thanh toan Webview ");
 
             }
         });

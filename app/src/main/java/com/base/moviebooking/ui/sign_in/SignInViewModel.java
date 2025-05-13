@@ -15,21 +15,21 @@ import javax.inject.Inject;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
-@HiltViewModel
 
+@HiltViewModel
 public class SignInViewModel extends ViewModel {
-    private  Repository repository;
     MutableLiveData<LoginResponse> dataLogin = new MutableLiveData<>();
     MutableLiveData<LoginResponse> dataResponeMK = new MutableLiveData<>();
+    private Repository repository;
 
-    public MutableLiveData<LoginResponse> getLoginRespone() {
-        return dataLogin;
-    }
     @Inject
     public SignInViewModel(Repository repository) {
         this.repository = repository;
     }
 
+    public MutableLiveData<LoginResponse> getLoginRespone() {
+        return dataLogin;
+    }
 
     public void login(LoginRequest loginRequest) {
         repository.getLoginResponse(loginRequest)
@@ -51,6 +51,7 @@ public class SignInViewModel extends ViewModel {
                     }
                 });
     }
+
     public void quenMK(ForgetPass e) {
         repository.forgotPassword(e)
                 .subscribe(new SingleObserver<LoginResponse>() {

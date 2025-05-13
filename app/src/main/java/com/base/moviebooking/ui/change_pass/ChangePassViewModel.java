@@ -14,21 +14,20 @@ import javax.inject.Inject;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
+
 @HiltViewModel
-
 public class ChangePassViewModel extends ViewModel {
-    private Repository repository;
     MutableLiveData<LoginResponse> dataUser = new MutableLiveData<>();
-
-    public MutableLiveData<LoginResponse> getDataUser() {
-        return dataUser;
-    }
+    private Repository repository;
 
     @Inject
     public ChangePassViewModel(Repository repository) {
         this.repository = repository;
     }
 
+    public MutableLiveData<LoginResponse> getDataUser() {
+        return dataUser;
+    }
 
     public void changePass(ChangePass changePass) {
         repository.changePassword(changePass)

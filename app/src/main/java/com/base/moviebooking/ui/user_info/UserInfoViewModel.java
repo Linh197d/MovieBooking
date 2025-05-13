@@ -17,23 +17,24 @@ import javax.inject.Inject;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
+
 @HiltViewModel
 
 public class UserInfoViewModel extends ViewModel {
-    private Repository repository;
     MutableLiveData<List<Account>> dataUser = new MutableLiveData<>();
     MutableLiveData<RegisterResponse> update = new MutableLiveData<>();
+    private Repository repository;
 
-    public MutableLiveData<List<Account>> getDataUser() {
-        return dataUser;
-    }
     @Inject
     public UserInfoViewModel(Repository repository) {
         this.repository = repository;
     }
 
+    public MutableLiveData<List<Account>> getDataUser() {
+        return dataUser;
+    }
 
-    public void getInfo( ) {
+    public void getInfo() {
         repository.getInfoUser()
                 .subscribe(new SingleObserver<List<Account>>() {
                     @Override
@@ -54,7 +55,7 @@ public class UserInfoViewModel extends ViewModel {
                 });
     }
 
-    public void updateUser( UserUpdate user) {
+    public void updateUser(UserUpdate user) {
         repository.updateUser(user)
                 .subscribe(new SingleObserver<RegisterResponse>() {
                     @Override

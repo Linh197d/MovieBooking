@@ -5,10 +5,10 @@ public class LoginResponse {
     private Data data;
     private String accessToken;
 
-    public LoginResponse(boolean success, Data data,String accessToken) {
+    public LoginResponse(boolean success, Data data, String accessToken) {
         this.success = success;
         this.data = data;
-        this.accessToken=accessToken;
+        this.accessToken = accessToken;
     }
 
     public boolean isSuccess() {
@@ -36,8 +36,9 @@ public class LoginResponse {
     }
 
 
-    public class Data{
+    public class Data {
         private String message;
+
         public String getMessage() {
             return message;
         }

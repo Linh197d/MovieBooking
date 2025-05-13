@@ -14,20 +14,20 @@ import javax.inject.Inject;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
+
 @HiltViewModel
-
 public class SignUpViewModel extends ViewModel {
-    private Repository repository;
     MutableLiveData<RegisterResponse> dataRegister = new MutableLiveData<>();
+    private Repository repository;
 
-    public MutableLiveData<RegisterResponse> getRegisterResponse() {
-        return dataRegister;
-    }
     @Inject
     public SignUpViewModel(Repository repository) {
         this.repository = repository;
     }
 
+    public MutableLiveData<RegisterResponse> getRegisterResponse() {
+        return dataRegister;
+    }
 
     public void register(RegisterRequest registerRequest) {
         repository.getRegisterResponse(registerRequest)

@@ -16,20 +16,21 @@ import javax.inject.Inject;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
+
 @HiltViewModel
 public class ShowTimeChildViewModel extends ViewModel {
-    private Repository repository;
     MutableLiveData<List<Cinema>> data = new MutableLiveData<>();
     MutableLiveData<List<Schedule>> listSchedule = new MutableLiveData<>();
+    private Repository repository;
 
-    public MutableLiveData<List<Cinema>> getData() {
-        return data;
-    }
     @Inject
     public ShowTimeChildViewModel(Repository repository) {
         this.repository = repository;
     }
 
+    public MutableLiveData<List<Cinema>> getData() {
+        return data;
+    }
 
     public void getCinemasByMovieId(int movieId) {
         repository.getCinemasByMovieId(movieId)
@@ -52,8 +53,8 @@ public class ShowTimeChildViewModel extends ViewModel {
                 });
     }
 
-    public void getListSchedule(int cinemaId,String day,int movieId ){
-        repository.getschedules(cinemaId,day,movieId)
+    public void getListSchedule(int cinemaId, String day, int movieId) {
+        repository.getschedules(cinemaId, day, movieId)
                 .subscribe(new SingleObserver<List<Schedule>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
@@ -63,7 +64,7 @@ public class ShowTimeChildViewModel extends ViewModel {
                     @Override
                     public void onSuccess(List<Schedule> schedules) {
                         listSchedule.postValue(schedules);
-                        Log.d("fat","success schedules viewmodel");
+                        Log.d("fat", "success schedules viewmodel");
                     }
 
                     @Override

@@ -34,8 +34,8 @@ public class PriceSeat implements Serializable {
         this.tienBong = tienBong;
         this.tienCombo = tienCombo;
         this.tongTien = tongTien;
-        this.slgheThuong =slthuong;
-        this.slgheVip =slvip;
+        this.slgheThuong = slthuong;
+        this.slgheVip = slvip;
         this.listIdGhe = listGhe;
     }
 

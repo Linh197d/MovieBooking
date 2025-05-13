@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/main_color">
+
         <include layout="@layout/header_phim" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="50dp"
-            android:layout_marginBottom="50dp"
-            >
+            android:layout_marginBottom="50dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -49,34 +48,32 @@
                     android:id="@+id/tvt_Top"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="[Review] Elemental: Giải trí nhưng vẫn sâu sắc"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/orange"
                     android:layout_gravity="center"
-                    />
+                    android:text="[Review] Elemental: Giải trí nhưng vẫn sâu sắc"
+                    android:textColor="@color/orange"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/tvt1"
-                    android:layout_marginHorizontal="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
                     android:text="**Overview**\n\nA young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.\n![Spirited Away](https://www.themoviedb.org/t/p/w1280/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg)\n\n**Hayao Miyazaki**\n\nDirector, Writer"
-                    android:textColor="@color/white"
-                    />
+                    android:textColor="@color/white" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <ImageView
-                            android:id="@+id/img_2"
-                            android:layout_width="match_parent"
-                            android:layout_height="250dp"
-                            android:src="@drawable/blackpanther"
+                        android:id="@+id/img_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:src="@drawable/blackpanther"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <View
                         android:layout_width="match_parent"
@@ -84,21 +81,21 @@
                         android:background="@drawable/gradient_background"
                         app:layout_constraintBottom_toBottomOf="@+id/img_2"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        />
+                        app:layout_constraintStart_toStartOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
                     android:id="@+id/tvt_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="**Overview**\n\nA young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.\n![Spirited Away](https://www.themoviedb.org/t/p/w1280/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg)\n\n**Hayao Miyazaki**\n\nDirector, Writer"
                     android:layout_marginHorizontal="20dp"
-                    android:textColor="@color/white"/>
+                    android:text="**Overview**\n\nA young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.\n![Spirited Away](https://www.themoviedb.org/t/p/w1280/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg)\n\n**Hayao Miyazaki**\n\nDirector, Writer"
+                    android:textColor="@color/white" />
             </LinearLayout>
 
 
         </androidx.core.widget.NestedScrollView>
+
         <Button
             android:id="@+id/btnDatveNow"
             android:layout_width="match_parent"
@@ -106,9 +103,8 @@
             android:layout_gravity="bottom"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:text="Đặt vé ngay"
             android:gravity="center"
-           />
+            android:text="Đặt vé ngay" />
 
 
     </FrameLayout>

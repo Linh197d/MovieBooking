@@ -30,9 +30,11 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
     }
+
     fun setViewController(viewController: ViewController) {
         this.mViewController = viewController
     }
+
     protected fun setupBackPressDispatcher(onBack: () -> Unit) {
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
@@ -43,6 +45,7 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
             }
         )
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -51,11 +54,13 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
         binding = getViewBinding()
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
         initData()
     }
+
     fun aVoidDoubleClick(): Boolean {
         if (SystemClock.elapsedRealtime() - lastClickTime < 500) {
             return true
@@ -75,6 +80,7 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
             )
         }
     }
+
     fun setData(data: HashMap<String?, Any>?) {
         if (data == null || data.isEmpty()) {
             arguments = Bundle()
@@ -108,6 +114,7 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
         }
         arguments = bundle
     }
+
     protected fun handleListResponse(response: ListResponse<*>) {
         when (response.type) {
             Define.ResponseStatus.LOADING -> DialogUtil.getInstance(context).show()

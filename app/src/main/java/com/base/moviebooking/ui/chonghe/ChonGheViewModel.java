@@ -18,8 +18,8 @@ import javax.inject.Inject;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
-@HiltViewModel
 
+@HiltViewModel
 public class ChonGheViewModel extends ViewModel {
     private final Repository repository;
     MutableLiveData<List<Seat>> chair = new MutableLiveData<>();
@@ -27,13 +27,13 @@ public class ChonGheViewModel extends ViewModel {
     MutableLiveData<List<Amount>> dataAmount = new MutableLiveData<>();
     MutableLiveData<List<Product>> dataProduct = new MutableLiveData<>();
 
-    public MutableLiveData<List<Seat>> getdataChair() {
-        return chair;
-    }
-
     @Inject
     public ChonGheViewModel(Repository repository) {
         this.repository = repository;
+    }
+
+    public MutableLiveData<List<Seat>> getdataChair() {
+        return chair;
     }
 
     public void getChair() {

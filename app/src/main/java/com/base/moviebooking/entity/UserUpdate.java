@@ -5,12 +5,22 @@ public class UserUpdate {
     private String address;
     private String dateOfBirth;
     private int gender;
+    private String avatar;
 
-    public UserUpdate(String fullName, String address, String dateOfBirth,int gender) {
+    public UserUpdate(String fullName, String address, String dateOfBirth, int gender, String avatar) {
         this.fullName = fullName;
         this.address = address;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
+        this.avatar = avatar;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public int getGender() {

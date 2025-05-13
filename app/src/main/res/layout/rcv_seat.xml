@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    >
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
+
         <variable
             name="seat"
             type="com.base.moviebooking.entity.Seat" />
     </data>
-<FrameLayout
-    android:id="@+id/fr_seat"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@drawable/custom_seat_frame"
-    android:layout_margin="1dp"
-    >
-<ImageView
-    android:id="@+id/imgSeat"
-    android:layout_width="36dp"
-    android:layout_height="35dp"
-    android:src="@drawable/seat"
-    />
-    <TextView
-        android:id="@+id/tvt_chair"
+
+    <FrameLayout
+        android:id="@+id/fr_seat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="A1"
-        android:textAlignment="center"
-        android:layout_gravity="center"
-        android:textSize="10sp"
-        android:layout_marginBottom="4dp"
-        />
-</FrameLayout>
+        android:layout_margin="1dp"
+        android:background="@drawable/custom_seat_frame">
+
+        <ImageView
+            android:id="@+id/imgSeat"
+            android:layout_width="36dp"
+            android:layout_height="35dp"
+            android:src="@drawable/seat" />
+
+        <TextView
+            android:id="@+id/tvt_chair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="4dp"
+            android:text="A1"
+            android:textAlignment="center"
+            android:textSize="10sp" />
+    </FrameLayout>
 </layout>

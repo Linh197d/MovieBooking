@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout>
+
     <data>
 
         <variable
@@ -8,146 +9,142 @@
     </data>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/ln_rcvgiaodich"
+        style="@style/roundedCorners"
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/white_ticket"
         android:clickable="true"
         android:focusable="true"
-        android:background="@drawable/white_ticket"
-        style="@style/roundedCorners"
-        android:orientation="vertical"
-        android:layout_margin="20dp"
-        android:id="@+id/ln_rcvgiaodich"
-        >
+        android:orientation="vertical">
 
 
         <LinearLayout
             android:id="@+id/ln_GDich"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:gravity="center"
-            >
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tien"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tổng tiền: 120000 VNĐ"
-            android:textColor="@color/black"
-            android:layout_marginTop="10dp"
-            android:textSize="17sp"
-            android:layout_marginHorizontal="20dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            />
-        <TextView
-            android:id="@+id/cinema"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rạp: Mê Linh Plaza"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginHorizontal="20dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            />
-        <TextView
-            android:id="@+id/room"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Phòng: Room 02"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginHorizontal="20dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            />
-        <TextView
-            android:id="@+id/movie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Phim: The Last Of Us"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginHorizontal="20dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            />
-        <TextView
-            android:id="@+id/gio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thời gian: 12:15  20/03/2002"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginHorizontal="20dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            />
-        <TextView
-            android:id="@+id/chair"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ghế đã đặt: E1,E2,E5"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginHorizontal="20dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            />
-        <TextView
-            android:visibility="gone"
-            android:id="@+id/bongngo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginHorizontal="20dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            />
-        <TextView
-            android:visibility="gone"
-            android:id="@+id/nuoc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginHorizontal="20dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            />
-        <TextView
-            android:visibility="gone"
-            android:id="@+id/combo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginHorizontal="20dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            />
+            <TextView
+                android:id="@+id/tien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Tổng tiền: 120000 VNĐ"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/cinema"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:text="Rạp: Mê Linh Plaza"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/room"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:text="Phòng: Room 02"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/movie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:text="Phim: The Last Of Us"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/gio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:text="Thời gian: 12:15  20/03/2002"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:text="Ghế đã đặt: E1,E2,E5"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bongngo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/nuoc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/combo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/lnHuy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#B5534F4F"
-            android:visibility="gone"
-            >
+            android:visibility="gone">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Đã huỷ"
-                android:gravity="top"
-                android:textSize="30sp"
                 android:layout_margin="10dp"
+                android:gravity="top"
+                android:text="Đã huỷ"
                 android:textColor="@color/red"
-                android:textStyle="bold"
-                />
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

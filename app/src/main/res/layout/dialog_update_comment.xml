@@ -11,17 +11,17 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="16dp"
         android:paddingVertical="18dp">
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgUser"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:background="@color/colorGrey"
             android:src="@drawable/smile_star"
-            app:shapeAppearanceOverlay="@style/circle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            />
+            app:shapeAppearanceOverlay="@style/circle" />
 
         <TextView
             android:id="@+id/title"
@@ -29,8 +29,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Đánh giá của bạn về bộ phim này ?"
-            android:textColor="@color/colorBlack"
             android:textAlignment="center"
+            android:textColor="@color/colorBlack"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,8 +43,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:numStars="5"
-            android:stepSize="1"
             android:progressTint="@color/yellow"
+            android:stepSize="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title" />
@@ -55,11 +55,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/edittext_background_white"
-            android:textSize="16sp"
-            android:padding="12dp"
             android:hint="Bình luận của bạn "
-            app:layout_constraintTop_toBottomOf="@id/ratingBar"
-            />
+            android:padding="12dp"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/ratingBar" />
+
         <TextView
             android:id="@+id/cancel"
             android:layout_width="0dp"

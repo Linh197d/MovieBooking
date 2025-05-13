@@ -4,20 +4,19 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.base.moviebooking.base.BaseFragment;
-import com.base.moviebooking.entity.Category;
-import com.base.moviebooking.listener.OnChooseRecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.adapter.FilmInformationAdapter;
+import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.DienanhFragmentBinding;
+import com.base.moviebooking.entity.Category;
 import com.base.moviebooking.entity.FilmInfo;
 import com.base.moviebooking.entity.Movie;
 import com.base.moviebooking.entity.Schedule;
 import com.base.moviebooking.entity.Theater;
+import com.base.moviebooking.listener.OnChooseRecyclerView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,10 +25,11 @@ import java.util.List;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-
 public class FilmInfoFragment extends BaseFragment<DienanhFragmentBinding> {
     private FilmInformationAdapter filmInformationAdapter;
     private List<FilmInfo> dienAnhList = new ArrayList<>();
+
+
     @Override
     public void backFromAddFragment() {
 

@@ -6,13 +6,69 @@ public class Movie implements Serializable {
     private String name;
     private String description;
     private String director;
+    private String imageDirector;
     private int time;
     private String timeRelease;
     private String image;
     private int id;
     private int ageLimit;
+    private String trailer;
+    private String format;
+
+    private float rate;
 
     public Movie() {
+    }
+
+    public Movie(String name, String description, String director, String imageDirector, int time, String image, int id, int ageLimit, String trailer, String format) {
+        this.name = name;
+        this.description = description;
+        this.director = director;
+        this.imageDirector = imageDirector;
+        this.time = time;
+        this.image = image;
+        this.id = id;
+        this.ageLimit = ageLimit;
+        this.trailer = trailer;
+        this.format = format;
+    }
+
+    public Movie(String name, String description, String director, String imageDirector, int time, String image, int id, int ageLimit, String trailer, float rate, String format) {
+        this.name = name;
+        this.description = description;
+        this.director = director;
+        this.imageDirector = imageDirector;
+        this.time = time;
+        this.image = image;
+        this.id = id;
+        this.ageLimit = ageLimit;
+        this.trailer = trailer;
+        this.rate = rate;
+        this.format = format;
+    }
+
+    public float getRate() {
+        return rate;
+    }
+
+    public void setRate(float rate) {
+        this.rate = rate;
+    }
+
+    public String getTrailer() {
+        return trailer;
+    }
+
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
+    }
+
+    public String getImageDirector() {
+        return imageDirector;
+    }
+
+    public void setImageDirector(String imageDirector) {
+        this.imageDirector = imageDirector;
     }
 
     public String getDescription() {
@@ -55,16 +111,6 @@ public class Movie implements Serializable {
         this.image = image;
     }
 
-    public Movie(String name, String description, String director, int time, String image, int id, int ageLimit) {
-        this.name = name;
-        this.description = description;
-        this.director = director;
-        this.time = time;
-        this.image = image;
-        this.id = id;
-        this.ageLimit = ageLimit;
-    }
-
     public int getAgeLimit() {
         return ageLimit;
     }
@@ -89,7 +135,11 @@ public class Movie implements Serializable {
         this.name = name;
     }
 
+    public String getFormat() {
+        return format;
+    }
 
-
-
+    public void setFormat(String format) {
+        this.format = format;
+    }
 }

@@ -14,7 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.R;
 import com.base.moviebooking.base.BaseFragment;
@@ -27,6 +26,7 @@ import com.base.moviebooking.entity.Schedule;
 import com.base.moviebooking.entity.ThanhToan;
 import com.base.moviebooking.ui.thongtin_Thanhtoan.ThongTinThanhToanFragment;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -36,14 +36,13 @@ import java.util.Date;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-
 public class ThanhToanFragment extends BaseFragment<ThanhtoanFragmentBinding> {
 
-    private ThanhToanViewModel mViewModel;
     final Calendar calendar = Calendar.getInstance();
     final int year = calendar.get(Calendar.YEAR);
     final int month = calendar.get(Calendar.MONTH);
     final int day = calendar.get(Calendar.DAY_OF_MONTH);
+    private ThanhToanViewModel mViewModel;
     private Schedule schedule;
     private Movie movie;
     private PriceSeat priceSeat;
@@ -52,6 +51,10 @@ public class ThanhToanFragment extends BaseFragment<ThanhtoanFragmentBinding> {
     private ArrayList<ProductThanhToan> listProduct = new ArrayList<>();
     private ArrayList<Integer> arrayListGhe = new ArrayList<>();
 
+    public static String removeDot(String str) {
+        return str.replace(".", "");
+    }
+
     @Override
     public void backFromAddFragment() {
 
@@ -59,6 +62,7 @@ public class ThanhToanFragment extends BaseFragment<ThanhtoanFragmentBinding> {
 
     @Override
     public boolean backPressed() {
+        mViewController.backFromAddFragment(null);
         return false;
     }
 
@@ -83,14 +87,14 @@ public class ThanhToanFragment extends BaseFragment<ThanhtoanFragmentBinding> {
                 binding.lnGheThuong.setVisibility(View.GONE);
             } else {
                 binding.tvtGheThuong.setText(priceSeat.getSlgheThuong() + "x Ghế Thường - " + priceSeat.getGheThuong().toString().replace("null", ""));
-                binding.tvtGiagheThuong.setText(priceSeat.getTienGheThuong().toString() + "VNĐ");
+                binding.tvtGiagheThuong.setText(formatNumber(priceSeat.getTienGheThuong().toString()) + "VNĐ");
 
             }
             if (priceSeat.getGheVip() == null || priceSeat.getGheVip().toString().equals("") || priceSeat.getSlgheVip() == 0) {
                 binding.lnGheVip.setVisibility(View.GONE);
             } else {
                 binding.tvtGheVip.setText(priceSeat.getSlgheVip() + "x Ghế Vip - " + priceSeat.getGheVip().toString().replace("null", ""));
-                binding.tvtGiagheVip.setText(priceSeat.getTienGheVip().toString() + "VNĐ");
+                binding.tvtGiagheVip.setText(formatNumber(priceSeat.getTienGheVip().toString()) + "VNĐ");
             }
             if (priceSeat.getSlBong() == null) {
                 binding.lnBong.setVisibility(View.GONE);
@@ -157,7 +161,6 @@ public class ThanhToanFragment extends BaseFragment<ThanhtoanFragmentBinding> {
                 }
 
 
-
                 return false; // Cho phép WebView xử lý URL
 
             }
@@ -180,8 +183,8 @@ public class ThanhToanFragment extends BaseFragment<ThanhtoanFragmentBinding> {
 //
 //               }else {
                 binding.webviewTT.getSettings().setJavaScriptEnabled(true);
-                   thanhToan= new ThanhToan(schedule.getId()+"",arrayListGhe,deleteVND(priceSeat.getTongTien().toString()),listProduct);
-                   mViewModel.getThanhToan(thanhToan);
+                thanhToan = new ThanhToan(schedule.getId() + "", arrayListGhe, deleteVND(priceSeat.getTongTien().toString()), listProduct);
+                mViewModel.getThanhToan(thanhToan);
 //               }
             }
         });
@@ -231,6 +234,7 @@ public class ThanhToanFragment extends BaseFragment<ThanhtoanFragmentBinding> {
 
     public int deleteVND(String s) {
         if (!s.equals("")) {
+            s = removeDot(s);
             s = s.replaceAll("[^0-9]+", "");
             return Integer.parseInt(s);
         }
@@ -248,6 +252,16 @@ public class ThanhToanFragment extends BaseFragment<ThanhtoanFragmentBinding> {
         return s;
     }
 
+    public String formatNumber(String numberString) {
+        try {
+            int number = Integer.parseInt(numberString);
+            DecimalFormat decimalFormat = new DecimalFormat("#,###");
+            return decimalFormat.format(number);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number format");
+            return null;
+        }
+    }
 
     @NonNull
     @Override

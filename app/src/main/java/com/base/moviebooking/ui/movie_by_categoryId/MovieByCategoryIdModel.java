@@ -15,18 +15,19 @@ import javax.inject.Inject;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
+
 @HiltViewModel
 public class MovieByCategoryIdModel extends ViewModel {
     private final Repository repository;
     MutableLiveData<List<Movie>> dataMovie = new MutableLiveData<>();
 
-    public MutableLiveData<List<Movie>> getDataMovie() {
-        return dataMovie;
-    }
-
     @Inject
     public MovieByCategoryIdModel(Repository repository) {
         this.repository = repository;
+    }
+
+    public MutableLiveData<List<Movie>> getDataMovie() {
+        return dataMovie;
     }
 
     public void getMovieDataByCategoryId(int categoryId) {

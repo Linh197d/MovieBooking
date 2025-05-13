@@ -9,12 +9,13 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.base.moviebooking.listener.OnChooseRecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.base.EndlessLoadingRecyclerViewAdapter;
 import com.base.moviebooking.databinding.RcvPhimHomeBinding;
 import com.base.moviebooking.entity.Movie;
+import com.base.moviebooking.listener.OnChooseRecyclerView;
 
+import java.text.DecimalFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -26,6 +27,23 @@ public class HomeAdapter extends EndlessLoadingRecyclerViewAdapter<RcvPhimHomeBi
         super(context, enableSelectedMode);
         this.mContext = context;
         this.mOnChooseRecyclerView = onChooseRecyclerView;
+    }
+
+    public static String parseBase64(String base64) {
+
+        try {
+            Pattern pattern = Pattern.compile("((?<=base64,).*\\s*)", Pattern.DOTALL | Pattern.MULTILINE);
+            Matcher matcher = pattern.matcher(base64);
+            if (matcher.find()) {
+                return matcher.group().toString();
+            } else {
+                return "";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return "";
     }
 
     @Override
@@ -44,7 +62,6 @@ public class HomeAdapter extends EndlessLoadingRecyclerViewAdapter<RcvPhimHomeBi
     protected int getLayoutId() {
         return R.layout.rcv_phim_home;
     }
-
 
     public class PhimViewHolder extends NormalViewHolder<Movie> {
         private RcvPhimHomeBinding binding;
@@ -66,6 +83,8 @@ public class HomeAdapter extends EndlessLoadingRecyclerViewAdapter<RcvPhimHomeBi
             binding.image.setImageBitmap(bitmap);
             binding.tvtAgeLimit.setText("C" + data.getAgeLimit());
             binding.setMovie(data);
+            DecimalFormat decimalFormat = new DecimalFormat("0.0");
+            binding.rate.setText(decimalFormat.format(data.getRate()));
             binding.lnPhim.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -76,22 +95,5 @@ public class HomeAdapter extends EndlessLoadingRecyclerViewAdapter<RcvPhimHomeBi
 
 
         }
-    }
-
-    public static String parseBase64(String base64) {
-
-        try {
-            Pattern pattern = Pattern.compile("((?<=base64,).*\\s*)", Pattern.DOTALL | Pattern.MULTILINE);
-            Matcher matcher = pattern.matcher(base64);
-            if (matcher.find()) {
-                return matcher.group().toString();
-            } else {
-                return "";
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        }
-        return "";
     }
 }

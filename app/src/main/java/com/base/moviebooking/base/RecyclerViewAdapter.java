@@ -17,14 +17,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 
 public abstract class RecyclerViewAdapter<T extends ViewDataBinding> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    public static String TAG = "RecyclerViewAdapter";
     public static final int VIEW_TYPE_NORMAL = 0;
-
+    public static String TAG = "RecyclerViewAdapter";
     public static AtomicInteger idGenerator = new AtomicInteger();
-
+    protected T binding;
     private List<ModelWrapper> listWrapperModels;
     private List<ModelWrapper> listWrapperModelsBackup;
-
     private LayoutInflater inflater;
     private List<OnItemClickListener> onItemClickListeners;
     private OnItemTouchChangedListener onItemTouchChangeListener;
@@ -32,7 +30,6 @@ public abstract class RecyclerViewAdapter<T extends ViewDataBinding> extends Rec
     private boolean selectedMode;
     private RecyclerView recyclerView;
     private Context context;
-    protected T binding;
 
 
     public RecyclerViewAdapter(Context context, boolean enableSelectedMode) {
@@ -230,10 +227,6 @@ public abstract class RecyclerViewAdapter<T extends ViewDataBinding> extends Rec
         }
     }
 
-    public interface OnEachUnSelectedItem {
-        void onEachUnselectedItem(ModelWrapper modelWrapper);
-    }
-
     public void removeAllSelectedItems() {
         if (selectedMode) {
             List<ModelWrapper> listItemLeft = new ArrayList<>();
@@ -279,14 +272,6 @@ public abstract class RecyclerViewAdapter<T extends ViewDataBinding> extends Rec
         for (ModelWrapper modelWrapper : listWrapperModels) {
             onEachItem.onEachItem(modelWrapper);
         }
-    }
-
-    public interface OnEachItem {
-        void onEachItem(ModelWrapper modelWrapper);
-    }
-
-    public interface OnEachModel<T> {
-        void onEachModel(T model);
     }
 
     public LayoutInflater getInflater() {
@@ -349,7 +334,7 @@ public abstract class RecyclerViewAdapter<T extends ViewDataBinding> extends Rec
 
     protected RecyclerView.ViewHolder solvedOnCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == VIEW_TYPE_NORMAL) {
-            return initNormalViewHolder(binding,parent);
+            return initNormalViewHolder(binding, parent);
         }
         return null;
     }
@@ -370,7 +355,7 @@ public abstract class RecyclerViewAdapter<T extends ViewDataBinding> extends Rec
         }
     }
 
-    protected abstract RecyclerView.ViewHolder initNormalViewHolder(T binding,ViewGroup parent);
+    protected abstract RecyclerView.ViewHolder initNormalViewHolder(T binding, ViewGroup parent);
 
     protected abstract void bindNormalViewHolder(NormalViewHolder holder, int position);
 
@@ -407,6 +392,18 @@ public abstract class RecyclerViewAdapter<T extends ViewDataBinding> extends Rec
         return listWrapperModels.size();
     }
 
+    public interface OnEachUnSelectedItem {
+        void onEachUnselectedItem(ModelWrapper modelWrapper);
+    }
+
+    public interface OnEachItem {
+        void onEachItem(ModelWrapper modelWrapper);
+    }
+
+    public interface OnEachModel<T> {
+        void onEachModel(T model);
+    }
+
     public interface OnItemClickListener {
         void onItemClick(RecyclerView.Adapter adapter, RecyclerView.ViewHolder viewHolder, int viewType, int position);
     }
@@ -419,13 +416,6 @@ public abstract class RecyclerViewAdapter<T extends ViewDataBinding> extends Rec
         void onItemPress(RecyclerView.ViewHolder viewHolder, int viewType);
 
         void onItemRelease(RecyclerView.ViewHolder viewHolder, int viewType);
-    }
-
-    public abstract class NormalViewHolder<U> extends RecyclerView.ViewHolder {
-        public NormalViewHolder(View itemView) {
-            super(itemView);
-        }
-        public abstract void bind(U data);
     }
 
     public static class ModelWrapper implements Cloneable {
@@ -472,5 +462,13 @@ public abstract class RecyclerViewAdapter<T extends ViewDataBinding> extends Rec
         protected ModelWrapper clone() throws CloneNotSupportedException {
             return (ModelWrapper) super.clone();
         }
+    }
+
+    public abstract class NormalViewHolder<U> extends RecyclerView.ViewHolder {
+        public NormalViewHolder(View itemView) {
+            super(itemView);
+        }
+
+        public abstract void bind(U data);
     }
 }

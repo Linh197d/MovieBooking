@@ -2,7 +2,7 @@ package com.base.moviebooking.entity;
 
 import java.io.Serializable;
 
-public class Theater  implements Serializable {
+public class Theater implements Serializable {
 
     private int id;
     private String name;
@@ -10,6 +10,15 @@ public class Theater  implements Serializable {
     private String address;
     private String city;
     private String phone;
+
+    public Theater(int id, String name, String urlImage, String address, String city, String phone) {
+        this.id = id;
+        this.name = name;
+        this.urlImage = urlImage;
+        this.address = address;
+        this.city = city;
+        this.phone = phone;
+    }
 
     public int getId() {
         return id;
@@ -56,15 +65,6 @@ public class Theater  implements Serializable {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public Theater(int id, String name, String urlImage, String address, String city, String phone) {
-        this.id = id;
-        this.name = name;
-        this.urlImage = urlImage;
-        this.address = address;
-        this.city = city;
         this.phone = phone;
     }
 }

@@ -2,7 +2,6 @@ package com.base.moviebooking.base;
 
 import androidx.annotation.NonNull;
 
-
 import com.base.moviebooking.utils.Define;
 
 import io.reactivex.annotations.Nullable;
@@ -19,6 +18,13 @@ public class ObjectResponse<T> extends BaseResponse {
     public ObjectResponse() {
     }
 
+    private ObjectResponse(int status, T data, Throwable error) {
+        this.type = status;
+        this.data = data;
+        this.error = error;
+        // Log.d("fat","data:"+data+ " trr:"+error);
+    }
+
     public int getType() {
         return type;
     }
@@ -29,13 +35,6 @@ public class ObjectResponse<T> extends BaseResponse {
 
     public Throwable getError() {
         return error;
-    }
-
-    private ObjectResponse(int status, T data, Throwable error) {
-        this.type = status;
-        this.data = data;
-        this.error = error;
-       // Log.d("fat","data:"+data+ " trr:"+error);
     }
 
     public ObjectResponse<T> loading() {

@@ -2,7 +2,6 @@ package com.base.moviebooking.network;
 
 import android.content.Context;
 
-
 import com.base.moviebooking.utils.DeviceUtil;
 
 import java.io.IOException;
@@ -19,7 +18,7 @@ public class NetworkCheckerInterceptor implements Interceptor {
     }
 
     @Override
-    public Response intercept(Interceptor.Chain chain) throws IOException {
+    public Response intercept(Chain chain) throws IOException {
         if (DeviceUtil.hasConnection(context)) {
             return chain.proceed(chain.request());
         } else {

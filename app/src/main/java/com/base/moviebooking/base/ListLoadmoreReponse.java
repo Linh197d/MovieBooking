@@ -13,18 +13,18 @@ public class ListLoadmoreReponse<T> extends ListResponse<T> {
     public ListLoadmoreReponse() {
     }
 
+    public ListLoadmoreReponse(int status, List<T> data, Throwable error, boolean isRefresh, boolean canLoadmore) {
+        super(status, data, error);
+        this.isRefresh = isRefresh;
+        this.canLoadmore = canLoadmore;
+    }
+
     public boolean isCanLoadmore() {
         return canLoadmore;
     }
 
     public boolean isRefresh() {
         return isRefresh;
-    }
-
-    public ListLoadmoreReponse(int status, List<T> data, Throwable error, boolean isRefresh, boolean canLoadmore) {
-        super(status, data, error);
-        this.isRefresh = isRefresh;
-        this.canLoadmore = canLoadmore;
     }
 
     public ListLoadmoreReponse<T> success(@NonNull List<T> data, boolean isRefresh, boolean canLoadmore) {

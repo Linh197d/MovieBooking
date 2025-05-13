@@ -64,6 +64,7 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
         initView()
         initEvent()
     }
+
     override fun onBackPressed() {
         if (mViewController != null && mViewController!!.currentFragment != null) {
             if (mViewController!!.currentFragment.backPressed()) {
@@ -73,6 +74,7 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
             super.onBackPressed()
         }
     }
+
     abstract fun setBinding(layoutInflater: LayoutInflater): T
 
     abstract fun initView()

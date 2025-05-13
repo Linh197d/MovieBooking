@@ -52,7 +52,7 @@ public class JavaMailAPI extends AsyncTask<Void, Void, Void> {
             Transport.send(mimeMessage);
         } catch (MessagingException e) {
             e.printStackTrace();
-            Toast.makeText(context,"Can not send code to gmail",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Can not send code to gmail", Toast.LENGTH_SHORT).show();
         }
 
         return null;

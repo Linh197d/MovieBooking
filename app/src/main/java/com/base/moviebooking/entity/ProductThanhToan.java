@@ -1,9 +1,9 @@
 package com.base.moviebooking.entity;
 
 public class ProductThanhToan {
-        private int id;
-        private int quantity;
-        private String name;
+    private int id;
+    private int quantity;
+    private String name;
 
     public ProductThanhToan(int id, int quantity) {
         this.id = id;

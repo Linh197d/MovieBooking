@@ -5,7 +5,6 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.base.moviebooking.R;
 import com.base.moviebooking.base.BaseFragment;
@@ -62,9 +61,9 @@ public class SplashFragment extends BaseFragment<SplashFragmentBinding> {
 
     @Override
     public void initData() {
-        new Handler().postDelayed(()->{
-            mViewController.replaceFragment(HomeFragment.class,null);
-        },2000);
+        new Handler().postDelayed(() -> {
+            mViewController.replaceFragment(HomeFragment.class, null);
+        }, 2000);
     }
 
 

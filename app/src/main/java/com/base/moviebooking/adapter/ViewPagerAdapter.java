@@ -1,20 +1,14 @@
 package com.base.moviebooking.adapter;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.base.moviebooking.ui.show_time_child.ShowTimeChildFragment;
+import com.base.moviebooking.ui.comments.CommentFragment;
 import com.base.moviebooking.ui.detail_movie.DetailMovieFragment;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.base.moviebooking.ui.show_time_child.ShowTimeChildFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
-
 
 
     public ViewPagerAdapter(@NonNull Fragment fragment) {
@@ -24,11 +18,13 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        switch (position){
+        switch (position) {
             case 0:
                 return new ShowTimeChildFragment();
             case 1:
                 return new DetailMovieFragment();
+            case 2:
+                return new CommentFragment();
             default:
                 return new ShowTimeChildFragment();
         }
@@ -36,7 +32,7 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 2;
+        return 3;
     }
 
     @Override

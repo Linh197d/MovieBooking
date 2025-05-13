@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
 
         <variable
             name="theater"
             type="com.base.moviebooking.entity.Theater" />
     </data>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/ln_theater"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
-        android:orientation="horizontal"
-        android:id="@+id/ln_theater"
-        >
+        android:orientation="horizontal">
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/image"
             android:layout_width="120dp"
@@ -22,29 +23,30 @@
             android:layout_gravity="center_vertical|start"
             android:layout_margin="10dp"
             android:scaleType="fitXY"
-            app:shapeAppearanceOverlay="@style/roundedCorners"
-            android:src="@drawable/rap1" />
+            android:src="@drawable/rap1"
+            app:shapeAppearanceOverlay="@style/roundedCorners" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginTop="10dp"
-            >
+            android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{theater.name}"
                 android:textColor="@color/colorBlack"
                 android:textSize="17sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{theater.address != null ? theater.address : theater.city}"
                 android:textColor="@color/colorBlack"
-                android:textSize="17sp"
-                />
+                android:textSize="17sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

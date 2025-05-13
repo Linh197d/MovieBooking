@@ -14,10 +14,9 @@ import com.base.moviebooking.R;
 
 public abstract class EndlessLoadingRecyclerViewAdapter<T extends ViewDataBinding> extends RecyclerViewAdapter<T> {
     public static final int VIEW_TYPE_LOADING = -1;
-
+    protected boolean isLoading = false;
     private OnLoadingMoreListener loadingMoreListener;
     private boolean disableLoadMore = false;
-    protected boolean isLoading = false;
     private Context mContext;
 
     public EndlessLoadingRecyclerViewAdapter(Context context, boolean enableSelectedMode) {
@@ -82,11 +81,11 @@ public abstract class EndlessLoadingRecyclerViewAdapter<T extends ViewDataBindin
         RecyclerView.ViewHolder result;
         switch (viewType) {
             case VIEW_TYPE_LOADING: {
-                result = new LoadingViewHolder(LayoutInflater.from(mContext).inflate(R.layout.layout_load_more,parent,false));
+                result = new LoadingViewHolder(LayoutInflater.from(mContext).inflate(R.layout.layout_load_more, parent, false));
             }
             break;
             default: {
-                result = initNormalViewHolder(binding,parent);
+                result = initNormalViewHolder(binding, parent);
             }
             break;
         }

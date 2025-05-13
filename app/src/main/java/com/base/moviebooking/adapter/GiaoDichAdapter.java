@@ -14,6 +14,7 @@ import com.base.moviebooking.databinding.RcvGiaodichBinding;
 import com.base.moviebooking.entity.ThongTinThanhToan;
 import com.base.moviebooking.listener.GiaoDichListener;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -43,79 +44,6 @@ public class GiaoDichAdapter extends EndlessLoadingRecyclerViewAdapter<RcvGiaodi
     @Override
     protected int getLayoutId() {
         return R.layout.rcv_giaodich;
-    }
-
-
-    public class GiaoDichViewHolder extends NormalViewHolder<ThongTinThanhToan> {
-        private RcvGiaodichBinding binding;
-
-        GiaoDichViewHolder(RcvGiaodichBinding binding) {
-            super(binding.getRoot());
-            this.binding = binding;
-        }
-
-        @Override
-        public void bind(ThongTinThanhToan data) {
-            if (data.getProducts() != null) {
-                for (int i = 0; i < data.getProducts().size(); i++) {
-                    if (data.getProducts().get(i).getId() == 2) {
-                        binding.bongngo.setVisibility(View.VISIBLE);
-                        binding.bongngo.setText(data.getProducts().get(i).getQuantity() + "x Bỏng ngô");
-                    } else if (data.getProducts().get(i).getId() == 3) {
-                        binding.nuoc.setVisibility(View.VISIBLE);
-                        binding.nuoc.setText(data.getProducts().get(i).getQuantity() + "x Nước");
-
-                    } else if (data.getProducts().get(i).getId() == 4) {
-                        binding.combo.setVisibility(View.VISIBLE);
-                        binding.combo.setText(data.getProducts().get(i).getQuantity() + "x Combo");
-
-                    }
-                }
-            }
-            binding.tien.setText("Tổng tiền: " + data.getValue() + "");
-            binding.cinema.setText("Rạp: " + data.getCinema());
-            binding.room.setText("Phòng: " + data.getRoom());
-            binding.movie.setText("Phim: " + data.getMovie());
-            StringBuilder s = new StringBuilder();
-            if (data.getChairs() != null) {
-                for (int i = 0; i < data.getChairs().size(); i++) {
-                    s.append(data.getChairs().get(i)).append(" ");
-                }
-            }
-
-            binding.chair.setText("Ghế đã đặt: " + s);
-            String gio = data.getPremiere().toString().substring(11, 16);
-            gio = changeTimeZone(gio);
-            String ngay = data.getPremiere().toString().substring(0, 10);
-            SimpleDateFormat stringformat = new SimpleDateFormat("yyyy-MM-dd");
-
-            Date date = null;
-            try {
-                date = stringformat.parse(ngay);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            binding.gio.setText("Thời gian: " + gio + " " + dateFormat.format(date));
-            if (data.getIs_cancel() == 1) {
-                binding.lnHuy.setVisibility(View.VISIBLE);
-                binding.lnGDich.setEnabled(false);
-            } else {
-                if (checkTicket(data.getPremiere())) {//checkTicket(data.getCreated_date())
-                    binding.lnGDich.setOnLongClickListener(new View.OnLongClickListener() {
-                        @Override
-                        public boolean onLongClick(View view) {
-                            Log.d("linhd", data.getCode().toString());
-                            giaoDichListener.onChooseGD(data.getCode());
-//                    Toast.makeText(getContext(), "Longclick", Toast.LENGTH_SHORT).show();
-                            return false;
-                        }
-                    });
-                }
-            }
-
-            binding.setGiaodich(data);
-        }
     }
 
     private boolean checkTicket(String s) {
@@ -148,14 +76,14 @@ public class GiaoDichAdapter extends EndlessLoadingRecyclerViewAdapter<RcvGiaodi
                     System.out.println("Thời gian hiện tại chưa đến thời gian trong database và còn nhiều hơn 1 tiếng.");
                     return true;
                 } else {
-                    Toast.makeText(mContext,"Vé không thể huỷ ở thời điểm hiện tại",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "Vé không thể huỷ ở thời điểm hiện tại", Toast.LENGTH_SHORT).show();
                     System.out.println("Thời gian hiện tại chưa đến thời gian trong database nhưng ít hơn 1 tiếng.");
                     return false;
 
                 }
 
             } else {
-                Toast.makeText(mContext,"Vé đã hết thời hạn huỷ",Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "Vé đã hết thời hạn huỷ", Toast.LENGTH_SHORT).show();
                 System.out.println("Thời gian hiện tại đã qua thời gian trong database.");
                 return false;
 
@@ -180,5 +108,90 @@ public class GiaoDichAdapter extends EndlessLoadingRecyclerViewAdapter<RcvGiaodi
         return s;
     }
 
+    public String formatNumber(int number) {
+        try {
+            DecimalFormat decimalFormat = new DecimalFormat("#,###");
+            return decimalFormat.format(number);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number format");
+            return null;
+        }
+    }
 
+    public class GiaoDichViewHolder extends NormalViewHolder<ThongTinThanhToan> {
+        private RcvGiaodichBinding binding;
+
+        GiaoDichViewHolder(RcvGiaodichBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
+
+        @Override
+        public void bind(ThongTinThanhToan data) {
+            if (data.getProducts() != null) {
+                for (int i = 0; i < data.getProducts().size(); i++) {
+                    if (data.getProducts().get(i).getId() == 2) {
+                        binding.bongngo.setVisibility(View.VISIBLE);
+                        binding.bongngo.setText(data.getProducts().get(i).getQuantity() + "x Bỏng ngô");
+                    } else if (data.getProducts().get(i).getId() == 3) {
+                        binding.nuoc.setVisibility(View.VISIBLE);
+                        binding.nuoc.setText(data.getProducts().get(i).getQuantity() + "x Nước");
+
+                    } else if (data.getProducts().get(i).getId() == 4) {
+                        binding.combo.setVisibility(View.VISIBLE);
+                        binding.combo.setText(data.getProducts().get(i).getQuantity() + "x Combo");
+
+                    }
+                }
+            }
+            binding.tien.setText("Tổng tiền: " + formatNumber(data.getValue()) + "");
+            binding.cinema.setText("Rạp: " + data.getCinema());
+            binding.room.setText("Phòng: " + data.getRoom());
+            binding.movie.setText("Phim: " + data.getMovie());
+            StringBuilder s = new StringBuilder();
+            if (data.getChairs() != null) {
+                for (int i = 0; i < data.getChairs().size(); i++) {
+                    s.append(data.getChairs().get(i)).append(" ");
+                }
+            }
+
+            binding.chair.setText("Ghế đã đặt: " + s);
+            String gio = data.getPremiere().toString().substring(11, 16);
+            gio = changeTimeZone(gio);
+            String ngay = data.getPremiere().toString().substring(0, 10);
+            SimpleDateFormat stringformat = new SimpleDateFormat("yyyy-MM-dd");
+
+            Date date = null;
+            try {
+                date = stringformat.parse(ngay);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            binding.gio.setText("Thời gian: " + gio + " " + dateFormat.format(date));
+
+            if (data.getIs_cancel() == 1) {
+                binding.lnHuy.setVisibility(View.VISIBLE);
+                binding.lnGDich.setEnabled(false);
+            } else {
+                binding.lnHuy.setVisibility(View.GONE);
+                binding.lnGDich.setEnabled(true);
+//                if (checkTicket(data.getPremiere())) {//checkTicket(data.getCreated_date())
+                binding.lnGDich.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View view) {
+                        Log.d("linhd", data.getCode().toString());
+                        if (checkTicket(data.getPremiere())) {
+                            giaoDichListener.onChooseGD(data.getCode());
+                        }
+//                    Toast.makeText(getContext(), "Longclick", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+//                }
+            }
+
+            binding.setGiaodich(data);
+        }
+    }
 }

@@ -18,18 +18,17 @@ import io.reactivex.disposables.Disposable;
 
 @HiltViewModel
 public class AccountViewModel extends ViewModel {
-    private Repository repository;
     MutableLiveData<List<Account>> dataUser = new MutableLiveData<>();
-
-    public MutableLiveData<List<Account>> getDataUser() {
-        return dataUser;
-    }
+    private Repository repository;
 
     @Inject
     public AccountViewModel(Repository repository) {
         this.repository = repository;
     }
 
+    public MutableLiveData<List<Account>> getDataUser() {
+        return dataUser;
+    }
 
     public void getInfo() {
         repository.getInfoUser()

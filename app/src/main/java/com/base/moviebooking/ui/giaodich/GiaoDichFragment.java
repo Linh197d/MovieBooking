@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,12 +29,12 @@ import java.util.List;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-
 public class GiaoDichFragment extends BaseFragment<GiaodichFragmentBinding> {
     private GiaoDichAdapter giaoDichAdapter;
     private GiaoDichViewModel mViewModel;
     private List<ThongTinThanhToan> listTT;
     private Dialog dialog;
+
 
     @Override
     public void backFromAddFragment() {
@@ -44,6 +43,8 @@ public class GiaoDichFragment extends BaseFragment<GiaodichFragmentBinding> {
 
     @Override
     public boolean backPressed() {
+        mViewController.backFromAddFragment(null);
+        getActivity().findViewById(R.id.bottombar).setVisibility(View.VISIBLE);
         return false;
     }
 

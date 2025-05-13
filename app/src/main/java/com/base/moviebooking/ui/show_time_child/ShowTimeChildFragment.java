@@ -1,7 +1,6 @@
 package com.base.moviebooking.ui.show_time_child;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,26 +10,24 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.base.moviebooking.DataLocalManager;
-import com.base.moviebooking.entity.Category;
-import com.base.moviebooking.entity.News;
-import com.base.moviebooking.listener.OnChooseRecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.VietnamComparator;
 import com.base.moviebooking.adapter.ShowTimesAdapter;
 import com.base.moviebooking.base.BaseFragment;
 import com.base.moviebooking.databinding.LichChieuFragmentBinding;
+import com.base.moviebooking.entity.Category;
 import com.base.moviebooking.entity.Cinema;
 import com.base.moviebooking.entity.FilmInfo;
 import com.base.moviebooking.entity.Movie;
 import com.base.moviebooking.entity.Schedule;
 import com.base.moviebooking.entity.ShowTime;
 import com.base.moviebooking.entity.Theater;
+import com.base.moviebooking.listener.OnChooseRecyclerView;
 import com.base.moviebooking.ui.chonghe.ChonGheFragment;
 import com.base.moviebooking.ui.main.MainActivity;
 import com.base.moviebooking.ui.show_time.ShowTimeViewModel;
@@ -51,15 +48,14 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class ShowTimeChildFragment extends BaseFragment<LichChieuFragmentBinding> {
-    private Context context;
     Movie nMovie;
+    Date date;
+    private Context context;
     private ShowTimeChildViewModel mViewModel;
     private ShowTimeViewModel showTimeViewModel;
     private ShowTimesAdapter showTimesAdapter;
     private List<ShowTime> lichChieuList = new ArrayList<>();
-    private  List<Cinema> listCinema = new ArrayList<>();
-    Date date;
-
+    private List<Cinema> listCinema = new ArrayList<>();
 
     @Override
     public void backFromAddFragment() {
@@ -104,18 +100,18 @@ public class ShowTimeChildFragment extends BaseFragment<LichChieuFragmentBinding
             @Override
             public void onChooseLichChieu(Schedule lichChieu) {
                 if (DataLocalManager.getInstance() != null && DataLocalManager.getBooleanValue()) {
-                    Log.d("mmm","chonLichchieu đã Login",null);
+                    Log.d("mmm", "chonLichchieu đã Login", null);
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("schedule", lichChieu);
                     hashMap.put("movie", nMovie);
-                    hashMap.put("cinema",binding.spinnerRap.getSelectedItem().toString());
+                    hashMap.put("cinema", binding.spinnerRap.getSelectedItem().toString());
                     stopAllVideos();
-                    ((MainActivity)getActivity()).getViewController().addFragment(ChonGheFragment.class,hashMap);
+                    ((MainActivity) getActivity()).getViewController().addFragment(ChonGheFragment.class, hashMap);
 
                 } else {
-                    Log.d("mmm","chonLichchieu chưa Login",null);
+                    Log.d("mmm", "chonLichchieu chưa Login", null);
                     getActivity().findViewById(R.id.bottombar).setVisibility(View.GONE);
-                    ((MainActivity)getActivity()).getViewController().replaceFragment(SignInFragment.class,null);
+                    ((MainActivity) getActivity()).getViewController().replaceFragment(SignInFragment.class, null);
 
                 }
             }
@@ -143,17 +139,17 @@ public class ShowTimeChildFragment extends BaseFragment<LichChieuFragmentBinding
             e.printStackTrace();
         }
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Log.d("fat","rap"+binding.spinnerRap.getSelectedItemPosition());
+        Log.d("fat", "rap" + binding.spinnerRap.getSelectedItemPosition());
 //        mViewModel.getListSchedule(1,dateFormat.format(date), 1);//nMovie.getId()
         mViewModel.listSchedule.observe(getViewLifecycleOwner(), new Observer<List<Schedule>>() {
             @Override
             public void onChanged(List<Schedule> schedules) {
-                if(schedules.size()!=0){
+                if (schedules.size() != 0) {
                     showTimesAdapter.refresh(schedules);
 //                    showTimesAdapter.addModels(schedules, false);
                     binding.rcvRap.setVisibility(View.VISIBLE);
                     binding.lnNoSchedule.setVisibility(View.GONE);
-                }else {
+                } else {
                     binding.rcvRap.setVisibility(View.GONE);
                     binding.lnNoSchedule.setVisibility(View.VISIBLE);
                 }
@@ -170,7 +166,7 @@ public class ShowTimeChildFragment extends BaseFragment<LichChieuFragmentBinding
 
     @Override
     public void initData() {
-        if(showTimeViewModel.dataMovie!= null){
+        if (showTimeViewModel.dataMovie != null) {
             MutableLiveData<Movie> movie = showTimeViewModel.dataMovie;
             List<String> item_Lich = new ArrayList<>();
             item_Lich.add("Chọn ngày");
@@ -182,7 +178,7 @@ public class ShowTimeChildFragment extends BaseFragment<LichChieuFragmentBinding
 
             for (int i = 0; i < 7; i++) {
                 calendar.add(Calendar.DAY_OF_YEAR, 1);
-                String date2= formatter.format(calendar.getTime());
+                String date2 = formatter.format(calendar.getTime());
                 item_Lich.add(date2);
             }
             ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, item_Lich);
@@ -201,8 +197,8 @@ public class ShowTimeChildFragment extends BaseFragment<LichChieuFragmentBinding
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-                    if(binding.spinnerRap.getSelectedItemPosition()!=0){
-                        mViewModel.getListSchedule(listCinema.get(binding.spinnerRap.getSelectedItemPosition()-1).getId(),dateFormat.format(date),nMovie.getId());
+                    if (binding.spinnerRap.getSelectedItemPosition() != 0) {
+                        mViewModel.getListSchedule(listCinema.get(binding.spinnerRap.getSelectedItemPosition() - 1).getId(), dateFormat.format(date), nMovie.getId());
                     }
 //        binding.birthdayUser.setText(dateFormat.format(date));
 
@@ -216,8 +212,8 @@ public class ShowTimeChildFragment extends BaseFragment<LichChieuFragmentBinding
             binding.spinnerRap.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    if(binding.spinnerNgay.getSelectedItemPosition()!=0){
-                        mViewModel.getListSchedule(listCinema.get(binding.spinnerRap.getSelectedItemPosition()-1).getId(),dateFormat.format(date),nMovie.getId());
+                    if (binding.spinnerNgay.getSelectedItemPosition() != 0) {
+                        mViewModel.getListSchedule(listCinema.get(binding.spinnerRap.getSelectedItemPosition() - 1).getId(), dateFormat.format(date), nMovie.getId());
                     }
 
                 }
@@ -230,7 +226,7 @@ public class ShowTimeChildFragment extends BaseFragment<LichChieuFragmentBinding
             dataSpiner(movie.getValue().getId());
         } else {
             // Không có dữ liệu để xử lý
-            Log.d("cather","des NO data");
+            Log.d("cather", "des NO data");
         }
     }
 
@@ -241,10 +237,10 @@ public class ShowTimeChildFragment extends BaseFragment<LichChieuFragmentBinding
         mViewModel.data.observe(getViewLifecycleOwner(), new Observer<List<Cinema>>() {
             @Override
             public void onChanged(List<Cinema> list) {
-                if(!list.isEmpty()){
+                if (!list.isEmpty()) {
                     listCinema.addAll(list);
-                    for(int i=0;i< list.size();i++){
-                        item_Rap.add(list.get(i).getName())  ;
+                    for (int i = 0; i < list.size(); i++) {
+                        item_Rap.add(list.get(i).getName());
                     }
                 }
 
@@ -259,6 +255,7 @@ public class ShowTimeChildFragment extends BaseFragment<LichChieuFragmentBinding
         binding.spinnerRap.setAdapter(adapter2);
 
     }
+
     private void stopAllVideos() {
         if (getActivity() == null) {
             return; // Đảm bảo rằng getActivity() không null
@@ -284,4 +281,3 @@ public class ShowTimeChildFragment extends BaseFragment<LichChieuFragmentBinding
         return LichChieuFragmentBinding.inflate(getLayoutInflater());
     }
 }
-

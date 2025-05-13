@@ -8,11 +8,11 @@ public class FilmInfo implements Serializable {
     private int baiviet1;
     private int baiviet2;
 
-    public FilmInfo(String tenDienAnh, int urlImage, int baiviet,int baiviet2) {
+    public FilmInfo(String tenDienAnh, int urlImage, int baiviet, int baiviet2) {
         this.tenDienAnh = tenDienAnh;
         this.urlImage = urlImage;
         this.baiviet1 = baiviet;
-        this.baiviet2=baiviet2;
+        this.baiviet2 = baiviet2;
     }
 
     public String getTenDienAnh() {

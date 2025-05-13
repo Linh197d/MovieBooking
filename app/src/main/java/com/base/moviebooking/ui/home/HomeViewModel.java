@@ -1,7 +1,6 @@
 package com.base.moviebooking.ui.home;
 
 import android.util.Log;
-import android.view.View;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -24,13 +23,17 @@ public class HomeViewModel extends ViewModel {
     MutableLiveData<List<Movie>> dataMovie = new MutableLiveData<>();
     MutableLiveData<List<Category>> dataCategory = new MutableLiveData<>();
 
-    public MutableLiveData<List<Movie>> getDataMovie() {
-        return dataMovie;
-    }
-
     @Inject
     public HomeViewModel(Repository repository) {
         this.repository = repository;
+    }
+
+    public MutableLiveData<List<Category>> getDataCategory() {
+        return dataCategory;
+    }
+
+    public MutableLiveData<List<Movie>> getDataMovie() {
+        return dataMovie;
     }
 
     public void getData() {
@@ -56,7 +59,7 @@ public class HomeViewModel extends ViewModel {
                 });
     }
 
-    public void getListCategory(){
+    public void getListCategory() {
         repository.getListCategory()
                 .subscribe(new SingleObserver<List<Category>>() {
                     @Override
@@ -77,6 +80,7 @@ public class HomeViewModel extends ViewModel {
                 });
 
     }
+
 
 }
 

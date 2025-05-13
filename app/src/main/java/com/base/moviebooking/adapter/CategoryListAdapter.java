@@ -16,6 +16,7 @@ public class CategoryListAdapter extends EndlessLoadingRecyclerViewAdapter<Viewh
 
     private Context mContext;
     private OnChooseRecyclerView mOnChooseRecyclerView;
+
     public CategoryListAdapter(Context context, boolean enableSelectedMode, Context mContext, OnChooseRecyclerView onChooseRecyclerView) {
         super(context, enableSelectedMode);
         this.mContext = mContext;
@@ -30,7 +31,7 @@ public class CategoryListAdapter extends EndlessLoadingRecyclerViewAdapter<Viewh
 
     @Override
     protected void bindNormalViewHolder(NormalViewHolder holder, int position) {
-       CategoryViewHolder categoryViewHolder = (CategoryViewHolder) holder;
+        CategoryViewHolder categoryViewHolder = (CategoryViewHolder) holder;
         categoryViewHolder.bind(getItem(position, Category.class));
     }
 
@@ -49,7 +50,7 @@ public class CategoryListAdapter extends EndlessLoadingRecyclerViewAdapter<Viewh
 
         @Override
         public void bind(Category data) {
-        binding.titleTxt.setText(data.getName().toString());
+            binding.titleTxt.setText(data.getName().toString());
             binding.listCategory.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

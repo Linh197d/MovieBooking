@@ -1,6 +1,5 @@
 package com.base.moviebooking.ui.main;
 
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 
@@ -28,9 +27,10 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         return R.id.frame_layout_parent;
     }
 
-    public ViewController getViewController(){
-        return mViewController ;
+    public ViewController getViewController() {
+        return mViewController;
     }
+
     @Override
     public void initView() {
 
@@ -54,6 +54,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             }
         });
     }
+
     @NonNull
     @Override
     public ActivityMainBinding setBinding(@NonNull LayoutInflater layoutInflater) {

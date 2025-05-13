@@ -1,48 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    >
-    <data
-        >
+<layout>
 
-    <variable
-        name="lichchieu"
-        type="com.base.moviebooking.entity.Schedule" />
+    <data>
+
+        <variable
+            name="lichchieu"
+            type="com.base.moviebooking.entity.Schedule" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
         android:id="@+id/ln_check"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
         <LinearLayout
             android:id="@+id/ln_down"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000"
-        android:textSize="20sp"
-        android:layout_marginStart="20dp"
-        android:text="@{lichchieu.room_name}"
-        android:textStyle="bold"
-        />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@{lichchieu.room_name}"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
+
         <TextView
             android:id="@+id/check"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
             android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="5dp"
             android:text="12:20"
-            />
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </layout>

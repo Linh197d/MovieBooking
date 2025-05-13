@@ -16,12 +16,12 @@ import javax.inject.Inject;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
-@HiltViewModel
 
+@HiltViewModel
 public class ThongTinThanhToanViewModel extends ViewModel {
-    private Repository repository;
     MutableLiveData<List<ThongTinThanhToan>> dataThanhToan = new MutableLiveData<>();
     MutableLiveData<List<Account>> dataUser = new MutableLiveData<>();
+    private Repository repository;
 
 
     @Inject
@@ -49,7 +49,8 @@ public class ThongTinThanhToanViewModel extends ViewModel {
                     }
                 });
     }
-    public void getInfo( ) {
+
+    public void getInfo() {
         repository.getInfoUser()
                 .subscribe(new SingleObserver<List<Account>>() {
                     @Override
@@ -69,11 +70,6 @@ public class ThongTinThanhToanViewModel extends ViewModel {
                     }
                 });
     }
-
-
-
-
-
 
 
 }

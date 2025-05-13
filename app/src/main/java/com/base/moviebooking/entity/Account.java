@@ -10,7 +10,7 @@ public class Account {
     private int gender;
     private String avatar;
 
-    public Account(int id, String fullName, String address, String email, String password, int gender, String avatar,String dateOfBirth) {
+    public Account(int id, String fullName, String address, String email, String password, int gender, String avatar, String dateOfBirth) {
         this.id = id;
         this.fullName = fullName;
         this.address = address;

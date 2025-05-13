@@ -4,7 +4,7 @@ public class Product {
     private int id;
     private String name;
     private int price;
-    private String  image;
+    private String image;
 
     public Product(int id, String name, int price, String image) {
         this.id = id;

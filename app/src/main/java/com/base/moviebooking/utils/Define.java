@@ -46,6 +46,17 @@ public class Define {
         public static final String ACCESS_TOKEN_EXPIRED = "ACCESS_TOKEN_EXPIRED";
     }
 
+    public static class Intent {
+        public static final String REPO_OWNER = "repo_owner";
+        public static final String REPO_NAME = "repo_name";
+    }
+
+    public static class PreferenceKey {
+        public static final String IS_FIRST_LAUNCH = "isHaveMasterData";
+        public static final String USER_INFO = "userInfo";
+        public static final String MASTER_DATA = "masterData";
+    }
+
     public class ResponseStatus {
         public static final int LOADING = 1;
         public static final int SUCCESS = 2;
@@ -75,16 +86,5 @@ public class Define {
             public static final String DESCRIPTION = "description";
             public static final String CONTRIBUTORS_URL = "contributors_url";
         }
-    }
-
-    public static class Intent {
-        public static final String REPO_OWNER = "repo_owner";
-        public static final String REPO_NAME = "repo_name";
-    }
-
-    public static class PreferenceKey {
-        public static final String IS_FIRST_LAUNCH = "isHaveMasterData";
-        public static final String USER_INFO = "userInfo";
-        public static final String MASTER_DATA = "masterData";
     }
 }

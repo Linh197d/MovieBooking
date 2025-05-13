@@ -7,11 +7,11 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.base.moviebooking.listener.OnChooseRecyclerView;
 import com.base.moviebooking.R;
 import com.base.moviebooking.base.EndlessLoadingRecyclerViewAdapter;
 import com.base.moviebooking.databinding.RcvLichchieuBinding;
 import com.base.moviebooking.entity.Schedule;
+import com.base.moviebooking.listener.OnChooseRecyclerView;
 
 public class ShowTimesAdapter extends EndlessLoadingRecyclerViewAdapter<RcvLichchieuBinding> {
     private final Context mContext;
@@ -40,6 +40,16 @@ public class ShowTimesAdapter extends EndlessLoadingRecyclerViewAdapter<RcvLichc
         return R.layout.rcv_lichchieu;
     }
 
+    public String changeTimeZone(String s) {
+        String s1 = s.substring(0, 2);
+        String s2 = s.substring(3, 5);
+        int i = Integer.parseInt(s1) + 7;
+        if (i >= 24) {
+            i = i - 24;
+        }
+        s = i + ":" + s2;
+        return s;
+    }
 
     public class LichChieuViewHolder extends NormalViewHolder<Schedule> {
         private final RcvLichchieuBinding binding;
@@ -52,9 +62,9 @@ public class ShowTimesAdapter extends EndlessLoadingRecyclerViewAdapter<RcvLichc
         @Override
         public void bind(Schedule data) {
             binding.setLichchieu(data);
-            String s = data.getPremiere().toString().substring(11,16);
-            Log.d("fat",s);
-            s=changeTimeZone(s);
+            String s = data.getPremiere().toString().substring(11, 16);
+            Log.d("fat", s);
+            s = changeTimeZone(s);
             binding.check.setText(s);
 
             binding.lnCheck.setOnClickListener(new View.OnClickListener() {
@@ -65,16 +75,6 @@ public class ShowTimesAdapter extends EndlessLoadingRecyclerViewAdapter<RcvLichc
             });
         }
 
-    }
-    public String changeTimeZone(String s){
-        String s1 = s.substring(0,2);
-        String s2 = s.substring(3,5);
-        int i = Integer.parseInt(s1)+7;
-        if(i>=24){
-            i = i-24;
-        }
-        s= i+":"+s2;
-        return s;
     }
 }
 

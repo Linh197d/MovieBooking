@@ -9,7 +9,6 @@ import android.view.inputmethod.EditorInfo;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.base.moviebooking.DataLocalManager;
@@ -34,7 +33,7 @@ import java.util.List;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class SearchFilmFragment  extends BaseFragment<ActiveSearchFragmentBinding> {
+public class SearchFilmFragment extends BaseFragment<ActiveSearchFragmentBinding> {
     private HomeAdapter homeAdapter;
     private SearchFilmModel mViewModel;
     private List<Movie> mListMovies;
@@ -47,7 +46,7 @@ public class SearchFilmFragment  extends BaseFragment<ActiveSearchFragmentBindin
     @Override
     public boolean backPressed() {
         getActivity().findViewById(R.id.bottombar).setVisibility(View.VISIBLE);
-        mViewController.replaceFragment(HomeFragment.class,null);
+        mViewController.replaceFragment(HomeFragment.class, null);
         return false;
     }
 
@@ -58,14 +57,14 @@ public class SearchFilmFragment  extends BaseFragment<ActiveSearchFragmentBindin
 
     @Override
     public void initData() {
-        mViewModel= new ViewModelProvider(this).get(SearchFilmModel.class);
+        mViewModel = new ViewModelProvider(this).get(SearchFilmModel.class);
         binding.lnNoMovie.setVisibility(View.GONE);
         getActivity().findViewById(R.id.dialog_load_movie).setVisibility(View.GONE);
         binding.imageBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getActivity().findViewById(R.id.bottombar).setVisibility(View.VISIBLE);
-                mViewController.replaceFragment(HomeFragment.class,null);
+                mViewController.replaceFragment(HomeFragment.class, null);
             }
         });
         binding.imageDelete.setOnClickListener((new View.OnClickListener() {
@@ -127,16 +126,20 @@ public class SearchFilmFragment  extends BaseFragment<ActiveSearchFragmentBindin
                 }
 
                 @Override
-                public void onChooseRap(Theater theater) {}
+                public void onChooseRap(Theater theater) {
+                }
 
                 @Override
-                public void onChooseFilmInfo(FilmInfo filmInfo) {}
+                public void onChooseFilmInfo(FilmInfo filmInfo) {
+                }
 
                 @Override
-                public void onChooseLichChieu(Schedule showTime) {}
+                public void onChooseLichChieu(Schedule showTime) {
+                }
 
                 @Override
-                public void onChooseCategory(Category category) {}
+                public void onChooseCategory(Category category) {
+                }
 
                 @Override
                 public void onChooseTime(Schedule schedule) {

@@ -1,7 +1,6 @@
 package com.base.moviebooking.network;
 
 
-import com.base.moviebooking.base.ListResponse;
 import com.base.moviebooking.entity.Account;
 import com.base.moviebooking.entity.Actor;
 import com.base.moviebooking.entity.Amount;
@@ -45,18 +44,23 @@ public interface ApiInterface {
     //lấy thông tin phim
     @GET("movies")
     Single<List<Movie>> getMovie();
+
     //lấy thông tin phim qua tên
     @GET("movies/listMovie/{nameMovie}")
     Single<List<Movie>> getMovieByName(@Path("nameMovie") String nameMovie);
+
     //lấy thông tin phim theo category
     @GET("movies/list/{categoryId}")
     Single<List<Movie>> getMovieByCategoryId(@Path("categoryId") int categoryId);
+
     // đăng nhập
     @POST("auth/login")
     Single<LoginResponse> login(@Body LoginRequest loginRequest);
+
     // đăng ký
     @POST("auth/register")
     Single<RegisterResponse> register(@Body RegisterRequest registerRequest);
+
     //get thông tin user
     @GET("auth/information")
     Single<List<Account>> infoUser();
@@ -67,10 +71,12 @@ public interface ApiInterface {
 
     // get listCategory by movie ID
     @GET("/movies/{movieId}/categories")
-    Single<List<Category>> getListCategoryByMovieId(@Path("movieId") int movieId );
+    Single<List<Category>> getListCategoryByMovieId(@Path("movieId") int movieId);
+
     // get listActor by movie ID
     @GET("/movies/{movieId}/actors")
-    Single<List<Actor>> getListActorsByMovieId(@Path("movieId") int movieId );
+    Single<List<Actor>> getListActorsByMovieId(@Path("movieId") int movieId);
+
     //get cinema
     @GET("cinemas/")
     Single<Theater> getTheater();
@@ -78,28 +84,34 @@ public interface ApiInterface {
     // get Chair
     @GET("schedules/allChairs")
     Single<List<Seat>> getAllChair();
+
     //get all cinema
     @GET("cinemas")
     Single<List<Theater>> getCinemas();
+
     //get all cinema has movie schedule
     @GET("cinemas/hasSchedule/{movieId}")
-    Single<List<Cinema>> getCinemasByMovieId(@Path("movieId") int movieId );
+    Single<List<Cinema>> getCinemasByMovieId(@Path("movieId") int movieId);
+
     //get schedule
     @GET("schedules")
-    Single<List<Schedule>> getSchedules(@Query("cinemaId") int cinemaId, @Query("day") String day,@Query("movieId")int movieId);
+    Single<List<Schedule>> getSchedules(@Query("cinemaId") int cinemaId, @Query("day") String day, @Query("movieId") int movieId);
+
     //get chair đã đặt bby Id schedule
     @GET("schedules/chairsByScheduleId/{id}")
     Single<List<Chair>> getChaired(@Path("id") int id);
+
     //get cinema by id
     @GET("cinemas/{id}")
     Single<List<Cinema>> getCinemabyId(@Path("id") int id);
+
     //get product
     @GET("products")
     Single<List<Product>> getProducts();
 
 
     @GET("schedules/amount")
-    Single<List<Amount>> getAmount(@Query("date_type") int dateType, @Query("time_type") int timeType,@Query("format_id") int formatId);
+    Single<List<Amount>> getAmount(@Query("date_type") int dateType, @Query("time_type") int timeType, @Query("format_id") int formatId);
 
     // thanh toan
 
@@ -146,25 +158,31 @@ public interface ApiInterface {
     //get News ny ID
     @GET("news/{id}")
     Single<News> getNewsByID(@Path("id") int id);
+
     // get Movie has Schedule
     @GET("movies/getMovies")
     Single<List<MovieSchedule>> getMovieHasSchedule(@Query("cinemaId") int cinemaId, @Query("day") String day);
+
     // get time has Schedule
     @GET("schedules/getScheduleOfMovie")
     Single<List<Schedule>> getScheduleOfCinema(@Query("cinemaId") int cinemaId, @Query("movieId") int movieId, @Query("day") String day);
+
     // get list comments
     @GET("comment/list/{movieId}")
-    Single<List<Comment>> getListComments(@Path("movieId")int movieId);
+    Single<List<Comment>> getListComments(@Path("movieId") int movieId);
+
     // get comment movie of user
     @GET("comment/userComment/{movieId}")
-    Single<List<Comment>> getCommentMovieOfUser(@Path("movieId")int movieId);
+    Single<List<Comment>> getCommentMovieOfUser(@Path("movieId") int movieId);
 
     // create comment movie of user
     @POST("comment/")
     Single<List<Comment>> createComment(@Body CreateComment createComment);
+
     // update comment movie of user
     @PUT("comment/")
     Single<List<Comment>> updateComment(@Body CommentUpdate updateComment);
+
     // delete comment movie of user
     @DELETE("comment/deleteComment")
     Single<List<Comment>> deleteComment(@Query("commentId") int commentId, @Query("movieId") int movieId);

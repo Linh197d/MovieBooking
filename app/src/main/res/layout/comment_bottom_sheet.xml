@@ -2,46 +2,51 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="@drawable/background_bottom_sheet"
-    android:padding="16dp"
-    >
-   <LinearLayout
-       android:id="@+id/updateComment"
-       android:background="@drawable/background_white_bottom_sheet"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-       <com.google.android.material.imageview.ShapeableImageView
-           android:layout_width="40dp"
-           android:layout_height="40dp"
-           android:layout_gravity="center_vertical|start"
-           android:layout_margin="10dp"
-           android:src="@drawable/pencil" />
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Chỉnh sửa"
-           android:layout_gravity="center_vertical"
-           android:textColor="@color/colorBlack"
-           android:textSize="18sp"
-           android:textStyle="bold" />
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:id="@+id/updateComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_white_bottom_sheet">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical|start"
+            android:layout_margin="10dp"
+            android:src="@drawable/pencil" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Chỉnh sửa"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/deleteComment"
-        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center_vertical|start"
             android:layout_margin="10dp"
             android:src="@drawable/trash" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Xóa"
             android:layout_gravity="center_vertical"
+            android:text="Xóa"
             android:textColor="@color/colorBlack"
             android:textSize="18sp"
             android:textStyle="bold" />

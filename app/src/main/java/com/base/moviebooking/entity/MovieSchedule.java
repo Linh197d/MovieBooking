@@ -33,7 +33,7 @@ public class MovieSchedule implements Serializable {
         this.ageLimit = ageLimit;
         this.trailer = trailer;
         this.rate = rate;
-        this.format=format;
+        this.format = format;
         this.listSchedule = listSchedule;
     }
 

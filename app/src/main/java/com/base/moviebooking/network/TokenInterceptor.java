@@ -17,7 +17,7 @@ public class TokenInterceptor implements Interceptor {
 
     @NonNull
     @Override
-    public Response intercept(Interceptor.Chain chain) throws IOException {
+    public Response intercept(Chain chain) throws IOException {
 
         Request.Builder ongoing = chain.request().newBuilder();
         Response response = chain.proceed(ongoing.build());
