@@ -87,7 +87,7 @@ public interface ApiInterface {
 
     //get all cinema
     @GET("cinemas")
-    Single<List<Theater>> getCinemas();
+    Single<List<Cinema>> getCinemas();
 
     //get all cinema has movie schedule
     @GET("cinemas/hasSchedule/{movieId}")

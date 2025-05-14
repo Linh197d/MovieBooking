@@ -232,7 +232,7 @@ public class ShowTimeChildFragment extends BaseFragment<LichChieuFragmentBinding
     private void dataSpiner(int movieId) {
         List<String> item_Rap = new ArrayList<>();
         item_Rap.add("Chọn rạp");
-        mViewModel.getCinemasByMovieId(movieId);
+        mViewModel.getCinemas();
         mViewModel.data.observe(getViewLifecycleOwner(), new Observer<List<Cinema>>() {
             @Override
             public void onChanged(List<Cinema> list) {

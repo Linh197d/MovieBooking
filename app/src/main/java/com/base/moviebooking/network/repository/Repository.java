@@ -116,7 +116,7 @@ public class Repository {
     }
 
     //lấy all Cinema
-    public Single<List<Theater>> getCinemas() {
+    public Single<List<Cinema>> getCinemas() {
         return apiInterface.getCinemas()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());

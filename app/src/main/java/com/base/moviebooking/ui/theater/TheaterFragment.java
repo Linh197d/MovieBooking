@@ -36,7 +36,6 @@ import dagger.hilt.android.AndroidEntryPoint;
 @AndroidEntryPoint
 public class TheaterFragment extends BaseFragment<RapphimFragmentBinding> {
     String TAG = "fat";
-    private TheaterViewModel mViewModel;
     private List<Theater> rapList = new ArrayList<>();
     private TheaterAdapter rapAdapter;
 
@@ -52,9 +51,7 @@ public class TheaterFragment extends BaseFragment<RapphimFragmentBinding> {
 
     @Override
     public void initView() {
-        mViewModel = new ViewModelProvider(this).get(TheaterViewModel.class);
         binding.rcvRapphim.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-        mViewModel.getCinema();
         rapAdapter = new TheaterAdapter(getContext(), false, getContext(), new OnChooseRecyclerView() {
             @Override
             public void onChoosePhim(Movie movie) {
@@ -94,19 +91,6 @@ public class TheaterFragment extends BaseFragment<RapphimFragmentBinding> {
 
             @Override
             public void onChooseTime(Schedule schedule) {
-
-            }
-        });
-        mViewModel.dataCinema.observe(getViewLifecycleOwner(), new Observer<List<Theater>>() {
-            @Override
-            public void onChanged(List<Theater> cinemaListResponse) {
-                if (cinemaListResponse.size() != 0) {
-                    rapAdapter.addModels(cinemaListResponse, false);
-                    Log.d("fat", "add Model", null);
-                    getActivity().findViewById(R.id.dialog_load).setVisibility(View.GONE);
-                } else {
-                    rapAdapter.addModels(getListModel(), false);
-                }
 
             }
         });
