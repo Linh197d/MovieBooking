@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.Properties;
@@ -54,10 +55,11 @@ public class JavaMailAPI extends AsyncTask<Void, Void, Void> {
             Transport.send(mimeMessage);
         } catch (MessagingException e) {
             e.printStackTrace();
+            Log.e("linhd", "doInBackground: " + e.getMessage());
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(context, "Can not send code to gmail", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "Can not send code to gmail", Toast.LENGTH_SHORT).show();
                 }
             });
         }

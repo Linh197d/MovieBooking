@@ -44,10 +44,10 @@ import dagger.hilt.android.AndroidEntryPoint;
 @AndroidEntryPoint
 public class ThongTinThanhToanFragment extends BaseFragment<ThongtinThanhtoanFragmentBinding> {
 
-    ThongTinThanhToan thanhToan;
     private ThongTinThanhToanViewModel mViewModel;
+    ThongTinThanhToan  thanhToan  ;
     private String code;
-    private String gmail = "vdtuananha0211@gmail.com";
+    private String gmail="thieuhaitam@gmail.com";
     private Bitmap bitmapImage;
 
     @Override

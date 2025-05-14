@@ -51,7 +51,7 @@ public class TheaterFragment extends BaseFragment<RapphimFragmentBinding> {
 
     @Override
     public void initView() {
-        binding.rcvRapphim.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+        binding.rcvRapphim.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
         rapAdapter = new TheaterAdapter(getContext(), false, getContext(), new OnChooseRecyclerView() {
             @Override
             public void onChoosePhim(Movie movie) {
@@ -60,18 +60,7 @@ public class TheaterFragment extends BaseFragment<RapphimFragmentBinding> {
 
             @Override
             public void onChooseRap(Theater theater) {
-                if (DataLocalManager.getInstance() != null && DataLocalManager.getBooleanValue()) {
-                    Log.d("mmm", "home đã Login", null);
-                    HashMap<String, Object> hashMap = new HashMap<>();
-                    hashMap.put("theater", theater);
-                    getActivity().findViewById(R.id.bottombar).setVisibility(View.GONE);
-                    mViewController.addFragment(ScheduleCinemaFragment.class, hashMap);
-                } else {
-                    Log.d("mmm", "home chưa Login", null);
-                    getActivity().findViewById(R.id.bottombar).setVisibility(View.GONE);
-                    ((MainActivity) getActivity()).getViewController().replaceFragment(SignInFragment.class, null);
 
-                }
             }
 
             @Override
@@ -94,20 +83,21 @@ public class TheaterFragment extends BaseFragment<RapphimFragmentBinding> {
 
             }
         });
+        rapAdapter.addModels(getListModel(),false);
         binding.rcvRapphim.setAdapter(rapAdapter);
-        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL);
         binding.rcvRapphim.addItemDecoration(itemDecoration);
     }
 
     private List<Theater> getListModel() {
-        rapList.add(new Theater(1, "Mê Linh Plaza", "http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg", "", "Hà Nội", "0987654321"));
-        rapList.add(new Theater(2, "Joy City Point", "http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg", "116 Nguyễn Du,Quận 1,Tp.HCM", "TPHCM", "0987654321"));
-        rapList.add(new Theater(3, "Vincom Plaza", "http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg", "", "Hà Nội", "0987654321"));
-        rapList.add(new Theater(4, "Tower Plaza", "http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg", "", "Hà Nội", "0987654321"));
-        rapList.add(new Theater(6, "Thăng Long Plaza", "http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg", "", "Hà Nội", "0987654321"));
-        rapList.add(new Theater(8, "Hoàn Kiếm Plaza", "http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg", "", "Hà Nội", "0987654321"));
-        rapList.add(new Theater(9, "Vincom Thái Bình", "http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg", "", "Hà Nội", "0987654321"));
-        rapList.add(new Theater(10, "Lotte Hà Nội", "http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg", "", "Hà Nội", "0987654321"));
+        rapList.add(new Theater(1,"Mê Linh Plaza","http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg","","Hà Nội","0987654321"));
+        rapList.add(new Theater(2,"Joy City Point","http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg","116 Nguyễn Du,Quận 1,Tp.HCM","TPHCM","0987654321"));
+        rapList.add(new Theater(3,"Vincom Plaza","http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg","","Hà Nội","0987654321"));
+        rapList.add(new Theater(4,"Tower Plaza","http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg","","Hà Nội","0987654321"));
+        rapList.add(new Theater(6,"Thăng Long Plaza","http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg","","Hà Nội","0987654321"));
+        rapList.add(new Theater(8,"Hoàn Kiếm Plaza","http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg","","Hà Nội","0987654321"));
+        rapList.add(new Theater(9,"Vincom Thái Bình","http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg","","Hà Nội","0987654321"));
+        rapList.add(new Theater(10,"Lotte Hà Nội","http://res.cloudinary.com/drlb07jfr/image/upload/v1709864456/ou0mhqz3nps1x4twk4p4.jpg","","Hà Nội","0987654321"));
 
         return rapList;
     }

@@ -150,7 +150,7 @@ public class ThanhToanFragment extends BaseFragment<ThanhtoanFragmentBinding> {
 
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
-                if (url.equals("http://localhost:8080/stripe/payment/success")) {
+                if (url.equals("http://192.168.1.26:8080/stripe/payment/success")) {
 
                     // Xử lý ở đây khi thanh toán thành công
                     Toast.makeText(getContext(), "Thanh toán thành công", Toast.LENGTH_SHORT).show();
